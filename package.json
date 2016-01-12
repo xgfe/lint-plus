@@ -1,0 +1,31 @@
+{
+  "name": "lint-plus",
+  "version": "0.0.1",
+  "description": "The combination of all the lint tools",
+  "main": "index.js",
+  "bin": {
+    "linter": "./bin/lint-plus"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yangjiyuan/lint-plus.git"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/linter.spec.js"
+  },
+  "keywords": [
+    "htmlhint",
+    "csslint",
+    "eslint"
+  ],
+  "author": "YangJiyuan",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "eslint": "^1.10.3",
+    "xg-htmlhint": "0.0.9"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
+}
