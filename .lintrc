@@ -1,18 +1,10 @@
 {
     "type":"angular",
-    "lint":["html","js"],
-    "htmlhint":{
-        "id-name-unique":false,
-        "style-disabled":true,
-        "inline-style-disabled":true,
-        "doctype-first": false,
-        "title-tag-require": false,
-        "tagname-lowercase": true,
-        "tag-pair": true,
-        "attr-lowercase": false,
-        "spec-char-escape": false
-    },
-    "eslint":{
+    "html":true,
+    "css":false,
+    "js":{
+        "suffix":["js","es","es6"],
+        "ignore":["hehe.js","test/*.js"],
         "env":{
             "node": true,
             "mocha":true
@@ -70,5 +62,4 @@
             "no-use-before-define":[2,"nofunc"]
         }
     }
-
 }
