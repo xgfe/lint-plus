@@ -37,11 +37,12 @@ exports.verify = function (options,done) {
     options = options || {};
     var src = _.budildPattern(options);
     if(!done || typeof done !== 'function'){
-        done = function (success) {}
+        done = function () {};
     }
     vfs.src(src,{cwdbase: true, allowEmpty: true})
         .pipe(jsChecker.exec(options))
         .pipe(htmlChecker.exec(options))
+        .pipe(cssChecker.exec(options))
         .pipe(reporter.showMessages())
         .once('done', done);
 };

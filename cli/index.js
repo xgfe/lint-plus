@@ -4,9 +4,9 @@ require('colors');
 function getOptions(argv){
     var options = minimist(
         argv || [],{
-            'boolean': [ 'help', 'version'],
-            'string': ['_', 'config'],
-            'alias': {
+            boolean: [ 'help', 'version'],
+            string: ['_', 'config'],
+            alias: {
                 h: 'help',
                 v: 'version',
                 c: 'config'

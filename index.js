@@ -1,5 +1,5 @@
 var fs = require('fs');
-var path = require('path');;
+var path = require('path');
 
 var dir = path.join(__dirname, './cli');
 fs.readdirSync(dir).forEach(function (file) {
