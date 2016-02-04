@@ -1,10 +1,18 @@
-{
+/**
+ * 配置文件可以有三种
+ * 1：js文件，以模块的形式导出配置对象
+ * 2：json文件
+ * 3：其他类型文件，内容必须是json格式，否则无法解析
+ *
+ * 可以在配置对象的顶层配置extends属性继承其他属性，也可以分别在各个工具中进行配置继承。
+ * lint-plus本身自带了多个推荐配置，后续还会不断完善
+ */
+module.exports = {
+    "extends":"default",
     "html":{
-        "suffix":["html","htm"],
+        "extends":"htmlhint:recommended",
         "rules":{
             "id-name-unique":false,
-            "style-disabled":true,
-            "inline-style-disabled":true,
             "doctype-first": false,
             "title-tag-require": false,
             "tagname-lowercase": true,
@@ -14,10 +22,9 @@
         }
     },
     "css":{
-        "suffix": "css",
         "ignore":["hehe.js","test/*.js"],
+        "extends":"csshint:recommended",
         "rules":{
-            "a-line-of-decl": {"level": 1},
             "after-colon": {"level": 1},
             "attribute-selector": {"level": 2},
             "before-colon": {"level": 1},
@@ -71,4 +78,4 @@
             "no-use-before-define":[2,"nofunc"]
         }
     }
-}
+};
