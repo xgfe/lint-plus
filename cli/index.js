@@ -1,4 +1,5 @@
 var minimist = require('minimist');
+var fs = require('fs');
 require('colors');
 
 function getOptions(argv){
@@ -14,7 +15,11 @@ function getOptions(argv){
         }
     );
 
-    var commands = ['check','format'];
+    var commands = fs.readdirSync('cli').map(function (file) {
+        if(file !== 'index.js'){
+            return file.split('.')[0];
+        }
+    });
     var cmd = options._[0];
     if (cmd && commands.indexOf(cmd) !== -1) {
         cmd = options._.shift();

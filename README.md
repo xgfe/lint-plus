@@ -1,5 +1,5 @@
 # lint-plus
-[xg-htmlhint](http://github.com/y8n/xg-htmlhint)+[xg-csslint](http://github.com/xgfe/xg-csshint)+[eslint](http://eslint.org)
+lint-plus = [xg-htmlhint](http://github.com/y8n/xg-htmlhint)+[xg-csslint](http://github.com/xgfe/xg-csshint)+[eslint](http://eslint.org)
 
 ## Install
 
@@ -31,32 +31,32 @@ var linter = require('linter-plus');
 ```
 var files = ["test.html","test.js"];
 function done (success,json,errors,errorFile,totalFile){
-	console.log('isSuccess: %s',success);
-	var messages;
-    for(var i in json){
-        messages = json[i];
-        messages.forEach(function (message) {
-            console.log('file %s has problem.',i);
-            console.log('lint type: %s',message.type);
-            console.log('problem severity: %s',message.severity);//2-error,1-warn,0-info
-            console.log('line: %s',message.line);
-            console.log('col: %s',message.col);
-            console.log('error message: %s',message.message);
-            console.log('rule: %s',message.rule);
-        });
-    }
-	console.log('Found %s problem%s in %s of %s file%s.',
-		errors,
-		errors > 1 ? 's' : '',
-		errorFile,
-		totalFile, totalFile > 1 ? 's' : ''
-	);
+  console.log('isSuccess: %s',success);
+  var messages;
+  for(var i in json){
+    messages = json[i];
+    console.log('file %s has problem.',i);
+    messages.forEach(function (message) {
+      console.log('lint type: %s',message.type);
+      console.log('problem severity: %s',message.severity);//2-error,1-warn,0-info
+      console.log('line: %s',message.line);
+      console.log('col: %s',message.col);
+      console.log('error message: %s',message.message);
+      console.log('rule: %s',message.rule);
+    });
+  }
+  console.log('Found %s problem%s in %s of %s file%s.',
+    errors,
+    errors > 1 ? 's' : '',
+    errorFile,
+    totalFile, totalFile > 1 ? 's' : ''
+  );
 }
 linter.check(files,done);
 // or
 var options = {
-	_:["test.html","test.js"],
-	config:'path/to/my/config_file'
+  _:["test.html","test.js"],
+  config:'path/to/my/config_file'
 };
 linter.check(options,done);
 ```
@@ -65,26 +65,45 @@ default to read `.lintrc` file.
 
 ```
 {
-	"html":{ //htmlhint config 
-        "suffix":["html","htm"],  // file's suffix,array or string or regexp
-        "rules":{
-            "id-name-unique":false,
-            "style-disabled":true
-        }
-    },
-    "css":{  // csshint config 
-        "suffix": "css",
-        "ignore":["hehe.js","test/*.js"],   // files to be ignored,array or glob string
-        "rules":{
-            "a-line-of-decl": {"level": 1},
-            "disallow-use-expression": {"level": 1},
-            "vendor-prefixes-sort": {"level": 1}
-        }
-    },
-    "js":false   // set false means disallow js checker
+  "html":false,     // set false means disallow js checker
+  "css":{  // csshint config 
+    "extends":["../path/to/other/css/config"]
+    "suffix": "css",
+    "ignore":["hehe.js","test/*.js"],   // files to be ignored,array or glob string
+    "rules":{
+      "a-line-of-decl": {"level": 1},
+      "disallow-use-expression": {"level": 1},
+      "vendor-prefixes-sort": {"level": 1}
+    }
+  },
+  "js":{
+    "extends":"eslint:recommended"   // extends config
+  }
 }
 ```
+**Note:config file can be js or json file.js files must be a node module,contents are as follows.**
+
+```
+module.exports = {
+  html:false,
+  "css":{},
+  js:{
+    extends:"eslint:recommended"
+  }
+};
+```
 ## Develop Guide
-coming soon...
+[开发文档](./docs/guide.md)
+
 ## License
 MIT
+
+## Thanks
+- fecs:[http://fecs.baidu.com/](http://fecs.baidu.com/)
+- eslint:[http://eslint.org](http://eslint.org)
+- xg-htmlhint:[http://github.com/y8n/xg-htmlhint](http://github.com/y8n/xg-htmlhint)
+- xg-csshint:[http://github.com/xgfe/xg-csshint](http://github.com/xgfe/xg-csshint)
+- minimist:[https://github.com/substack/minimist](https://github.com/substack/minimist)
+- vinyl-fs:[http://github.com/wearefractal/vinyl-fs](http://github.com/wearefractal/vinyl-fs)
+- map-stream:[http://github.com/dominictarr/map-stream](http://github.com/dominictarr/map-stream)
+
