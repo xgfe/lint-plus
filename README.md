@@ -95,6 +95,9 @@ module.exports = {
 ## Develop Guide
 [开发文档](./docs/guide.md)
 
+## Config File
+[配置文件说明](./docs/config.md)
+
 ## License
 MIT
 
