@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="lintplus">
+<head>
+    <meta charset="UTF-8">
+    <title>lint-plus</title>
+    <link rel="stylesheet" href="lib/fullpage.js/jquery.fullPage.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body ng-controller="appCtrl">
+<ul id="nav">
+    <li data-menuanchor="home" ng-class="{active:isHomePage}">
+        <a title="首页" href="#home">Home</a>
+    </li>
+    <li>
+        <a title="快速开始" target="_blank" href="https://github.com/xgfe/lint-plus/blob/master/README.md">Get Start</a>
+    </li>
+    <li>
+        <a title="配置文件说明" target="_blank" href="https://github.com/xgfe/lint-plus/blob/master/docs/config.md">Config</a>
+    </li>
+    <li>
+        <a title="开发者文档" target="_blank" href="https://github.com/xgfe/lint-plus/blob/master/docs/guide.md">Developer Guide</a>
+    </li>
+    <li class="git-star">
+        <iframe width="160px" height="30px" src="https://ghbtns.com/github-btn.html?user=xgfe&repo=lint-plus&type=star&count=true" frameborder="0" scrolling="0"></iframe>
+    </li>
+</ul>
+<div id="fullpage" fullpage>
+    <div class="section" id="home" data-anchor="home">
+        <h1>lint-plus</h1>
+        <h2>Front-end code checking tool</h2>
+        <div class="button-group">
+            <a class="view-button" href="http://github.com/xgfe/lint-plus">Code on Github</a>
+            <a class="download-button" href="#">Download</a>
+            <a class="build-button" href="javascript:;" ng-click="buildConfig()">Build Config</a>
+        </div>
+        <h3 class="thanks">
+            Thanks:
+            <a target="_blank" class="thanks-eslint" href="http://eslint.org/">
+                <img src="./assets/image/eslint_logo.svg" alt="ESLint_logo"/>ESLint</a>
+            <a target="_blank" class="thanks-fecs" href="http://fecs.baidu.com">
+                <img src="./assets/image/fecs_logo.png" alt="fecs_logo"/>FECS</a>
+        </h3>
+        <small class="copyright">&copy;&nbsp;xgfe 2016</small>
+    </div>
+    <div id="html_config" class="section" ng-if="showConfigPage" data-anchor="htmlConfig">
+        <h1>HTML config</h1>
+    </div>
+    <div id="css_config" class="section" ng-if="showConfigPage" data-anchor="cssConfig">
+        <h1>CSS config</h1>
+    </div>
+    <div id="js_config" class="section" ng-if="showConfigPage" data-anchor="jsConfig">
+        <h1>Javascript config</h1>
+    </div>
+</div>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/fullpage.js/jquery.fullPage.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
