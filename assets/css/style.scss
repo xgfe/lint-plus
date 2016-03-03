@@ -1,0 +1,278 @@
+@import "../../lib/fullpage.js/jquery.fullPage";
+html{
+    font-family: arial,helvetica;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+// 变量
+$nav_a_active_color:rgba(0,0,0, 0.5); //nav的active 背景颜色
+
+$desc_h1:3.5em;
+$desc_line_height:2;
+$desc_font_size:25px;
+
+$home_page_bg:#1BBC9B;
+$home_page_color:rgba(0,0,0,0.5);
+
+$html_page_bg:#4BBFC3;
+$html_page_color:#336;
+
+$css_page_bg:#7BAABE;
+$css_page_color:#336;
+/* nav bar */
+#nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 40px;
+    z-index: 70;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    li{
+        display: inline-block;
+        margin: 10px;
+        color: #000;
+        background: rgba(255,255,255, 0.5);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        height: 100%;
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+    }
+    li.active{
+        background: $nav_a_active_color;
+        color: #fff;
+    }
+    li.active a {
+        color: #fff;
+    }
+    li a, li.active a {
+        padding: 9px 18px;
+        display: inline-block;
+    }
+    .git-star{
+        background: none;
+        iframe{
+            position: relative;
+            top: 10px;
+        }
+    }
+}
+/* home page */
+#home_page{
+    background-color: $home_page_bg;
+    text-align: center;
+    color:$home_page_color;
+    h1{
+        font-size: 6em;
+        margin: 20px;
+    }
+    h2{
+        margin: 15px;
+    }
+    .button-group a{
+        text-decoration: none;
+        width: auto;
+        margin: 20px 5px 20px 0;
+        padding: 18px 24px;
+        font-size: 21px;
+        display: inline-block;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        &:hover{
+            color: $home_page_bg;
+            background: #fff;
+        }
+    }
+    .thanks{
+        margin: 10px;
+    }
+    .thanks-eslint,.thanks-fecs{
+        text-decoration: none;
+    }
+    .thanks-eslint img{
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 8px;
+    }
+    .thanks-fecs img{
+        height: 15px;
+    }
+    .copyright{
+        position: absolute;
+        bottom: 10px;
+        color: #666;
+    }
+}
+
+/* html-config */
+#html_config{
+    background-color: $html_page_bg;
+    text-align: center;
+    color: $html_page_color;
+    overflow: hidden;
+    .html-desc{
+        position: absolute;
+        width: 400px;
+        left: 150px;
+        top: 150px;
+        h1{
+            font-size: $desc_h1;
+        }
+        section{
+            line-height: $desc_line_height;
+            font-size: $desc_font_size;
+            text-align: left;
+        }
+        a{
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+                color: #000;
+            }
+        }
+    }
+    .html-rules{
+        text-align: left;
+        padding: 100px 0 100px 700px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        &:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+    .default,.specification{
+        float: left;
+        overflow: hidden;
+        height: 100%;
+        h2{
+            margin-bottom: 10px;
+        }
+        ul{
+            list-style: none;
+            overflow: auto;
+            height: 100%;
+            padding-bottom: 40px;
+            box-sizing: border-box;
+        }
+        li{
+            margin: 10px 0;
+        }
+    }
+    .default{
+        margin-right: 100px;
+    }
+    .rules-item a{
+        font-size: 20px;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+            color: #000;
+        }
+    }
+    .rules-item .select{
+        padding-left: 40px;
+    }
+    .rules-item select{
+        width: 100px;
+        height: 30px;
+        border: 1px solid $html_page_bg;
+    }
+    .select-all{
+        position: absolute;
+        bottom: 50px;
+    }
+    .next-step{
+        position: absolute;
+        bottom: 40px;
+        right: 200px;
+        button{
+            padding: 15px 40px;
+            background: $html_page_bg;
+            border: 1px solid #fff;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 700;
+            &:hover{
+                color: $css_page_bg;
+                background: #fff;
+            }
+        }
+    }
+}
+.scroll-top{
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    background: url(../image/top.png) no-repeat;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+$checks_width:20px;
+$checks_color:#23b7e5;
+.i-checks{
+    padding-left: 20px;
+    cursor: pointer;
+    font-weight: normal;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    input[type="checkbox"]{
+        position: absolute;
+        opacity: 0;
+        margin: 4px 0 0 -20px;
+        box-sizing: border-box;
+        padding: 0;
+        line-height: normal;
+        &:checked + i{
+            border-color: $checks_color;
+        }
+        &:checked + i:before{
+            left: $checks_width / 4 ;
+            top: $checks_width / 4 ;
+            width:  $checks_width / 2;
+            height:  $checks_width / 2;
+            background-color: $checks_color;
+        }
+    }
+    i{
+        width: $checks_width;
+        height: $checks_width;
+        line-height: 1;
+        border: 1px solid #fff;
+        background-color: #fff;
+        margin-left: -20px;
+        margin-top: -2px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 4px;
+        position: relative;
+        box-sizing: content-box;
+        &:before{
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 0;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+    }
+}

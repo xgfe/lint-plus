@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>lint-plus</title>
-    <link rel="stylesheet" href="lib/fullpage.js/jquery.fullPage.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body ng-controller="appCtrl">
@@ -25,7 +24,7 @@
     </li>
 </ul>
 <div id="fullpage" fullpage>
-    <div class="section" id="home" data-anchor="home">
+    <div class="section" id="home_page">
         <h1>lint-plus</h1>
         <h2>Front-end code checking tool</h2>
         <div class="button-group">
@@ -41,16 +40,51 @@
         </h3>
         <small class="copyright">&copy;&nbsp;xgfe 2016</small>
     </div>
-    <div id="html_config" class="section" ng-if="showConfigPage" data-anchor="htmlConfig">
-        <h1>HTML config</h1>
+    <div ng-controller="htmlConfigCtrl" id="html_config" class="section" ng-sif="showHTMLConfigPage">
+        <div class="html-desc">
+            <h1>HTML规则配置</h1>
+            <section>
+                lint-plus采用的HTML代码检查工具是<a href="http://github.com/y8n/xg-htmlhint">xg-htmlhint</a>，是xgfe团队基于Node.JS开发的HTML代码风格检查工具，支持命令行和脚本引入使用。检查规则可以通过配置文件进行配置且支持自定义规则。
+            </section>
+        </div>
+        <div class="html-rules">
+            <div ng-class="collection.className" ng-repeat="collection in collections">
+                <h2>{{collection.label}}</h2>
+                <ul>
+                    <li ng-repeat="rule in htmlRules track by $index" class="rules-item" ng-if="rule.collection === collection.className">
+                        <label class="i-checks">
+                            <input type="checkbox" ng-model="rule.enable">
+                            <i></i>
+                            <a target="_blank" title="{{rule.desc}}" ng-href="{{rule.href}}">{{rule.id}}</a>
+                        </label>
+                        <div class="select" ng-if="rule.options.length > 0 && rule.enable">
+                            <select ng-model="rule.selected">
+                                <option ng-value="{{option}}" ng-repeat="option in rule.options">{{option}}</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="select-all">
+                <label class="i-checks">
+                    <input ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
+                    <i></i>全选
+                </label>
+            </div>
+            <div class="next-step">
+                <button type="button" ng-click="nextStep()">下一步</button>
+            </div>
+        </div>
     </div>
-    <div id="css_config" class="section" ng-if="showConfigPage" data-anchor="cssConfig">
+    <div id="css_config" ng-controller="cssConfigCtrl" class="section" ng-isf="showCSSConfigPage">
         <h1>CSS config</h1>
+        <button type="button" ng-click="nextStep()">下一步</button>
     </div>
-    <div id="js_config" class="section" ng-if="showConfigPage" data-anchor="jsConfig">
+    <div id="js_config" class="section" ng-isf="showJSConfigPage">
         <h1>Javascript config</h1>
     </div>
 </div>
+<div title="Top" scroll-top class="scroll-top" style="display: none;"></div>
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>
 <script src="lib/fullpage.js/jquery.fullPage.js"></script>

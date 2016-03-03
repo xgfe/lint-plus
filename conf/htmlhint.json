@@ -1,0 +1,169 @@
+[
+  {
+    "id": "doctype-first",
+    "default": true,
+    "desc": "there must be a doctype and the tag must be first in document.Warning lowercase 'doctype'.",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Doctype-first",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "title-tag-require",
+    "default": true,
+    "desc": "if there is a <head> tag,<title>tag is required in <head>",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Title-tag-require",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "tagname-lowercase",
+    "default": true,
+    "desc": "tag's name must be in lowercase",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Tagname-lowercase",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "tag-pair",
+    "default": true,
+    "desc": "tag must be paired unless the tag is self-closed",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Tag-pair",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "attr-lowercase",
+    "default": true,
+    "desc": "tag's attribute must be in lowercase",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Attr-lowercase",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "attr-value-quotes",
+    "default": "double",
+    "desc": "tag's attribute must be wrapped by double or single quotes",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Attr-value-quotes",
+    "options": [
+      "double",
+      "single"
+    ],
+    "collection": "default"
+  },
+  {
+    "id": "attr-no-duplication",
+    "default": true,
+    "desc": "tag's attribute must be different from each other",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Attr-no-duplication",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "attr-no-duplication",
+    "default": true,
+    "desc": "tag's attribute must be different from each other",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Attr-no-duplication",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "spec-char-escape",
+    "default": true,
+    "desc": "do not use special characters in file",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Spec-char-escape",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "id-name-unique",
+    "default": true,
+    "desc": "id and name must be different from each other",
+    "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Id-name-unique",
+    "options": [],
+    "collection": "default"
+  },
+  {
+    "id": "attr-value-not-empty",
+    "default": false,
+    "desc": "tag's attribute must have a value unless it is a special attr,such as disabled,required",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Attr-value-not-empty",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "tag-self-close",
+    "default": false,
+    "desc": "There is no need to close a self-colse tag,such as input,img",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Tag-self-close",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "meta-charset",
+    "default": false,
+    "desc": "There must have a meta tag in head tag and there must have a meta tag which can specify a charset.",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Meta-charset",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "src-not-empty",
+    "default": false,
+    "desc": "The src attribute of an img(script,link) must have a value.",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Src-not-empty",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "id-class-value",
+    "default": false,
+    "desc": "id and class must conform to the specifications.",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Id-class-value",
+    "options": [
+      "underline",
+      "dash",
+      "hump"
+    ],
+    "collection": "specification"
+  },
+  {
+    "id": "id-class-ad-disabled",
+    "default": false,
+    "desc": "id and class should not contain ad-/ad_/*-ad.",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Id-class-ad-disabled",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "button-type-require",
+    "default": false,
+    "desc": "button tag must have a type attribute.",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Button-type-require",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "link-rel-require",
+    "default": false,
+    "desc": "link tag must have a rel attribute.",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Link-rel-require",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "style-disabled",
+    "default": false,
+    "desc": "style tags cannot be used",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Style-disabled",
+    "options": [],
+    "collection": "specification"
+  },
+  {
+    "id": "img-size",
+    "default": false,
+    "desc": "Suggest have height and width attributes on img tags.",
+    "href": "https://github.com/y8n/xg-htmlhint/wiki/Img-size",
+    "options": [],
+    "collection": "specification"
+  }
+]
