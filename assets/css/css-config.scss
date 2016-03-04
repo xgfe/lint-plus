@@ -1,0 +1,11 @@
+// CSS规则配置
+$css_page_bg:#7BAABE;
+$css_page_color:#0F0F77;
+
+#css_config{
+    background-color: $css_page_bg;
+    color: $css_page_color;
+    .reset:hover{
+        background: $css_page_bg;
+    }
+}

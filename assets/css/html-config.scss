@@ -1,0 +1,10 @@
+/* html-config */
+$html_page_bg:#4BBFC3;
+$html_page_color:#336;
+#html_config{
+    background-color: $html_page_bg;
+    color: $html_page_color;
+    .reset:hover{
+        background: $html_page_bg;
+    }
+}

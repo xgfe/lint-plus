@@ -1,0 +1,11 @@
+.section{
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    padding: 50px 50px 0 50px;
+    .inner-content{
+        display: table-cell;
+        vertical-align: middle;
+    }
+}

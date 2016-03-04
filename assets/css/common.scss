@@ -1,0 +1,237 @@
+html{
+    font-family: arial,helvetica;
+}
+body{
+    min-width: 1400px;
+    overflow-x: auto;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+// 变量
+$nav_a_active_color:rgba(0,0,0, 0.5); //nav的active 背景颜色
+
+$desc_h1:3.5em;
+$desc_line_height:2;
+$desc_font_size:25px;
+
+
+/* nav bar */
+#nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 40px;
+    z-index: 70;
+    width: 100%;
+    margin: 0;
+    padding-left: 50px;
+    li{
+        display: inline-block;
+        margin: 10px;
+        color: #000;
+        background: rgba(255,255,255, 0.5);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        height: 100%;
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+    }
+    li.active{
+        background: $nav_a_active_color;
+        color: #fff;
+    }
+    li.active a {
+        color: #fff;
+    }
+    li a, li.active a {
+        padding: 9px 18px;
+        display: inline-block;
+    }
+    .git-star{
+        background: none;
+        iframe{
+            position: relative;
+            top: 10px;
+        }
+    }
+}
+.forkme{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    img{
+        width: 150px;
+        height: 150px;
+    }
+}
+#home_page,
+#html_config,
+#css_config,
+#js_config{
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.tool-desc {
+    text-indent: $desc_font_size * 2;
+    h1{
+        font-size: $desc_h1;
+    }
+    section{
+        line-height: $desc_line_height;
+        font-size: $desc_font_size;
+        text-align: left;
+    }
+    a{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+            color: #000;
+        }
+    }
+}
+.rule-list{
+    padding-left: 50px;
+    margin-top: 20px;
+    h2{
+        margin-bottom: 10px;
+    }
+    ul{
+        list-style: none;
+    }
+    li{
+        margin: 10px 0;
+    }
+    .rules-item{
+        a{
+            font-size: 20px;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+                color: #000;
+            }
+        }
+        select{
+            width: 100px;
+            height: 30px;
+            border: 1px solid #fff;
+        }
+    }
+    .rule-option{
+        float: left;
+        margin-right: 20px;
+        padding-left: 30px;
+    }
+    .option-value{
+        width: 60px;
+        height: 30px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        outline: none;
+        font-size: 16px;
+    }
+    .rule-desc{
+        font-size: 18px;
+        color: #333;
+    }
+}
+.config-footer{
+    padding: 20px 50px;
+    border-top: 1px solid #666;
+    margin-top: 20px;
+    label{
+        margin-right: 20px;
+    }
+    button.reset{
+        padding: 5px 10px;
+        background: #fff;
+        border: 1px solid #fff;
+        outline: none;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 15px;
+        &:hover{
+            color: #fff;
+        }
+    }
+}
+.clearfix:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.scroll-top{
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    background: url(../image/top.png) no-repeat;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+$checks_width:20px;
+$checks_color:#23b7e5;
+.i-checks{
+    padding-left: 20px;
+    cursor: pointer;
+    font-weight: normal;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    input[type="checkbox"]{
+        position: absolute;
+        opacity: 0;
+        margin: 4px 0 0 -20px;
+        box-sizing: border-box;
+        padding: 0;
+        line-height: normal;
+        &:checked + i{
+            border-color: $checks_color;
+        }
+        &:checked + i:before{
+            left: $checks_width / 4 ;
+            top: $checks_width / 4 ;
+            width:  $checks_width / 2;
+            height:  $checks_width / 2;
+            background-color: $checks_color;
+        }
+        &[disabled] + i{
+            border-color: #eee;
+            cursor: not-allowed;
+        }
+        &[disabled] + i:before{
+            background-color: #eee;
+        }
+    }
+    i{
+        width: $checks_width;
+        height: $checks_width;
+        line-height: 1;
+        border: 1px solid #fff;
+        background-color: #fff;
+        margin-left: -20px;
+        margin-top: -2px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 4px;
+        position: relative;
+        box-sizing: content-box;
+        &:before{
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 0;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+    }
+}

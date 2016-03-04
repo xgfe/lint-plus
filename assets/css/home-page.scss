@@ -1,0 +1,52 @@
+// 首页
+
+$home_page_bg: #1BBC9B;
+$home_page_color: rgba(0, 0, 0, 0.5);
+/* home page */
+#home_page {
+    text-align: center;
+    background-color: $home_page_bg;
+    color: $home_page_color;
+    h1 {
+        font-size: 6em;
+        margin: 20px;
+    }
+    h2 {
+        margin: 15px;
+    }
+    .button-group a {
+        text-decoration: none;
+        width: auto;
+        margin: 20px 5px 20px 0;
+        padding: 18px 24px;
+        font-size: 21px;
+        display: inline-block;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        &:hover {
+            color: $home_page_bg;
+            background: #fff;
+        }
+    }
+    .thanks {
+        margin: 10px;
+    }
+    .thanks-eslint, .thanks-fecs {
+        text-decoration: none;
+    }
+    .thanks-eslint img {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 8px;
+    }
+    .thanks-fecs img {
+        height: 15px;
+    }
+    .copyright {
+        position: absolute;
+        bottom: 10px;
+        color: #666;
+    }
+}
