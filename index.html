@@ -32,7 +32,7 @@
             <h2>Front-end code checking tool</h2>
             <div class="button-group">
                 <a class="view-button" href="http://github.com/xgfe/lint-plus">Code on Github</a>
-                <a class="build-button" href="javascript:;" ng-click="buildConfig()">Build Config</a>
+                <a class="build-button" href="#html_config">Build Config</a>
             </div>
             <h3 class="thanks">
                 Thanks:
@@ -46,12 +46,12 @@
     </div>
     <div ng-controller="htmlConfigCtrl" id="html_config" class="section">
         <div class="html-desc tool-desc">
-            <h1>HTML规则配置</h1>
+            <h1>HTML规则配置 <span class="fold" fold></span></h1>
             <section>
                 lint-plus使用的HTML代码检查工具是<a href="http://github.com/y8n/xg-htmlhint">xg-htmlhint</a>，是xgfe团队基于Node.JS开发的HTML代码风格检查工具，支持命令行和脚本引入使用。检查规则可以通过配置文件进行配置且支持自定义规则。
             </section>
         </div>
-        <div class="html-rules">
+        <div class="html-rules tool-rules">
             <div class="rule-list" ng-class="collection.className" ng-repeat="collection in collections">
                 <h2>{{collection.label}}</h2>
                 <ul>
@@ -62,8 +62,8 @@
                             <a target="_blank" title="点击查看详情" ng-href="{{rule.href}}">{{rule.id}}</a>:
                             <span class="rule-desc">{{rule.desc}}</span>
                         </label>
-                        <div class="clearfix">
-                            <div class="rule-option" ng-if="rule.options.length > 0 && rule.enable">
+                        <div class="clearfix" ng-if="rule.options.length > 0 && rule.enable">
+                            <div class="rule-option">
                                 <label>可选值:</label>
                                 <select ng-options="option for option in rule.options"
                                         ng-model="rule.selected">
@@ -80,7 +80,7 @@
                 </label>
                 <label class="i-checks">
                     <input ng-disabled="disableHTML" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
-                    <i></i>{{selectAll?'全不选':'全选'}}
+                    <i></i>全选
                 </label>
                 <button ng-disabled="disableHTML" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
             </div>
@@ -88,12 +88,12 @@
     </div>
     <div id="css_config" ng-controller="cssConfigCtrl" class="section">
         <div class="css-desc tool-desc">
-            <h1>CSS规则配置</h1>
+            <h1>CSS规则配置 <span class="fold" fold></span></h1>
             <section>
                 <a href="http://github.com/xgfe/xg-csshint">xg-csshint</a>是基于postcss的CSS代码规范检查工具，基于<a href="https://github.com/xgfe/codeguide/blob/master/css.md">CSS编码规范</a>，具有使用灵活性强，可配置性高，错误定位精准等特点，是行走江湖、开发必备的工具。
             </section>
         </div>
-        <div class="css-rules">
+        <div class="css-rules tool-rules">
             <div class="rule-list" ng-class="collection.className" ng-repeat="collection in collections">
                 <h2>{{collection.label}}</h2>
                 <ul>
@@ -126,14 +126,45 @@
                 </label>
                 <label class="i-checks">
                     <input ng-disabled="disableCSS" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
-                    <i></i>{{selectAll?'全不选':'全选'}}
+                    <i></i>全选
                 </label>
                 <button ng-disabled="disableCSS" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
             </div>
         </div>
     </div>
-    <div id="js_config" class="section">
-        <h1>Javascript config</h1>
+    <div id="js_config" class="section" ng-controller="jsConfigCtrl">
+        <div class="js-desc tool-desc">
+            <h1>JS规则配置 <span class="fold" fold></span></h1>
+            <section>
+                ESLint是由Nicholas C. Zakas编写的一个Javascript的验证工具，不仅可以检验Javascript错误，也可以进行代码风格检测。
+                ESLint主要有以下特点：(1) 默认规则包含所有JSLint、JSHint中存在的规则，易迁移到ESLint(2) ESLint相比于JSLint、JSHint，更加灵活强大，规则可配置性很高(3) 包含代码风格检测的规则(4) 支持插件扩展、自定义规则
+            </section>
+        </div>
+        <div class="js-rules tool-rules">
+            <div class="rule-list" ng-class="collection.className" ng-repeat="collection in collections">
+                <h2>{{collection.label}}</h2>
+                <ul>
+                    <li ng-repeat="rule in jsRules" class="rules-item" ng-if="rule.collection === collection.className">
+                        <label class="i-checks">
+                            <input type="checkbox" ng-model="rule.enable" ng-disabled="disableJS"><i></i>
+                            <a target="_blank" title="点击查看详情" ng-href="{{rule.href}}">{{rule.id}}</a>:
+                            <span class="rule-desc">{{rule.desc}}</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="config-footer">
+                <label class="i-checks">
+                    <input type="checkbox" ng-model="disableJS">
+                    <i></i>禁用JS检查工具
+                </label>
+                <label class="i-checks">
+                    <input ng-disabled="disableJS" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
+                    <i></i>全选
+                </label>
+                <button ng-disabled="disableJS" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
+            </div>
+        </div>
     </div>
 </div>
 <div title="Top" scroll-top class="scroll-top" style="display: none;"></div>

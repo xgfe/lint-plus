@@ -60,6 +60,38 @@ app.directive('convertToNumber',function() {
         }
     };
 });
+app.directive('fold', function () {
+    return {
+        restrict:'A',
+        scope:{},
+        link: function (scope,el) {
+            el.attr('title','点击收起');
+            var section = el.closest('.section');
+            var isClose;
+            var w_h = $(window).height();
+            el.on('click', function (evt) {
+                evt.stopPropagation();
+                isClose = section.hasClass('section-close');
+                if(isClose){
+                    offClick();
+                }else{
+                    el.attr('title','点击展开');
+                    section.css('min-height',0)
+                        .attr('title','点击展开')
+                        .addClass('section-close')
+                        .on('click', offClick);
+                }
+            });
+            function offClick(){
+                el.attr('title','点击收起');
+                section.removeClass('section-close')
+                    .css('min-height',w_h)
+                    .removeAttr('title')
+                    .off('click');
+            }
+        }
+    }
+});
 app.service('rulesServices', ['$http',function ($http) {
     return {
         getRules:function (path) {
@@ -138,16 +170,7 @@ app.controller('cssConfigCtrl', ['$scope','$rootScope','rulesServices',function 
         label:'其他规则',
         className:'other'
     }];
-    // 错误级别
-    $scope.levels = [{
-        val:1,
-        meaning:'Error'
-    },{
-        val:2,
-        meaning:'Warning'
-    }];
     // 把下列这些规则中配置的空格，转化为数字
-    var optionRule = ['decl-comma','selector-between-onespace','selector-both-spaces','text-indent'];
     var rulesCache;
     rulesServices.getRules('conf/csshint.json').then(function (responese) {
         $rootScope.cssRules = responese.data;
@@ -185,6 +208,49 @@ app.controller('cssConfigCtrl', ['$scope','$rootScope','rulesServices',function 
                     rule.selected = angular.copy(rule.default);
                 }
             });
+        }
+    };
+}]);
+app.controller('jsConfigCtrl', ['$scope','$rootScope','rulesServices',function ($scope,$rootScope,rulesServices) {
+    $scope.selectAll = false;
+    // 所有分类
+    $scope.collections = [{
+        label:'建议启用',
+        className:'possible-errors'
+    },{
+        label:'最好的实践',
+        className:'best-practices'
+    },{
+        label:'严格模式',
+        className:'strict-mode'
+    },{
+        label:'变量相关',
+        className:'variables'
+    },{
+        label:'Node.js 和 CommonJS',
+        className:'node.js-and-commonjs'
+    },{
+        label:'代码风格相关',
+        className:'stylistic-issues'
+    },{
+        label:'ECMAScript6',
+        className:'ecmascript-6'
+    }];
+    // 把下列这些规则中配置的空格，转化为数字
+    var rulesCache;
+    rulesServices.getRules('conf/eslint.json').then(function (responese) {
+        //$rootScope.jsRules = responese.data;
+        //rulesCache = angular.copy(responese.data);
+        //angular.forEach($rootScope.jsRules, function (rule) {
+        //});
+    });
+    // 全选
+    $scope.selectAllHandler = function () {
+    };
+
+    //恢复默认
+    $scope.resetToDefault = function () {
+        if(rulesCache){
         }
     };
 }]);

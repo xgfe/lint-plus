@@ -1,0 +1,11 @@
+// JS规则配置
+$js_page_bg:#B77367;
+$js_page_color:#000;
+
+#js_config{
+    background-color: $js_page_bg;
+    color: $js_page_color;
+    .reset:hover{
+        background: $js_page_bg;
+    }
+}

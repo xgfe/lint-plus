@@ -3,7 +3,7 @@
   display: table;
   table-layout: fixed;
   width: 100%;
-  padding: 50px 50px 0 50px; }
+  padding: 100px 50px 0 50px; }
   .section .inner-content {
     display: table-cell;
     vertical-align: middle; }
@@ -84,6 +84,30 @@ body {
     .tool-desc a:hover {
       text-decoration: underline;
       color: #000; }
+  .tool-desc .fold {
+    display: inline-block;
+    background: url(../image/fold.png) no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    cursor: pointer; }
+
+.section-close {
+  height: 80px;
+  line-height: 80px;
+  display: block;
+  cursor: pointer;
+  padding: 0 50px; }
+  .section-close h1 {
+    font-size: 2.5em; }
+  .section-close .fold {
+    transform: rotate(-90deg);
+    float: right;
+    position: relative;
+    top: 20px; }
+  .section-close .tool-desc section,
+  .section-close .tool-rules {
+    display: none; }
 
 .rule-list {
   padding-left: 50px;
@@ -252,3 +276,9 @@ body {
   color: #0F0F77; }
   #css_config .reset:hover {
     background: #7BAABE; }
+
+#js_config {
+  background-color: #B77367;
+  color: #000; }
+  #js_config .reset:hover {
+    background: #B77367; }

@@ -95,6 +95,35 @@ $desc_font_size:25px;
             color: #000;
         }
     }
+    .fold{
+        display: inline-block;
+        background: url(../image/fold.png) no-repeat;
+        background-size: contain;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+}
+.section-close{
+    height: 80px;
+    line-height: 80px;
+    display: block;
+    cursor: pointer;
+    padding: 0 50px;
+    h1{
+        font-size: 2.5em;
+    }
+    .fold{
+        transform: rotate(-90deg);
+        float: right;
+        position: relative;
+        top: 20px;
+    }
+    .tool-desc section,
+    .tool-rules{
+        display: none;
+    }
 }
 .rule-list{
     padding-left: 50px;

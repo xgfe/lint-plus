@@ -1,4 +1,1856 @@
-{
-  "type":"js",
-  "name":"eslint"
-}
+[
+  {
+    "id": "comma-dangle",
+    "default": "2",
+    "desc": "disallow or enforce trailing commas ",
+    "href": "http://eslint.org/docs/rules/comma-dangle",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": true
+  },
+  {
+    "id": "no-cond-assign",
+    "default": "2",
+    "desc": "disallow assignment in conditional expressions ",
+    "href": "http://eslint.org/docs/rules/no-cond-assign",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": true
+  },
+  {
+    "id": "no-console",
+    "default": "2",
+    "desc": "disallow use of console ",
+    "href": "http://eslint.org/docs/rules/no-console",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-constant-condition",
+    "default": "2",
+    "desc": "disallow use of constant expressions in conditions ",
+    "href": "http://eslint.org/docs/rules/no-constant-condition",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-control-regex",
+    "default": "2",
+    "desc": "disallow control characters in regular expressions ",
+    "href": "http://eslint.org/docs/rules/no-control-regex",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-debugger",
+    "default": "2",
+    "desc": "disallow use of debugger ",
+    "href": "http://eslint.org/docs/rules/no-debugger",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-dupe-args",
+    "default": "2",
+    "desc": "disallow duplicate arguments in functions ",
+    "href": "http://eslint.org/docs/rules/no-dupe-args",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-dupe-keys",
+    "default": "2",
+    "desc": "disallow duplicate keys when creating object literals ",
+    "href": "http://eslint.org/docs/rules/no-dupe-keys",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-duplicate-case",
+    "default": "2",
+    "desc": "disallow a duplicate case label. ",
+    "href": "http://eslint.org/docs/rules/no-duplicate-case",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-empty",
+    "default": "2",
+    "desc": "disallow empty block statements ",
+    "href": "http://eslint.org/docs/rules/no-empty",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-empty-character-class",
+    "default": "2",
+    "desc": "disallow the use of empty character classes in regular expressions ",
+    "href": "http://eslint.org/docs/rules/no-empty-character-class",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-ex-assign",
+    "default": "2",
+    "desc": "disallow assigning to the exception in a catch block ",
+    "href": "http://eslint.org/docs/rules/no-ex-assign",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-extra-boolean-cast",
+    "default": "2",
+    "desc": "disallow double-negation boolean casts in a boolean context ",
+    "href": "http://eslint.org/docs/rules/no-extra-boolean-cast",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-extra-parens",
+    "default": "2",
+    "desc": "disallow unnecessary parentheses",
+    "href": "http://eslint.org/docs/rules/no-extra-parens",
+    "collection": "possible-errors",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-extra-semi",
+    "default": "2",
+    "desc": "disallow unnecessary semicolons  ",
+    "href": "http://eslint.org/docs/rules/no-extra-semi",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-func-assign",
+    "default": "2",
+    "desc": "disallow overwriting functions written as function declarations ",
+    "href": "http://eslint.org/docs/rules/no-func-assign",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-inner-declarations",
+    "default": "2",
+    "desc": "disallow function or variable declarations in nested blocks ",
+    "href": "http://eslint.org/docs/rules/no-inner-declarations",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": true
+  },
+  {
+    "id": "no-invalid-regexp",
+    "default": "2",
+    "desc": "disallow invalid regular expression strings in the RegExp constructor ",
+    "href": "http://eslint.org/docs/rules/no-invalid-regexp",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-irregular-whitespace",
+    "default": "2",
+    "desc": "disallow irregular whitespace outside of strings and comments ",
+    "href": "http://eslint.org/docs/rules/no-irregular-whitespace",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-negated-in-lhs",
+    "default": "2",
+    "desc": "disallow negation of the left operand of an in expression ",
+    "href": "http://eslint.org/docs/rules/no-negated-in-lhs",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-obj-calls",
+    "default": "2",
+    "desc": "disallow the use of object properties of the global object (Math and JSON) as functions ",
+    "href": "http://eslint.org/docs/rules/no-obj-calls",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-regex-spaces",
+    "default": "2",
+    "desc": "disallow multiple spaces in a regular expression literal ",
+    "href": "http://eslint.org/docs/rules/no-regex-spaces",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-sparse-arrays",
+    "default": "2",
+    "desc": "disallow sparse arrays ",
+    "href": "http://eslint.org/docs/rules/no-sparse-arrays",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-unexpected-multiline",
+    "default": "2",
+    "desc": "Avoid code that looks like two expressions but is actually one ",
+    "href": "http://eslint.org/docs/rules/no-unexpected-multiline",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-unreachable",
+    "default": "2",
+    "desc": "disallow unreachable statements after a return, throw, continue, or break statement ",
+    "href": "http://eslint.org/docs/rules/no-unreachable",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "use-isnan",
+    "default": "2",
+    "desc": "disallow comparisons with the value NaN ",
+    "href": "http://eslint.org/docs/rules/use-isnan",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "valid-jsdoc",
+    "default": "2",
+    "desc": "Ensure JSDoc comments are valid",
+    "href": "http://eslint.org/docs/rules/valid-jsdoc",
+    "collection": "possible-errors",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "valid-typeof",
+    "default": "2",
+    "desc": "Ensure that the results of typeof are compared against a valid string ",
+    "href": "http://eslint.org/docs/rules/valid-typeof",
+    "collection": "possible-errors",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "accessor-pairs",
+    "default": "2",
+    "desc": "Enforces getter/setter pairs in objects",
+    "href": "http://eslint.org/docs/rules/accessor-pairs",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "array-callback-return",
+    "default": "2",
+    "desc": "Enforces return statements in callbacks of array’s methods",
+    "href": "http://eslint.org/docs/rules/array-callback-return",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "block-scoped-var",
+    "default": "2",
+    "desc": "treat var statements as if they were block scoped",
+    "href": "http://eslint.org/docs/rules/block-scoped-var",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "complexity",
+    "default": "2",
+    "desc": "specify the maximum cyclomatic complexity allowed in a program",
+    "href": "http://eslint.org/docs/rules/complexity",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "consistent-return",
+    "default": "2",
+    "desc": "require return statements to either always or never specify values",
+    "href": "http://eslint.org/docs/rules/consistent-return",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "curly",
+    "default": "2",
+    "desc": "specify curly brace conventions for all control statements",
+    "href": "http://eslint.org/docs/rules/curly",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "default-case",
+    "default": "2",
+    "desc": "require default case in switch statements",
+    "href": "http://eslint.org/docs/rules/default-case",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "dot-location",
+    "default": "2",
+    "desc": "enforces consistent newlines before or after dots",
+    "href": "http://eslint.org/docs/rules/dot-location",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "dot-notation",
+    "default": "2",
+    "desc": "encourages use of dot notation whenever possible",
+    "href": "http://eslint.org/docs/rules/dot-notation",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "eqeqeq",
+    "default": "2",
+    "desc": "require the use of === and !==",
+    "href": "http://eslint.org/docs/rules/eqeqeq",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "guard-for-in",
+    "default": "2",
+    "desc": "make sure for-in loops have an if statement",
+    "href": "http://eslint.org/docs/rules/guard-for-in",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-alert",
+    "default": "2",
+    "desc": "disallow the use of alert, confirm, and prompt",
+    "href": "http://eslint.org/docs/rules/no-alert",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-caller",
+    "default": "2",
+    "desc": "disallow use of arguments.caller or arguments.callee",
+    "href": "http://eslint.org/docs/rules/no-caller",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-case-declarations",
+    "default": "2",
+    "desc": "disallow lexical declarations in case clauses ",
+    "href": "http://eslint.org/docs/rules/no-case-declarations",
+    "collection": "best-practices",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-div-regex",
+    "default": "2",
+    "desc": "disallow division operators explicitly at beginning of regular expression",
+    "href": "http://eslint.org/docs/rules/no-div-regex",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-else-return",
+    "default": "2",
+    "desc": "disallow else after a return in an if",
+    "href": "http://eslint.org/docs/rules/no-else-return",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-empty-function",
+    "default": "2",
+    "desc": "disallow use of empty functions",
+    "href": "http://eslint.org/docs/rules/no-empty-function",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-empty-pattern",
+    "default": "2",
+    "desc": "disallow use of empty destructuring patterns ",
+    "href": "http://eslint.org/docs/rules/no-empty-pattern",
+    "collection": "best-practices",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-eq-null",
+    "default": "2",
+    "desc": "disallow comparisons to null without a type-checking operator",
+    "href": "http://eslint.org/docs/rules/no-eq-null",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-eval",
+    "default": "2",
+    "desc": "disallow use of eval()",
+    "href": "http://eslint.org/docs/rules/no-eval",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-extend-native",
+    "default": "2",
+    "desc": "disallow adding to native types",
+    "href": "http://eslint.org/docs/rules/no-extend-native",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-extra-bind",
+    "default": "2",
+    "desc": "disallow unnecessary function binding",
+    "href": "http://eslint.org/docs/rules/no-extra-bind",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-extra-label",
+    "default": "2",
+    "desc": "disallow unnecessary labels",
+    "href": "http://eslint.org/docs/rules/no-extra-label",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-fallthrough",
+    "default": "2",
+    "desc": "disallow fallthrough of case statements ",
+    "href": "http://eslint.org/docs/rules/no-fallthrough",
+    "collection": "best-practices",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-floating-decimal",
+    "default": "2",
+    "desc": "disallow the use of leading or trailing decimal points in numeric literals",
+    "href": "http://eslint.org/docs/rules/no-floating-decimal",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-implicit-coercion",
+    "default": "2",
+    "desc": "disallow the type conversions with shorter notations",
+    "href": "http://eslint.org/docs/rules/no-implicit-coercion",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-implicit-globals",
+    "default": "2",
+    "desc": "disallow var and named functions in global scope",
+    "href": "http://eslint.org/docs/rules/no-implicit-globals",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-implied-eval",
+    "default": "2",
+    "desc": "disallow use of eval()-like methods",
+    "href": "http://eslint.org/docs/rules/no-implied-eval",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-invalid-this",
+    "default": "2",
+    "desc": "disallow this keywords outside of classes or class-like objects",
+    "href": "http://eslint.org/docs/rules/no-invalid-this",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-iterator",
+    "default": "2",
+    "desc": "disallow usage of __iterator__ property",
+    "href": "http://eslint.org/docs/rules/no-iterator",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-labels",
+    "default": "2",
+    "desc": "disallow use of labeled statements",
+    "href": "http://eslint.org/docs/rules/no-labels",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-lone-blocks",
+    "default": "2",
+    "desc": "disallow unnecessary nested blocks",
+    "href": "http://eslint.org/docs/rules/no-lone-blocks",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-loop-func",
+    "default": "2",
+    "desc": "disallow creation of functions within loops",
+    "href": "http://eslint.org/docs/rules/no-loop-func",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-magic-numbers",
+    "default": "2",
+    "desc": "disallow the use of magic numbers",
+    "href": "http://eslint.org/docs/rules/no-magic-numbers",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-multi-spaces",
+    "default": "2",
+    "desc": "disallow use of multiple spaces ",
+    "href": "http://eslint.org/docs/rules/no-multi-spaces",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-multi-str",
+    "default": "2",
+    "desc": "disallow use of multiline strings",
+    "href": "http://eslint.org/docs/rules/no-multi-str",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-native-reassign",
+    "default": "2",
+    "desc": "disallow reassignments of native objects",
+    "href": "http://eslint.org/docs/rules/no-native-reassign",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-new",
+    "default": "2",
+    "desc": "disallow use of the new operator when not part of an assignment or comparison",
+    "href": "http://eslint.org/docs/rules/no-new",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-new-func",
+    "default": "2",
+    "desc": "disallow use of new operator for Function object",
+    "href": "http://eslint.org/docs/rules/no-new-func",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-new-wrappers",
+    "default": "2",
+    "desc": "disallows creating new instances of String,Number, and Boolean",
+    "href": "http://eslint.org/docs/rules/no-new-wrappers",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-octal",
+    "default": "2",
+    "desc": "disallow use of octal literals ",
+    "href": "http://eslint.org/docs/rules/no-octal",
+    "collection": "best-practices",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-octal-escape",
+    "default": "2",
+    "desc": "disallow use of octal escape sequences in string literals, such as var foo = \"Copyright \\251\";",
+    "href": "http://eslint.org/docs/rules/no-octal-escape",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-param-reassign",
+    "default": "2",
+    "desc": "disallow reassignment of function parameters",
+    "href": "http://eslint.org/docs/rules/no-param-reassign",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-process-env",
+    "default": "2",
+    "desc": "disallow use of process.env",
+    "href": "http://eslint.org/docs/rules/no-process-env",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-proto",
+    "default": "2",
+    "desc": "disallow usage of __proto__ property",
+    "href": "http://eslint.org/docs/rules/no-proto",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-redeclare",
+    "default": "2",
+    "desc": "disallow declaring the same variable more than once ",
+    "href": "http://eslint.org/docs/rules/no-redeclare",
+    "collection": "best-practices",
+    "isRecommended": true,
+    "hasOptions": true
+  },
+  {
+    "id": "no-return-assign",
+    "default": "2",
+    "desc": "disallow use of assignment in return statement",
+    "href": "http://eslint.org/docs/rules/no-return-assign",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-script-url",
+    "default": "2",
+    "desc": "disallow use of javascript: urls.",
+    "href": "http://eslint.org/docs/rules/no-script-url",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-self-assign",
+    "default": "2",
+    "desc": "disallow assignments where both sides are exactly the same ",
+    "href": "http://eslint.org/docs/rules/no-self-assign",
+    "collection": "best-practices",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-self-compare",
+    "default": "2",
+    "desc": "disallow comparisons where both sides are exactly the same",
+    "href": "http://eslint.org/docs/rules/no-self-compare",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-sequences",
+    "default": "2",
+    "desc": "disallow use of the comma operator",
+    "href": "http://eslint.org/docs/rules/no-sequences",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-throw-literal",
+    "default": "2",
+    "desc": "restrict what can be thrown as an exception",
+    "href": "http://eslint.org/docs/rules/no-throw-literal",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-unmodified-loop-condition",
+    "default": "2",
+    "desc": "disallow unmodified conditions of loops",
+    "href": "http://eslint.org/docs/rules/no-unmodified-loop-condition",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-unused-expressions",
+    "default": "2",
+    "desc": "disallow usage of expressions in statement position",
+    "href": "http://eslint.org/docs/rules/no-unused-expressions",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-unused-labels",
+    "default": "2",
+    "desc": "disallow unused labels ",
+    "href": "http://eslint.org/docs/rules/no-unused-labels",
+    "collection": "best-practices",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-useless-call",
+    "default": "2",
+    "desc": "disallow unnecessary .call() and .apply()",
+    "href": "http://eslint.org/docs/rules/no-useless-call",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-useless-concat",
+    "default": "2",
+    "desc": "disallow unnecessary concatenation of literals or template literals",
+    "href": "http://eslint.org/docs/rules/no-useless-concat",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-void",
+    "default": "2",
+    "desc": "disallow use of the void operator",
+    "href": "http://eslint.org/docs/rules/no-void",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-warning-comments",
+    "default": "2",
+    "desc": "disallow usage of configurable warning terms in comments",
+    "href": "http://eslint.org/docs/rules/no-warning-comments",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-with",
+    "default": "2",
+    "desc": "disallow use of the with statement",
+    "href": "http://eslint.org/docs/rules/no-with",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "radix",
+    "default": "2",
+    "desc": "require use of the second argument for parseInt()",
+    "href": "http://eslint.org/docs/rules/radix",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "vars-on-top",
+    "default": "2",
+    "desc": "require declaration of all vars at the top of their containing scope",
+    "href": "http://eslint.org/docs/rules/vars-on-top",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "wrap-iife",
+    "default": "2",
+    "desc": "require immediate function invocation to be wrapped in parentheses",
+    "href": "http://eslint.org/docs/rules/wrap-iife",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "yoda",
+    "default": "2",
+    "desc": "require or disallow Yoda conditions",
+    "href": "http://eslint.org/docs/rules/yoda",
+    "collection": "best-practices",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "strict",
+    "default": "2",
+    "desc": "require effective use of strict mode directives",
+    "href": "http://eslint.org/docs/rules/strict",
+    "collection": "strict-mode",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "init-declarations",
+    "default": "2",
+    "desc": "enforce or disallow variable initializations at definition",
+    "href": "http://eslint.org/docs/rules/init-declarations",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-catch-shadow",
+    "default": "2",
+    "desc": "disallow the catch clause parameter name being the same as a variable in the outer scope",
+    "href": "http://eslint.org/docs/rules/no-catch-shadow",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-delete-var",
+    "default": "2",
+    "desc": "disallow deletion of variables ",
+    "href": "http://eslint.org/docs/rules/no-delete-var",
+    "collection": "variables",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-label-var",
+    "default": "2",
+    "desc": "disallow labels that share a name with a variable",
+    "href": "http://eslint.org/docs/rules/no-label-var",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-restricted-globals",
+    "default": "2",
+    "desc": "restrict usage of specified global variables",
+    "href": "http://eslint.org/docs/rules/no-restricted-globals",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-shadow",
+    "default": "2",
+    "desc": "disallow declaration of variables already declared in the outer scope",
+    "href": "http://eslint.org/docs/rules/no-shadow",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-shadow-restricted-names",
+    "default": "2",
+    "desc": "disallow shadowing of names such as arguments",
+    "href": "http://eslint.org/docs/rules/no-shadow-restricted-names",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-undef",
+    "default": "2",
+    "desc": "disallow use of undeclared variables unless mentioned in a /*global */ block ",
+    "href": "http://eslint.org/docs/rules/no-undef",
+    "collection": "variables",
+    "isRecommended": true,
+    "hasOptions": true
+  },
+  {
+    "id": "no-undef-init",
+    "default": "2",
+    "desc": "disallow use of undefined when initializing variables",
+    "href": "http://eslint.org/docs/rules/no-undef-init",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-undefined",
+    "default": "2",
+    "desc": "disallow use of undefined variable",
+    "href": "http://eslint.org/docs/rules/no-undefined",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-unused-vars",
+    "default": "2",
+    "desc": "disallow declaration of variables that are not used in the code ",
+    "href": "http://eslint.org/docs/rules/no-unused-vars",
+    "collection": "variables",
+    "isRecommended": true,
+    "hasOptions": true
+  },
+  {
+    "id": "no-use-before-define",
+    "default": "2",
+    "desc": "disallow use of variables before they are defined",
+    "href": "http://eslint.org/docs/rules/no-use-before-define",
+    "collection": "variables",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "callback-return",
+    "default": "2",
+    "desc": "enforce return after a callback",
+    "href": "http://eslint.org/docs/rules/callback-return",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "global-require",
+    "default": "2",
+    "desc": "enforce require() on top-level module scope",
+    "href": "http://eslint.org/docs/rules/global-require",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "handle-callback-err",
+    "default": "2",
+    "desc": "enforce error handling in callbacks",
+    "href": "http://eslint.org/docs/rules/handle-callback-err",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-mixed-requires",
+    "default": "2",
+    "desc": "disallow mixing regular variable and require declarations",
+    "href": "http://eslint.org/docs/rules/no-mixed-requires",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-new-require",
+    "default": "2",
+    "desc": "disallow use of new operator with the require function",
+    "href": "http://eslint.org/docs/rules/no-new-require",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-path-concat",
+    "default": "2",
+    "desc": "disallow string concatenation with __dirname and __filename",
+    "href": "http://eslint.org/docs/rules/no-path-concat",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-process-exit",
+    "default": "2",
+    "desc": "disallow process.exit()",
+    "href": "http://eslint.org/docs/rules/no-process-exit",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-restricted-imports",
+    "default": "2",
+    "desc": "restrict usage of specified node imports",
+    "href": "http://eslint.org/docs/rules/no-restricted-imports",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-restricted-modules",
+    "default": "2",
+    "desc": "restrict usage of specified node modules",
+    "href": "http://eslint.org/docs/rules/no-restricted-modules",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-sync",
+    "default": "2",
+    "desc": "disallow use of synchronous methods",
+    "href": "http://eslint.org/docs/rules/no-sync",
+    "collection": "node.js-and-commonjs",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "array-bracket-spacing",
+    "default": "2",
+    "desc": "enforce spacing inside array brackets ",
+    "href": "http://eslint.org/docs/rules/array-bracket-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "block-spacing",
+    "default": "2",
+    "desc": "disallow or enforce spaces inside of single line blocks ",
+    "href": "http://eslint.org/docs/rules/block-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "brace-style",
+    "default": "2",
+    "desc": "enforce one true brace style",
+    "href": "http://eslint.org/docs/rules/brace-style",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "camelcase",
+    "default": "2",
+    "desc": "require camel case names",
+    "href": "http://eslint.org/docs/rules/camelcase",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "comma-spacing",
+    "default": "2",
+    "desc": "enforce spacing before and after comma ",
+    "href": "http://eslint.org/docs/rules/comma-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "comma-style",
+    "default": "2",
+    "desc": "enforce one true comma style",
+    "href": "http://eslint.org/docs/rules/comma-style",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "computed-property-spacing",
+    "default": "2",
+    "desc": "require or disallow padding inside computed properties ",
+    "href": "http://eslint.org/docs/rules/computed-property-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "consistent-this",
+    "default": "2",
+    "desc": "enforce consistent naming when capturing the current execution context",
+    "href": "http://eslint.org/docs/rules/consistent-this",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "eol-last",
+    "default": "2",
+    "desc": "enforce newline at the end of file, with no multiple empty lines ",
+    "href": "http://eslint.org/docs/rules/eol-last",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "func-names",
+    "default": "2",
+    "desc": "require function expressions to have a name",
+    "href": "http://eslint.org/docs/rules/func-names",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "func-style",
+    "default": "2",
+    "desc": "enforce use of function declarations or expressions",
+    "href": "http://eslint.org/docs/rules/func-style",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "id-blacklist",
+    "default": "2",
+    "desc": "blacklist certain identifiers to prevent them being used",
+    "href": "http://eslint.org/docs/rules/id-blacklist",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "id-length",
+    "default": "2",
+    "desc": "this option enforces minimum and maximum identifier lengths (variable names, property names etc.)",
+    "href": "http://eslint.org/docs/rules/id-length",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "id-match",
+    "default": "2",
+    "desc": "require identifiers to match the provided regular expression",
+    "href": "http://eslint.org/docs/rules/id-match",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "indent",
+    "default": "2",
+    "desc": "specify tab or space width for your code ",
+    "href": "http://eslint.org/docs/rules/indent",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "jsx-quotes",
+    "default": "2",
+    "desc": "specify whether double or single quotes should be used in JSX attributes ",
+    "href": "http://eslint.org/docs/rules/jsx-quotes",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "key-spacing",
+    "default": "2",
+    "desc": "enforce spacing between keys and values in object literal properties",
+    "href": "http://eslint.org/docs/rules/key-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "keyword-spacing",
+    "default": "2",
+    "desc": "enforce spacing before and after keywords ",
+    "href": "http://eslint.org/docs/rules/keyword-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "linebreak-style",
+    "default": "2",
+    "desc": "disallow mixed ‘LF’ and ‘CRLF’ as linebreaks",
+    "href": "http://eslint.org/docs/rules/linebreak-style",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "lines-around-comment",
+    "default": "2",
+    "desc": "enforce empty lines around comments",
+    "href": "http://eslint.org/docs/rules/lines-around-comment",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "max-depth",
+    "default": "2",
+    "desc": "specify the maximum depth that blocks can be nested",
+    "href": "http://eslint.org/docs/rules/max-depth",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "max-len",
+    "default": "2",
+    "desc": "specify the maximum length of a line in your program",
+    "href": "http://eslint.org/docs/rules/max-len",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "max-nested-callbacks",
+    "default": "2",
+    "desc": "specify the maximum depth callbacks can be nested",
+    "href": "http://eslint.org/docs/rules/max-nested-callbacks",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "max-params",
+    "default": "2",
+    "desc": "limits the number of parameters that can be used in the function declaration",
+    "href": "http://eslint.org/docs/rules/max-params",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "max-statements",
+    "default": "2",
+    "desc": "specify the maximum number of statement allowed in a function",
+    "href": "http://eslint.org/docs/rules/max-statements",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "new-cap",
+    "default": "2",
+    "desc": "require a capital letter for constructors",
+    "href": "http://eslint.org/docs/rules/new-cap",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "new-parens",
+    "default": "2",
+    "desc": "disallow the omission of parentheses when invoking a constructor with no arguments",
+    "href": "http://eslint.org/docs/rules/new-parens",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "newline-after-var",
+    "default": "2",
+    "desc": "require or disallow an empty newline after variable declarations",
+    "href": "http://eslint.org/docs/rules/newline-after-var",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "newline-before-return",
+    "default": "2",
+    "desc": "require newline before return statement",
+    "href": "http://eslint.org/docs/rules/newline-before-return",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "newline-per-chained-call",
+    "default": "2",
+    "desc": "enforce newline after each call when chaining the calls",
+    "href": "http://eslint.org/docs/rules/newline-per-chained-call",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-array-constructor",
+    "default": "2",
+    "desc": "disallow use of the Array constructor",
+    "href": "http://eslint.org/docs/rules/no-array-constructor",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-bitwise",
+    "default": "2",
+    "desc": "disallow use of bitwise operators",
+    "href": "http://eslint.org/docs/rules/no-bitwise",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-continue",
+    "default": "2",
+    "desc": "disallow use of the continue statement",
+    "href": "http://eslint.org/docs/rules/no-continue",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-inline-comments",
+    "default": "2",
+    "desc": "disallow comments inline after code",
+    "href": "http://eslint.org/docs/rules/no-inline-comments",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-lonely-if",
+    "default": "2",
+    "desc": "disallow if as the only statement in an else block",
+    "href": "http://eslint.org/docs/rules/no-lonely-if",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-mixed-spaces-and-tabs",
+    "default": "2",
+    "desc": "disallow mixed spaces and tabs for indentation ",
+    "href": "http://eslint.org/docs/rules/no-mixed-spaces-and-tabs",
+    "collection": "stylistic-issues",
+    "isRecommended": true,
+    "hasOptions": true
+  },
+  {
+    "id": "no-multiple-empty-lines",
+    "default": "2",
+    "desc": "disallow multiple empty lines",
+    "href": "http://eslint.org/docs/rules/no-multiple-empty-lines",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-negated-condition",
+    "default": "2",
+    "desc": "disallow negated conditions",
+    "href": "http://eslint.org/docs/rules/no-negated-condition",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-nested-ternary",
+    "default": "2",
+    "desc": "disallow nested ternary expressions",
+    "href": "http://eslint.org/docs/rules/no-nested-ternary",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-new-object",
+    "default": "2",
+    "desc": "disallow the use of the Object constructor",
+    "href": "http://eslint.org/docs/rules/no-new-object",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-plusplus",
+    "default": "2",
+    "desc": "disallow use of unary operators, ++ and --",
+    "href": "http://eslint.org/docs/rules/no-plusplus",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-restricted-syntax",
+    "default": "2",
+    "desc": "disallow use of certain syntax in code",
+    "href": "http://eslint.org/docs/rules/no-restricted-syntax",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-spaced-func",
+    "default": "2",
+    "desc": "disallow space between function identifier and application ",
+    "href": "http://eslint.org/docs/rules/no-spaced-func",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-ternary",
+    "default": "2",
+    "desc": "disallow the use of ternary operators",
+    "href": "http://eslint.org/docs/rules/no-ternary",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-trailing-spaces",
+    "default": "2",
+    "desc": "disallow trailing whitespace at the end of lines ",
+    "href": "http://eslint.org/docs/rules/no-trailing-spaces",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-underscore-dangle",
+    "default": "2",
+    "desc": "disallow dangling underscores in identifiers",
+    "href": "http://eslint.org/docs/rules/no-underscore-dangle",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-unneeded-ternary",
+    "default": "2",
+    "desc": "disallow the use of ternary operators when a simpler alternative exists",
+    "href": "http://eslint.org/docs/rules/no-unneeded-ternary",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-whitespace-before-property",
+    "default": "2",
+    "desc": "disallow whitespace before properties",
+    "href": "http://eslint.org/docs/rules/no-whitespace-before-property",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "object-curly-spacing",
+    "default": "2",
+    "desc": "require or disallow padding inside curly braces ",
+    "href": "http://eslint.org/docs/rules/object-curly-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "one-var",
+    "default": "2",
+    "desc": "require or disallow one variable declaration per function",
+    "href": "http://eslint.org/docs/rules/one-var",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "one-var-declaration-per-line",
+    "default": "2",
+    "desc": "require or disallow an newline around variable declarations",
+    "href": "http://eslint.org/docs/rules/one-var-declaration-per-line",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "operator-assignment",
+    "default": "2",
+    "desc": "require assignment operator shorthand where possible or prohibit it entirely",
+    "href": "http://eslint.org/docs/rules/operator-assignment",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "operator-linebreak",
+    "default": "2",
+    "desc": "enforce operators to be placed before or after line breaks",
+    "href": "http://eslint.org/docs/rules/operator-linebreak",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "padded-blocks",
+    "default": "2",
+    "desc": "enforce padding within blocks",
+    "href": "http://eslint.org/docs/rules/padded-blocks",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "quote-props",
+    "default": "2",
+    "desc": "require quotes around object literal property names",
+    "href": "http://eslint.org/docs/rules/quote-props",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "quotes",
+    "default": "2",
+    "desc": "specify whether backticks, double or single quotes should be used ",
+    "href": "http://eslint.org/docs/rules/quotes",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "require-jsdoc",
+    "default": "2",
+    "desc": "Require JSDoc comment",
+    "href": "http://eslint.org/docs/rules/require-jsdoc",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "semi",
+    "default": "2",
+    "desc": "require or disallow use of semicolons instead of ASI ",
+    "href": "http://eslint.org/docs/rules/semi",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "semi-spacing",
+    "default": "2",
+    "desc": "enforce spacing before and after semicolons ",
+    "href": "http://eslint.org/docs/rules/semi-spacing",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "sort-imports",
+    "default": "2",
+    "desc": "sort import declarations within module",
+    "href": "http://eslint.org/docs/rules/sort-imports",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "sort-vars",
+    "default": "2",
+    "desc": "sort variables within the same declaration block",
+    "href": "http://eslint.org/docs/rules/sort-vars",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "space-before-blocks",
+    "default": "2",
+    "desc": "require or disallow a space before blocks ",
+    "href": "http://eslint.org/docs/rules/space-before-blocks",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "space-before-function-paren",
+    "default": "2",
+    "desc": "require or disallow a space before function opening parenthesis ",
+    "href": "http://eslint.org/docs/rules/space-before-function-paren",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "space-in-parens",
+    "default": "2",
+    "desc": "require or disallow spaces inside parentheses ",
+    "href": "http://eslint.org/docs/rules/space-in-parens",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "space-infix-ops",
+    "default": "2",
+    "desc": "require spaces around operators ",
+    "href": "http://eslint.org/docs/rules/space-infix-ops",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "space-unary-ops",
+    "default": "2",
+    "desc": "require or disallow spaces before/after unary operators ",
+    "href": "http://eslint.org/docs/rules/space-unary-ops",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "spaced-comment",
+    "default": "2",
+    "desc": "require or disallow a space immediately following the // or /* in a comment",
+    "href": "http://eslint.org/docs/rules/spaced-comment",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "wrap-regex",
+    "default": "2",
+    "desc": "require regex literals to be wrapped in parentheses",
+    "href": "http://eslint.org/docs/rules/wrap-regex",
+    "collection": "stylistic-issues",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "arrow-body-style",
+    "default": "2",
+    "desc": "require braces in arrow function body",
+    "href": "http://eslint.org/docs/rules/arrow-body-style",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "arrow-parens",
+    "default": "2",
+    "desc": "require parens in arrow function arguments",
+    "href": "http://eslint.org/docs/rules/arrow-parens",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "arrow-spacing",
+    "default": "2",
+    "desc": "require space before/after arrow function’s arrow ",
+    "href": "http://eslint.org/docs/rules/arrow-spacing",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "constructor-super",
+    "default": "2",
+    "desc": "verify calls of super() in constructors ",
+    "href": "http://eslint.org/docs/rules/constructor-super",
+    "collection": "ecmascript-6",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "generator-star-spacing",
+    "default": "2",
+    "desc": "enforce spacing around the * in generator functions ",
+    "href": "http://eslint.org/docs/rules/generator-star-spacing",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "no-class-assign",
+    "default": "2",
+    "desc": "disallow modifying variables of class declarations ",
+    "href": "http://eslint.org/docs/rules/no-class-assign",
+    "collection": "ecmascript-6",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-confusing-arrow",
+    "default": "2",
+    "desc": "disallow arrow functions where they could be confused with comparisons",
+    "href": "http://eslint.org/docs/rules/no-confusing-arrow",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-const-assign",
+    "default": "2",
+    "desc": "disallow modifying variables that are declared using const ",
+    "href": "http://eslint.org/docs/rules/no-const-assign",
+    "collection": "ecmascript-6",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-dupe-class-members",
+    "default": "2",
+    "desc": "disallow duplicate name in class members ",
+    "href": "http://eslint.org/docs/rules/no-dupe-class-members",
+    "collection": "ecmascript-6",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-new-symbol",
+    "default": "2",
+    "desc": "disallow use of the new operator with the Symbol object ",
+    "href": "http://eslint.org/docs/rules/no-new-symbol",
+    "collection": "ecmascript-6",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-this-before-super",
+    "default": "2",
+    "desc": "disallow use of this/super before calling super() in constructors ",
+    "href": "http://eslint.org/docs/rules/no-this-before-super",
+    "collection": "ecmascript-6",
+    "isRecommended": true,
+    "hasOptions": false
+  },
+  {
+    "id": "no-useless-constructor",
+    "default": "2",
+    "desc": "disallow unnecessary constructor",
+    "href": "http://eslint.org/docs/rules/no-useless-constructor",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "no-var",
+    "default": "2",
+    "desc": "require let or const instead of var",
+    "href": "http://eslint.org/docs/rules/no-var",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "object-shorthand",
+    "default": "2",
+    "desc": "require method and property shorthand syntax for object literals",
+    "href": "http://eslint.org/docs/rules/object-shorthand",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "prefer-arrow-callback",
+    "default": "2",
+    "desc": "suggest using arrow functions as callbacks",
+    "href": "http://eslint.org/docs/rules/prefer-arrow-callback",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "prefer-const",
+    "default": "2",
+    "desc": "suggest using const declaration for variables that are never modified after declared",
+    "href": "http://eslint.org/docs/rules/prefer-const",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "prefer-reflect",
+    "default": "2",
+    "desc": "suggest using Reflect methods where applicable",
+    "href": "http://eslint.org/docs/rules/prefer-reflect",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": true
+  },
+  {
+    "id": "prefer-rest-params",
+    "default": "2",
+    "desc": "suggest using the rest parameters instead of arguments",
+    "href": "http://eslint.org/docs/rules/prefer-rest-params",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "prefer-spread",
+    "default": "2",
+    "desc": "suggest using the spread operator instead of .apply()",
+    "href": "http://eslint.org/docs/rules/prefer-spread",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "prefer-template",
+    "default": "2",
+    "desc": "suggest using template literals instead of strings concatenation",
+    "href": "http://eslint.org/docs/rules/prefer-template",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "require-yield",
+    "default": "2",
+    "desc": "disallow generator functions that do not have yield",
+    "href": "http://eslint.org/docs/rules/require-yield",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "template-curly-spacing",
+    "default": "2",
+    "desc": "enforce spacing around embedded expressions of template strings ",
+    "href": "http://eslint.org/docs/rules/template-curly-spacing",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  },
+  {
+    "id": "yield-star-spacing",
+    "default": "2",
+    "desc": "enforce spacing around the * in yield* expressions ",
+    "href": "http://eslint.org/docs/rules/yield-star-spacing",
+    "collection": "ecmascript-6",
+    "isRecommended": false,
+    "hasOptions": false
+  }
+]
