@@ -112,6 +112,35 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
     $rootScope.disableCSS = false;
     // 禁用JS检测的标记
     $rootScope.disableJS = false;
+    $scope.jsonConfig = '{}';
+    /* 假数据S */
+    var mockData = {
+        "html":{
+            "rules":{
+                "id-name-unique":false,"style-disabled":true,"inline-style-disabled":true,"doctype-first": false,"title-tag-require": false,"tagname-lowercase": true,"tag-pair": true,"attr-lowercase": false,"spec-char-escape": false
+            }
+        },
+        "css":{
+            "rules":{
+                "a-line-of-decl": {"level": 1},"after-colon": {"level": 1},"attribute-selector": {"level": 2},"before-colon": {"level": 1},"color-abbr": {"level": 1},"content-double-quotation": {"level": 1},"decl-comma": {"level": 1,"followedComma": " "},"decl-end-of-semicolon": {"level": 1},"disallow-import": {"level": 1},"disallow-named-color": {"level": 1},"disallow-quotes-in-url": {"level": 1},"disallow-use-expression": {"level": 1},"vendor-prefixes-sort": {"level": 1}
+            }
+        },
+        "js":{
+            "extends":"eslint:recommended",
+            "rules": {
+                "no-undef":2,"no-func-assign":0,"no-unexpected-multiline":2,"no-multi-str":[2],"no-sequences":[2],"no-unused-expressions":[2],"no-delete-var":[2],"no-undefined":[2],"no-unused-vars":[2],"no-use-before-define":[2,"nofunc"]
+            }
+        }
+    };
+    /* 假数据E */
+
+    $scope.downloadConfigHandler = function (evt) {
+        var json = mockData,
+            el = angular.element(evt.target);
+        var content = ['data:text/json;charset=utf-8,'];
+        content.push(encodeURIComponent(JSON.stringify(json, null, 2)));
+        el.attr('href',content.join(''));
+    }
 }]);
 app.controller('htmlConfigCtrl', ['$scope','$rootScope','rulesServices',function ($scope,$rootScope,rulesServices) {
     $scope.selectAll = false;

@@ -204,6 +204,28 @@ $desc_font_size:25px;
     height: 32px;
     cursor: pointer;
 }
+
+#download a{
+    display: inline-block;
+    position: fixed;
+    padding: 10px 20px;
+    color: #000;
+    right: 100px;
+    text-decoration: none;
+    bottom: 20px;
+    background: #fff;
+    border: 1px solid #fff;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 15px;
+    &:hover{
+        color: #fff;
+        background-color: rgb(1,116,162);
+        border-color:rgb(1,116,162);
+    }
+}
+
 $checks_width:20px;
 $checks_color:#23b7e5;
 .i-checks{

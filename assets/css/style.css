@@ -174,6 +174,25 @@ body {
   height: 32px;
   cursor: pointer; }
 
+#download a {
+  display: inline-block;
+  position: fixed;
+  padding: 10px 20px;
+  color: #000;
+  right: 100px;
+  text-decoration: none;
+  bottom: 20px;
+  background: #fff;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 15px; }
+  #download a:hover {
+    color: #fff;
+    background-color: #0174a2;
+    border-color: #0174a2; }
+
 .i-checks {
   padding-left: 20px;
   cursor: pointer;

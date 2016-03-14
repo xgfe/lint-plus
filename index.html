@@ -132,7 +132,7 @@
             </div>
         </div>
     </div>
-    <div id="js_config" class="section" ng-controller="jsConfigCtrl">
+    <div id="js_config" style="display: none;" class="section" ng-controller="jsConfigCtrl">
         <div class="js-desc tool-desc">
             <h1>JS规则配置 <span class="fold" fold></span></h1>
             <section>
@@ -166,6 +166,9 @@
             </div>
         </div>
     </div>
+</div>
+<div id="download">
+    <a ng-show="showForkme" download="lintrc" title="点击下载配置文件" ng-click="downloadConfigHandler($event)">下载配置文件</a>
 </div>
 <div title="Top" scroll-top class="scroll-top" style="display: none;"></div>
 <script src="lib/jquery/jquery.min.js"></script>
