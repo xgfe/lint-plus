@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html{
     font-family: arial,helvetica;
 }
@@ -198,7 +199,7 @@ $desc_font_size:25px;
 .scroll-top{
     position: fixed;
     right: 40px;
-    bottom: 40px;
+    bottom: 24px;
     background: url(../image/top.png) no-repeat;
     width: 32px;
     height: 32px;
@@ -212,7 +213,7 @@ $desc_font_size:25px;
     color: #000;
     right: 100px;
     text-decoration: none;
-    bottom: 20px;
+    bottom: 17px;
     background: #fff;
     border: 1px solid #fff;
     outline: none;
@@ -226,6 +227,25 @@ $desc_font_size:25px;
     }
 }
 
+//.make-config{
+//    position: fixed;
+//    right: 140px;
+//    bottom: 20px;
+//    cursor: pointer;
+//    a.reset{
+//        padding: 5px 10px;
+//        background: #fff;
+//        border: 1px solid #fff;
+//        outline: none;
+//        cursor: pointer;
+//        border-radius: 4px;
+//        font-size: 15px;
+//        &:hover{
+//            color: #fff;
+//            background-color: transparent;
+//        }
+//    }
+//}
 $checks_width:20px;
 $checks_color:#23b7e5;
 .i-checks{

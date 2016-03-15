@@ -57,7 +57,7 @@
                 <ul>
                     <li ng-repeat="rule in htmlRules track by $index" class="rules-item" ng-if="rule.collection === collection.className">
                         <label class="i-checks">
-                            <input type="checkbox" ng-model="rule.enable" ng-disabled="disableHTML">
+                            <input type="checkbox" ng-model="rule.enable" ng-disabled="disableStatus.disableHTML">
                             <i></i>
                             <a target="_blank" title="点击查看详情" ng-href="{{rule.href}}">{{rule.id}}</a>:
                             <span class="rule-desc">{{rule.desc}}</span>
@@ -75,14 +75,14 @@
             </div>
             <div class="config-footer">
                 <label class="i-checks">
-                    <input type="checkbox" ng-model="disableHTML">
+                    <input type="checkbox" ng-model="disableStatus.disableHTML">
                     <i></i>禁用HTML检查
                 </label>
                 <label class="i-checks">
-                    <input ng-disabled="disableHTML" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
+                    <input ng-disabled="disableStatus.disableHTML" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
                     <i></i>全选
                 </label>
-                <button ng-disabled="disableHTML" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
+                <button ng-disabled="disableStatus.disableHTML" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
             </div>
         </div>
     </div>
@@ -99,7 +99,7 @@
                 <ul>
                     <li ng-repeat="rule in cssRules" class="rules-item" ng-if="rule.collection === collection.className">
                         <label class="i-checks">
-                            <input type="checkbox" ng-model="rule.enable" ng-disabled="disableCSS"><i></i>
+                            <input type="checkbox" ng-model="rule.enable" ng-disabled="disableStatus.disableCSS"><i></i>
                             <a target="_blank" title="点击查看详情" ng-href="{{rule.href}}">{{rule.id}}</a>:
                             <span class="rule-desc">{{rule.desc}}</span>
                         </label>
@@ -121,18 +121,18 @@
             </div>
             <div class="config-footer">
                 <label class="i-checks">
-                    <input type="checkbox" ng-model="disableCSS">
+                    <input type="checkbox" ng-model="disableStatus.disableCSS">
                     <i></i>禁用CSS检查工具
                 </label>
                 <label class="i-checks">
-                    <input ng-disabled="disableCSS" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
+                    <input ng-disabled="disableStatus.disableCSS" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
                     <i></i>全选
                 </label>
-                <button ng-disabled="disableCSS" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
+                <button ng-disabled="disableStatus.disableCSS" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
             </div>
         </div>
     </div>
-    <div id="js_config" style="display: none;" class="section" ng-controller="jsConfigCtrl">
+    <div id="js_config" class="section" ng-controller="jsConfigCtrl">
         <div class="js-desc tool-desc">
             <h1>JS规则配置 <span class="fold" fold></span></h1>
             <section>
@@ -146,7 +146,7 @@
                 <ul>
                     <li ng-repeat="rule in jsRules" class="rules-item" ng-if="rule.collection === collection.className">
                         <label class="i-checks">
-                            <input type="checkbox" ng-model="rule.enable" ng-disabled="disableJS"><i></i>
+                            <input type="checkbox" ng-model="rule.enable" ng-disabled="disableStatus.disableJS"><i></i>
                             <a target="_blank" title="点击查看详情" ng-href="{{rule.href}}">{{rule.id}}</a>:
                             <span class="rule-desc">{{rule.desc}}</span>
                         </label>
@@ -155,22 +155,30 @@
             </div>
             <div class="config-footer">
                 <label class="i-checks">
-                    <input type="checkbox" ng-model="disableJS">
+                    <input type="checkbox" ng-model="disableStatus.disableJS">
                     <i></i>禁用JS检查工具
                 </label>
                 <label class="i-checks">
-                    <input ng-disabled="disableJS" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
+                    <input ng-disabled="disableStatus.disableJS" ng-change="selectAllHandler()" type="checkbox" ng-model="selectAll">
                     <i></i>全选
                 </label>
-                <button ng-disabled="disableJS" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
+                <label class="i-checks">
+                    <input ng-disabled="disableStatus.disableJS" ng-change="selectRecommendedHandler()" type="checkbox" ng-model="selectRecommended">
+                    <i></i>启用推荐配置
+                </label>
+                <button ng-disabled="disableStatus.disableJS" type="button" title="恢复默认配置" class="reset" ng-click="resetToDefault()">恢复默认</button>
             </div>
         </div>
     </div>
 </div>
-<div id="download">
-    <a ng-show="showForkme" download="lintrc" title="点击下载配置文件" ng-click="downloadConfigHandler($event)">下载配置文件</a>
-</div>
+<!--<div id="download">-->
+    <!--<a ng-show="showForkme" download="lintrc" title="点击下载配置文件" ng-click="downloadConfigHandler($event)">下载配置文件</a>-->
+<!--</div>-->
 <div title="Top" scroll-top class="scroll-top" style="display: none;"></div>
+<div id="download">
+    <a ng-click="makeConfig($event)" download="lintrc"  title="点击下载配置文件"class="reset">生成配置文件</a>
+</div>
+
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>
 <script src="assets/js/main.js"></script>
