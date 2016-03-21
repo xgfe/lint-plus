@@ -215,14 +215,12 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
             "css": cssConfig,
             "js": jsConfig
         }
-        //console.log(lintConfig);
-        //$scope.downloadConfigHandler = function (evt) {
+
         var json = lintConfig,
             el = angular.element(evt.target);
         var content = ['data:text/json;charset=utf-8,'];
         content.push(encodeURIComponent(JSON.stringify(json, null, 2)));
         el.attr('href', content.join(''));
-        //}
 
     }
 
