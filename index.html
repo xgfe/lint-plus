@@ -171,13 +171,11 @@
         </div>
     </div>
 </div>
-<!--<div id="download">-->
-    <!--<a ng-show="showForkme" download="lintrc" title="点击下载配置文件" ng-click="downloadConfigHandler($event)">下载配置文件</a>-->
-<!--</div>-->
-<div title="Top" scroll-top class="scroll-top" style="display: none;"></div>
 <div id="download">
-    <a ng-click="makeConfig($event)" download="lintrc"  title="点击下载配置文件"class="reset">生成配置文件</a>
+    <a ng-show="showForkme" download="lintrc" title="点击下载配置文件"
+       ng-click="downloadConfigHandler($event)">下载配置文件</a>
 </div>
+<div title="Top" scroll-top class="scroll-top" style="display: none;"></div>
 
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>

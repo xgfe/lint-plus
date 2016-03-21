@@ -117,28 +117,27 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
     // 启用JS推荐配置的标记
     $rootScope.jsRecommended = false;
 
-    $rootScope.makeConfig = function (evt) {
+    $rootScope.downloadConfigHandler = function (evt) {
         var lintConfig = {},
             tempRules = {},
             htmlConfig = {
                 "suffix": ['html']
             },
             cssConfig = {
-                "suffix": 'css',
-                "ignore": [],
+                "suffix": 'css'
             },
             jsConfig = {
                 "suffix": ['js', 'es', 'es6'],
-                "ignore": [],
                 "env": {
                     "node": true,
-                    "mocha": true
+                    "browser": true
                 },
                 "globals": {
                     "angular": true,
                     "jQuery": true,
                     "define": true,
-                    "require": true
+                    "require": true,
+                    "$":true
                 }
             };
         // htmlConfig生成
@@ -150,10 +149,8 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
                 if (rule.default) {
                     if (!rule.enable) {
                         tempRules[rule.id] = false;
-                    } else {
-                        if (rule.id == 'attr-value-quotes' && rule.selected == 'single') {
-                            tempRules[rule.id] = 'single';
-                        }
+                    } else if(rule.id == 'attr-value-quotes' && rule.selected == 'single'){
+                        tempRules[rule.id] = 'single';
                     }
                 } else {
                     if (rule.enable) {
@@ -163,7 +160,7 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
                         }
                     }
                 }
-            })
+            });
             htmlConfig.rules = tempRules;
         }
 
@@ -177,7 +174,7 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
                 if (!rule.enable) {
                     tempRules[rule.id] = {'level': 0};
                 }
-            })
+            });
             cssConfig.rules = tempRules;
         }
 
@@ -205,7 +202,7 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
                         tempRules[rule.id] = rule.hasOptions ? [2] : 2;
                     }
                 }
-            })
+            });
             jsConfig.rules = tempRules;
         }
 
@@ -214,14 +211,12 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
             "html": htmlConfig,
             "css": cssConfig,
             "js": jsConfig
-        }
+        };
 
-        var json = lintConfig,
-            el = angular.element(evt.target);
+        var el = angular.element(evt.target);
         var content = ['data:text/json;charset=utf-8,'];
-        content.push(encodeURIComponent(JSON.stringify(json, null, 2)));
+        content.push(encodeURIComponent(JSON.stringify(lintConfig, null, 2)));
         el.attr('href', content.join(''));
-
     }
 
 }]);
