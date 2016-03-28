@@ -15,7 +15,7 @@ function getOptions(argv){
         }
     );
 
-    var commands = fs.readdirSync('cli').map(function (file) {
+    var commands = fs.readdirSync(__dirname).map(function (file) {
         if(file !== 'index.js'){
             return file.split('.')[0];
         }
