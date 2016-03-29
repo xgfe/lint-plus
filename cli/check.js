@@ -4,7 +4,7 @@ var _ = require('../lib/util');
 var jsChecker = require('../lib/js/checker');
 var htmlChecker = require('../lib/html/checker');
 var cssChecker = require('../lib/css/checker');
-var reporter = require('../lib/reporter');
+var reporter = require('../lib/reporter').createNew('check');
 /**
  * 命令行执行
  * @param options
@@ -14,9 +14,9 @@ exports.run = function (options) {
     var src = _.budildPattern(options);
     console.time(pkg.name);
     vfs.src(src,{cwdbase: true, allowEmpty: true})
-        .pipe(jsChecker.exec(options))
-        .pipe(htmlChecker.exec(options))
-        .pipe(cssChecker.exec(options))
+        .pipe(jsChecker.exec(options,reporter))
+        .pipe(htmlChecker.exec(options,reporter))
+        .pipe(cssChecker.exec(options,reporter))
         .pipe(reporter.showMessages(true))
         .once('done', function (success) {
             console.timeEnd(pkg.name);
@@ -40,9 +40,9 @@ exports.verify = function (options,done) {
         done = function () {};
     }
     vfs.src(src,{cwdbase: true, allowEmpty: true})
-        .pipe(jsChecker.exec(options))
-        .pipe(htmlChecker.exec(options))
-        .pipe(cssChecker.exec(options))
+        .pipe(jsChecker.exec(options,reporter))
+        .pipe(htmlChecker.exec(options,reporter))
+        .pipe(cssChecker.exec(options,reporter))
         .pipe(reporter.showMessages())
         .once('done', done);
 };

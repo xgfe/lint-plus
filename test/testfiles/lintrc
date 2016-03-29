@@ -1,0 +1,15 @@
+{
+    "html":{
+        "suffix":["html"],
+        "rules":{
+          "inline-style-disabled":true
+        }
+    },
+    "css":{
+        "suffix": "css"
+    },
+    "js":{
+        "suffix":["js","es","es6"],
+        "extends":["eslint:recommended","./eslint2.json"]
+    }
+}
