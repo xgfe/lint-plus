@@ -6,7 +6,12 @@
         }
     },
     "css":{
-        "suffix": "css"
+        "suffix": "css",
+        "rules":{
+            "a-line-of-decl":{
+                "level":0
+            }
+        }
     },
     "js":{
         "suffix":["js","es","es6"],
