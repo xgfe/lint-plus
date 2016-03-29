@@ -7,14 +7,10 @@
     },
     "css":{
         "suffix": "css",
-        "rules":{
-            "a-line-of-decl":{
-                "level":0
-            }
-        }
+        "extends":"./extends.json"
     },
     "js":{
         "suffix":["js","es","es6"],
-        "extends":["eslint:recommended","./eslint2.json"]
+        "extends":["eslint:recommended"]
     }
 }

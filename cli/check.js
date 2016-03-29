@@ -39,10 +39,12 @@ exports.verify = function (options,done) {
     if(!done || typeof done !== 'function'){
         done = function () {};
     }
-    vfs.src(src,{cwdbase: true, allowEmpty: true})
-        .pipe(jsChecker.exec(options,reporter))
-        .pipe(htmlChecker.exec(options,reporter))
-        .pipe(cssChecker.exec(options,reporter))
+    var stream = vfs.src(src,{cwdbase: true, allowEmpty: true});
+
+    stream.pipe(jsChecker.exec(options,reporter,stream))
+        .pipe(htmlChecker.exec(options,reporter,stream))
+        .pipe(cssChecker.exec(options,reporter,stream))
         .pipe(reporter.showMessages())
-        .once('done', done);
+        .on('done', done);
+    return stream;
 };

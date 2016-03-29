@@ -27,7 +27,7 @@ describe('css checker', function () {
             .pipe(reporter.showMessages())
             .on('done', function (success,messages,errorCount,errorFileCount,totalFileCount) {
                 expect(success).to.be(false);
-                expect(errorCount).to.be(7);
+                expect(errorCount).to.be(5);
                 expect(errorFileCount).to.be(1);
                 expect(totalFileCount).to.be(1);
                 msg = messages;
@@ -36,9 +36,8 @@ describe('css checker', function () {
                 var messages = reporter.getMessages();
                 expect(messages).to.eql(msg);
 
-                var config = fs.readFileSync(configpath,'utf8');
-                var cssConfig = JSON.parse(config).css; // config file
-                expect(cssChecker.config).to.eql(cssConfig);
+                var extendConfig = require('../testfiles/extends.json').rules;
+                expect(cssChecker.config.rules).to.eql(extendConfig);
                 done();
             });
     });

@@ -52,7 +52,12 @@ function done (success,json,errors,errorFile,totalFile){
     totalFile, totalFile > 1 ? 's' : ''
   );
 }
-linter.check(files,done);
+var stream = linter.check(files,done);
+stream.on('lint',function(filepath,messages){
+  console.log('file path is %s',filepath);
+  console.log('messages in this files are as below:');
+  console.log(messages);
+});
 // or
 var options = {
   _:["test.html","test.js"],

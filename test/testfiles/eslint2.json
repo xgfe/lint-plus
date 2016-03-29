@@ -1,9 +1,0 @@
-{
-  "parser": "espree",
-  "ecmaFeatures": {
-
-  },
-  "env":{
-    "mocha":true
-  }
-}
