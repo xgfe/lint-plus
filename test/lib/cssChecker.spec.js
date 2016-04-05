@@ -8,7 +8,6 @@ var expect = require("expect.js");
 var cssChecker = require('../../lib/css/checker');
 var reporter = require('../../lib/reporter').createNew();
 var path = require('path');
-var fs = require('fs');
 var vfs = require('vinyl-fs');
 
 
@@ -18,7 +17,6 @@ describe('css checker', function () {
         config:'test/testfiles/lintrc'
     };
     var filepath = path.resolve(__dirname,'..','..',options._);
-    var configpath = path.resolve(__dirname,'..','..',options.config);
 
     it('should get messages and config', function (done) {
         var msg;

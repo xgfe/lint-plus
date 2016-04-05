@@ -28,8 +28,9 @@ var linter = require('linter-plus');
 ```
 #### API Reference
 
+##### async func
+
 ```
-var files = ["test.html","test.js"];
 function done (success,json,errors,errorFile,totalFile){
   console.log('isSuccess: %s',success);
   var messages;
@@ -52,18 +53,16 @@ function done (success,json,errors,errorFile,totalFile){
     totalFile, totalFile > 1 ? 's' : ''
   );
 }
-var stream = linter.check(files,done);
-stream.on('lint',function(filepath,messages){
-  console.log('file path is %s',filepath);
-  console.log('messages in this files are as below:');
-  console.log(messages);
-});
-// or
 var options = {
   _:["test.html","test.js"],
   config:'path/to/my/config_file'
 };
 linter.check(options,done);
+```
+##### sync func
+
+```
+var messages = linter.checkSync(["test.html","test.js"]);
 ```
 ## Config File Template
 default to read `.lintrc` file.

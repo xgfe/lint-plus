@@ -30,27 +30,28 @@
 	```
    /**
      * 对单个文件执行检查的具体实现
-     * @param contents {string} - 被检查的文件内容
-     * @param filePath {string} - 被检查的文件路径
+     * @param file {object} - 被检查的文件对象
      */
-   checker.check = function (contents, filePath) {
+   checker.check = function (file) {
+     var contents = file.contents.toString(); 
      var config = this.config;
      /*
        your code here
        获取配置，调用工具相应的API执行校验,如下
       */
-     var message = foo.verify(config);
+     var message = foo.verify(contents,config);
      // 将检验的结果传入reporter，一般检测结果都是数组
-     messages.forEach(function (message) {
-       reporter.report(filePath,{
+     var formatMessages = messages.map(function (message) {
+       return {
          type:'foo',  // 检验类型
          severity:message.severity, // 警示级别，1-warn，2-error，3-info
          line:message.line,   // 出现错误的行数
          col:message.column,  // 出现错误的列数
          message:message.message,   // 错误信息
          rule:message.ruleId   // 命中的规则
-       });
+       };
      });
+     return formatMessages; // 返回经过格式化的内容
    };
 	```	
 6. 导出checker对象
@@ -85,4 +86,4 @@ exports.run = function (options) {
   /* your code here */
 };
 ```
-如果需要以npm包的形式使用该命令，需要实现verify方法。
+如果需要以npm包的形式使用该命令，需要实现verify或verifySync方法。

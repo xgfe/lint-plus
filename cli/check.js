@@ -4,7 +4,7 @@ var _ = require('../lib/util');
 var jsChecker = require('../lib/js/checker');
 var htmlChecker = require('../lib/html/checker');
 var cssChecker = require('../lib/css/checker');
-var reporter = require('../lib/reporter').createNew('check');
+var Reporter = require('../lib/reporter');
 /**
  * 命令行执行
  * @param options
@@ -12,6 +12,7 @@ var reporter = require('../lib/reporter').createNew('check');
 exports.run = function (options) {
     options = options || {};
     var src = _.budildPattern(options);
+    var reporter = Reporter.createNew('check');
     console.time(pkg.name);
     vfs.src(src,{cwdbase: true, allowEmpty: true})
         .pipe(jsChecker.exec(options,reporter))
@@ -41,10 +42,28 @@ exports.verify = function (options,done) {
     }
     var stream = vfs.src(src,{cwdbase: true, allowEmpty: true});
 
+    var reporter = Reporter.createNew('verify');
+
     stream.pipe(jsChecker.exec(options,reporter,stream))
         .pipe(htmlChecker.exec(options,reporter,stream))
         .pipe(cssChecker.exec(options,reporter,stream))
         .pipe(reporter.showMessages())
         .on('done', done);
     return stream;
+};
+/**
+ * 用于作为外部npm包引用的同步方法
+ * @param options
+ */
+exports.verifySync = function (options) {
+    options = options || {};
+    var src = _.budildPattern(options);
+    var filepaths = _.getFilesByGlob(src);
+    var reporter = Reporter.createNew('verifySync');
+    filepaths.forEach(function (path) {
+        htmlChecker.execSync(path,options,reporter);
+        cssChecker.execSync(path,options,reporter);
+        jsChecker.execSync(path,options,reporter);
+    });
+    return reporter.getMessages() || {};
 };

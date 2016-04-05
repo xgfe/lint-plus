@@ -19,4 +19,14 @@ describe('check cli', function () {
             done();
         });
     });
+    it('test verifySync fn in check command', function (done) {
+        var verifySync = check.verifySync;
+        var options = {
+            _: [ 'test/testfiles/files/' ],
+            config: 'test/testfiles/lintrc'
+        };
+        var messages = verifySync(options);
+        expect(messages).to.not.be.empty();
+        done();
+    });
 });

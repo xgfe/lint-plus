@@ -31,10 +31,10 @@ describe('checker', function () {
 
     it('implement check and getConfig method', function (done) {
         checker = new Checker();
-        checker.check = function (contents, filePath) {
+        checker.check = function (file) {
             checker.foo = {
-                contents: contents,
-                filePath: filePath
+                contents: file.contents.toString(),
+                filePath: file.path
             }
         };
         var config = {

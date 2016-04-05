@@ -7,8 +7,7 @@
 var expect = require("expect.js");
 var _ = require('../lib/util');
 var fs = require('fs');
-var glob = require('glob');
-
+var path = require('path');
 
 describe('util function', function () {
     var options = {
@@ -66,13 +65,13 @@ describe('util function', function () {
 
         // build by string
         ignore = 'test/testfiles/**/*.js';
-        files = _.getIgnoreFiles(ignore);
+        files = _.getFilesByGlob(ignore);
         expect(files).to.eql(['test/testfiles/files/test.js']);
     });
 
     it('budild pattern', function () {
         var pattern = _.budildPattern(options);
-        var files = _.getIgnoreFiles(pattern);
+        var files = _.getFilesByGlob(pattern);
         var subpath = options._[0];
         var paths = fs.readdirSync(rootPath+subpath).map(function (filename) {
             return subpath+'/'+filename;
@@ -133,5 +132,14 @@ describe('util function', function () {
     });
 
     // mergeExtends和load 方法还没有好的测试方案,delay
+    it('create file', function () {
+        var subpath = 'test/testfiles/lintrc';
+        var filepath  =path.resolve(process.cwd(),subpath)
+        var file = _.createFile(subpath);
 
+        expect(file.cwd).to.be(path.dirname(filepath));
+        expect(file.path).to.be(filepath);
+        expect(file.contents).to.be(fs.readFileSync(filepath,'utf8').toString());
+        expect(file.isNull()).to.be(false);
+    });
 });
