@@ -57,7 +57,12 @@ var options = {
   _:["test.html","test.js"],
   config:'path/to/my/config_file'
 };
-linter.check(options,done);
+var stream = linter.check(options,done);
+stream.on('lint',function(filepath,messages){
+  console.log('file path is %s',filepath);
+  console.log('messages in this files are as below:');
+  console.log(messages);
+});
 ```
 ##### sync func
 
