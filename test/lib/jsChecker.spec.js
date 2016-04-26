@@ -25,9 +25,10 @@ describe('js checker', function () {
         vfs.src(filepath)
             .pipe(jsChecker.exec(options,reporter))
             .pipe(reporter.showMessages())
-            .on('done', function (success,messages,errorCount,errorFileCount,totalFileCount) {
+            .on('done', function (success,messages,errorCount,warningCount,errorFileCount,totalFileCount) {
                 expect(success).to.be(false);
-                expect(errorCount).to.be(2);
+                expect(errorCount).to.be(1);
+                expect(warningCount).to.be(1);
                 expect(errorFileCount).to.be(1);
                 expect(totalFileCount).to.be(1);
                 msg = messages;
@@ -39,6 +40,7 @@ describe('js checker', function () {
                 var config = fs.readFileSync(configpath,'utf8');
                 var jsConfig = JSON.parse(config).js; // config file
                 var eslintConfig = require('../../conf/eslint.json').rules;
+                eslintConfig['no-console'] = 1; // 覆盖规则
                 expect(jsChecker.config.rules).to.eql(eslintConfig); // extends eslint rules
                 expect(jsChecker.config.suffix).to.eql(jsConfig.suffix); // own suffix
                 done();

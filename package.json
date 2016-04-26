@@ -1,6 +1,6 @@
 {
   "name": "lint-plus",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "The combination of all the lint tools",
   "main": "index.js",
   "bin": {

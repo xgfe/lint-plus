@@ -23,9 +23,10 @@ describe('css checker', function () {
         vfs.src(filepath)
             .pipe(cssChecker.exec(options,reporter))
             .pipe(reporter.showMessages())
-            .on('done', function (success,messages,errorCount,errorFileCount,totalFileCount) {
+            .on('done', function (success,messages,errorCount,warningCount,errorFileCount,totalFileCount) {
                 expect(success).to.be(false);
                 expect(errorCount).to.be(5);
+                expect(warningCount).to.be(0);
                 expect(errorFileCount).to.be(1);
                 expect(totalFileCount).to.be(1);
                 msg = messages;

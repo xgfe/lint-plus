@@ -11,6 +11,9 @@
     },
     "js":{
         "suffix":["js","es","es6"],
-        "extends":["eslint:recommended"]
+        "extends":["eslint:recommended"],
+        "rules":{
+            "no-console":1
+        }
     }
 }

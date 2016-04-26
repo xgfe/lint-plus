@@ -25,9 +25,10 @@ describe('html checker', function () {
         vfs.src(filepath)
             .pipe(htmlChecker.exec(options,reporter))
             .pipe(reporter.showMessages())
-            .on('done', function (success,messages,errorCount,errorFileCount,totalFileCount) {
+            .on('done', function (success,messages,errorCount,warningCount,errorFileCount,totalFileCount) {
                 expect(success).to.be(false);
                 expect(errorCount).to.be(2);
+                expect(warningCount).to.be(0);
                 expect(errorFileCount).to.be(1);
                 expect(totalFileCount).to.be(1);
                 msg = messages;

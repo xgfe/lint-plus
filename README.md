@@ -31,7 +31,7 @@ var linter = require('linter-plus');
 ##### async func
 
 ```
-function done (success,json,errors,errorFile,totalFile){
+function done (success,json,errors,warnings,errorFile,totalFile){
   console.log('isSuccess: %s',success);
   var messages;
   for(var i in json){
@@ -46,9 +46,11 @@ function done (success,json,errors,errorFile,totalFile){
       console.log('rule: %s',message.rule);
     });
   }
-  console.log('Found %s problem%s in %s of %s file%s.',
+  console.log('Found %s error%s,%s warning%s in %s of %s file%s.',
     errors,
     errors > 1 ? 's' : '',
+    warnings,
+    warnings > 1 ? 's' : '',
     errorFile,
     totalFile, totalFile > 1 ? 's' : ''
   );
