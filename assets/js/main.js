@@ -92,6 +92,8 @@ app.directive('fold', function () {
         }
     }
 });
+// 读取文件内容的指令
+// <tag read-file="readFileHandler($file)"></tag>
 app.directive('readFile', ['$document',function ($document) {
     return {
         restrict:'A',
@@ -99,7 +101,7 @@ app.directive('readFile', ['$document',function ($document) {
             readFile:'&'
         },
         link: function (scope,element,attrs) {
-            var input = angular.element('<input type="file" style="display: none;">')
+            var input = angular.element('<input type="file" style="display: none;">');
             input.on('change', function (evt) {
                 readBlob(evt.target.files);
             });
@@ -342,6 +344,7 @@ app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$ro
             }
         }
     }
+    // 判断一个eslint的配置是否是启用的
     function eslintRuleIsEnable(rule){
         var arr = [1,2,'warn','error'];
         if(angular.isArray(rule) && rule.length > 0){
@@ -352,6 +355,7 @@ app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$ro
         }
         return false;
     }
+    // 判断对象是否是{}
     function isEmptyObject(obj){
         var i = 0,key;
         for(key in obj){
@@ -359,7 +363,7 @@ app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$ro
         }
         return !i;
     }
-
+    // 读取文件,预览配置内容并进行解析
     $scope.readFileHandler = function (content) {
         var config = {};
         try{
