@@ -83,6 +83,7 @@ $desc_font_size:25px;
     text-indent: $desc_font_size * 2;
     h1{
         font-size: $desc_h1;
+        margin:0;
     }
     section{
         line-height: $desc_line_height;

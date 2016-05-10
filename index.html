@@ -33,6 +33,7 @@
             <div class="button-group">
                 <a class="view-button" href="http://github.com/xgfe/lint-plus">Code on Github</a>
                 <a class="build-button" href="#html_config">Build Config</a>
+                <a class="build-button" href="javascript:;" read-file="readFileHandler($file.content)">Parse Config</a>
             </div>
             <h3 class="thanks">
                 Thanks:
@@ -176,9 +177,32 @@
        ng-click="downloadConfigHandler($event)">下载配置文件</a>
 </div>
 <div title="Top" scroll-top class="scroll-top" style="display: none;"></div>
-
+<script type="text/ng-template" id="previewConfig.html">
+    <div class="modal-header">
+        <h3 class="modal-title">配置预览</h3>
+    </div>
+    <div class="modal-body">
+        <pre><code>{{config | json}}</code></pre>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">{{okText || '确定'}}</button>
+        <button class="btn btn-default" ng-click="cancel()">{{cancelText || '取消'}}</button>
+    </div>
+</script>
+<script type="text/ng-template" id="error.html">
+    <div class="modal-header">
+        <h3 class="modal-title">配置文件错误</h3>
+    </div>
+    <div class="modal-body">
+        文件内容解析失败
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+    </div>
+</script>
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>
+<script src="lib/ui-fugu/ui-fugu.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

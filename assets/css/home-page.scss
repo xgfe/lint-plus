@@ -36,6 +36,10 @@ $home_page_color: rgba(0, 0, 0, 0.5);
     .thanks-eslint, .thanks-fecs {
         text-decoration: none;
     }
+    .thanks-eslint img,
+    .thanks-fecs img{
+        vertical-align: baseline;
+    }
     .thanks-eslint img {
         width: 30px;
         height: 30px;

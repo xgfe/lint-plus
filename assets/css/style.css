@@ -1,3 +1,4 @@
+@import url(bootstrap.css);
 .section {
   position: relative;
   display: table;
@@ -74,7 +75,8 @@ body {
 .tool-desc {
   text-indent: 50px; }
   .tool-desc h1 {
-    font-size: 3.5em; }
+    font-size: 3.5em;
+    margin: 0; }
   .tool-desc section {
     line-height: 2;
     font-size: 25px;
@@ -271,6 +273,9 @@ body {
     margin: 10px; }
   #home_page .thanks-eslint, #home_page .thanks-fecs {
     text-decoration: none; }
+  #home_page .thanks-eslint img,
+  #home_page .thanks-fecs img {
+    vertical-align: baseline; }
   #home_page .thanks-eslint img {
     width: 30px;
     height: 30px;

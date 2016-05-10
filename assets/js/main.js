@@ -1,7 +1,7 @@
 /**
  * Created by yangjiyuan on 16/3/2.
  */
-var app = angular.module('lintplus',[]);
+var app = angular.module('lintplus',['ui.fugu']);
 app.directive('fullpage', function () {
     return {
         restrict:'A',
@@ -92,6 +92,43 @@ app.directive('fold', function () {
         }
     }
 });
+app.directive('readFile', ['$document',function ($document) {
+    return {
+        restrict:'A',
+        scope:{
+            readFile:'&'
+        },
+        link: function (scope,element,attrs) {
+            var input = angular.element('<input type="file" style="display: none;">')
+            input.on('change', function (evt) {
+                readBlob(evt.target.files);
+            });
+            var body = angular.element($document[0].body);
+            body.append(input);
+            element.on('click', function () {
+                input[0].click();
+            });
+            function readBlob(files) {
+
+                var file = files[0];
+                var start = 0;
+                var end = file.size - 1;
+
+                var reader = new FileReader();
+                reader.onloadend = function(evt) {
+                    if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+                        file.content = evt.target.result;
+                        var handler = scope.readFile;
+                        handler({$file:file});
+                        input.val('');// 修改值,这样即使选择同一个文件,也会触发onchange事件
+                    }
+                };
+                var blob = file.slice(start, end + 1);
+                reader.readAsBinaryString(blob);
+            }
+        }
+    }
+}]);
 app.service('rulesServices', ['$http',function ($http) {
     return {
         getRules:function (path) {
@@ -102,7 +139,7 @@ app.service('rulesServices', ['$http',function ($http) {
         }
     }
 }]);
-app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
+app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$rootScope,$fgModal) {
     $rootScope.htmlRules = [];
     $rootScope.cssRules = [];
     $rootScope.jsRules = [];
@@ -127,16 +164,12 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
                 "suffix": 'css'
             },
             jsConfig = {
-                "suffix": ['js', 'es', 'es6'],
+                "suffix": ['js', 'es'],
                 "env": {
-                    "node": true,
                     "browser": true
                 },
                 "globals": {
-                    "angular": true,
                     "jQuery": true,
-                    "define": true,
-                    "require": true,
                     "$":true
                 }
             };
@@ -217,8 +250,146 @@ app.controller('appCtrl', ['$scope','$rootScope',function ($scope,$rootScope) {
         var content = ['data:text/json;charset=utf-8,'];
         content.push(encodeURIComponent(JSON.stringify(lintConfig, null, 2)));
         el.attr('href', content.join(''));
+    };
+    // 解析配置
+    function parseConfig(config){
+        var htmlConfig = config.html,
+            cssConfig = config.css,
+            jsConfig = config.js;
+        // 解析html规则
+        $rootScope.disableStatus.disableHTML = !htmlConfig;
+        if(htmlConfig){
+            if(isEmptyObject(htmlConfig.rules)){ // 如果配置为 {} ,恢复默认
+                angular.forEach($rootScope.htmlRules, function (rule) {
+                    rule.enable = !!rule.default;
+                    if(!rule.enable && rule.options.length > 0){
+                        rule.selected = rule.options[0];
+                    }else{
+                        rule.selected = rule.default;
+                    }
+                });
+            }else{
+                angular.forEach($rootScope.htmlRules, function (rule) {
+                    var temp = htmlConfig.rules[rule.id];
+                    if(angular.isDefined(temp)){
+                        rule.enable = !!temp;
+                        rule.selected = temp;
+                    }else{
+                        rule.enable = !!rule.default;
+                        rule.selected = rule.default;
+                    }
+                });
+            }
+        }
+        // 解析css配置
+        $rootScope.disableStatus.disableCSS = !cssConfig;
+        if(cssConfig){
+            if(isEmptyObject(cssConfig.rules)){ // 如果配置为 {} ,恢复默认
+                angular.forEach($rootScope.cssRules, function (rule) {
+                    rule.enable = rule.default.level > 0;
+                    if(!rule.enable){
+                        rule.selected = {
+                            level:0
+                        };
+                    }else{
+                        rule.selected = angular.copy(rule.default);
+                    }
+                });
+            }else{
+                angular.forEach($rootScope.cssRules, function (rule) {
+                    var temp = cssConfig.rules[rule.id];
+                    if(angular.isDefined(temp)){
+                        rule.enable = temp.level !== 0;
+                    }else{
+                        rule.enable = !!rule.default;
+                    }
+                });
+            }
+        }
+        // 解析js配置
+        $rootScope.disableStatus.disableJS = !jsConfig;
+        if(jsConfig){
+            if(jsConfig.extends === 'eslint:recommended'){
+                $rootScope.jsRecommended = true;
+                $scope.$broadcast('js:recommended');
+            }
+            if(isEmptyObject(jsConfig.rules)){ // 如果配置为 {} ,根据extends恢复默认
+                if(jsConfig.extends === 'eslint:recommended'){
+                    angular.forEach($rootScope.jsRules, function (rule) {
+                        if(rule.isRecommended){
+                            rule.enable = true;
+                        }
+                    });
+                }else{
+                    angular.forEach($rootScope.jsRules, function (rule) {
+                        rule.enable = false;
+                    });
+                }
+            }else{
+                if(jsConfig.extends === 'eslint:recommended'){
+                    angular.forEach($rootScope.jsRules, function (rule) {
+                        if(rule.isRecommended){
+                            rule.enable = true;
+                        }
+                    });
+                }
+                angular.forEach($rootScope.jsRules, function (rule) {
+                    var temp = jsConfig.rules[rule.id];
+                    if(angular.isDefined(temp)){
+                        rule.enable = eslintRuleIsEnable(temp);
+                    }
+                });
+            }
+        }
+    }
+    function eslintRuleIsEnable(rule){
+        var arr = [1,2,'warn','error'];
+        if(angular.isArray(rule) && rule.length > 0){
+            return arr.indexOf(rule[0]) !== -1;
+        }
+        if(angular.isNumber(rule) || angular.isString(rule)){
+            return arr.indexOf(rule) !== -1;
+        }
+        return false;
+    }
+    function isEmptyObject(obj){
+        var i = 0,key;
+        for(key in obj){
+            ++i;
+        }
+        return !i;
     }
 
+    $scope.readFileHandler = function (content) {
+        var config = {};
+        try{
+            config = JSON.parse(content);
+            $fgModal.open({
+                templateUrl:'previewConfig.html',
+                controller:['$scope','$fgModalInstance', function ($scope,$fgModalInstance) {
+                    $scope.config = config;
+                    $scope.ok = function () { // 解析
+                        parseConfig(config);
+                        $fgModalInstance.close();
+                    };
+                    $scope.cancel = function () {
+                        $fgModalInstance.dismiss('cancel');
+                    };
+                    $scope.okText = '解析';
+                }]
+            });
+        }catch(e){
+            $fgModal.open({
+                templateUrl:'error.html',
+                size:'sm',
+                controller:['$scope','$fgModalInstance', function ($scope,$fgModalInstance) {
+                    $scope.ok = function () {
+                        $fgModalInstance.close();
+                    };
+                }]
+            });
+        }
+    };
 }]);
 app.controller('htmlConfigCtrl', ['$scope','$rootScope','rulesServices',function ($scope,$rootScope,rulesServices) {
     $scope.selectAll = false;
@@ -368,6 +539,9 @@ app.controller('jsConfigCtrl', ['$scope','$rootScope','rulesServices',function (
             });
         }
     };
+    $scope.$on('js:recommended', function () {
+        $scope.selectRecommended = true;
+    });
 
     //使用推荐配置
     $scope.selectRecommendedHandler = function () {
