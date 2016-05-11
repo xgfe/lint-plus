@@ -1,0 +1,9 @@
+/* Bad */
+panel {
+    opacity: 0.8;
+}
+
+/* Good */
+panel {
+    opacity: .8;
+}

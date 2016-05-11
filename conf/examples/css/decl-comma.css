@@ -1,0 +1,9 @@
+/* Bad */
+.selector{
+    font-family: Arial,sans-serif;
+    font-family: Arial ,sans-serif;
+}
+/* Good */
+.selector{
+    font-family: Arial, sans-serif;
+}

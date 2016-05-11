@@ -1,0 +1,9 @@
+/* Bad */
+.container {
+    line-height: initial;
+}
+
+/* Good */
+.container {
+    line-height: 1.5;
+}

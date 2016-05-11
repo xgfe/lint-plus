@@ -1,0 +1,9 @@
+/* Bad */
+body {
+    background: url("bg.png");
+}
+
+/* Good */
+body {
+    background: url(bg.png);
+}

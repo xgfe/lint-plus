@@ -1,0 +1,375 @@
+<div>
+<style id="baseStyle">
+        html {
+            font-size: 16px;
+        }
+
+        @media (min-width: 48em) {
+            html {
+                font-size: 20px;
+            }
+        }
+
+        body {
+            margin: 0;
+            font: 1rem/1.5 "PT Sans", sans-serif;
+            color: #5a5a5a;
+        }
+
+        a {
+            color: #08c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2, h3, h4 {
+            margin: 0 0 .5rem;
+            font-weight: normal;
+            line-height: 1;
+            color: #2a2a2a;
+            letter-spacing: -.05em;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        h4 {
+            font-size: 1.25rem
+        }
+
+        p {
+            margin: 0 0 1rem;
+        }
+
+        .lead {
+            font-size: 1.3rem;
+        }
+
+        blockquote {
+            position: relative;
+            margin: 0 1rem 1rem;
+            font-style: italic;
+            color: #7a7a7a;
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        ul li {
+            margin-bottom: .25rem;
+        }
+
+        /* Tighten up margin on last items */
+        p:last-child,
+        ul:last-child,
+        blockquote:last-child {
+            margin-bottom: 0;
+        }
+
+        /*
+         * Code
+         */
+
+        code,
+        pre {
+            font-family: "PT Mono", Menlo, "Courier New", monospace;
+            font-size: 95%;
+        }
+
+        code {
+            padding: 2px 4px;
+            font-size: 85%;
+            color: #d44950;
+            background-color: #f7f7f9;
+            border-radius: .2rem;
+        }
+
+        pre {
+            display: block;
+            margin: 0 0 1rem;
+            line-height: 1.4;
+            white-space: pre;
+            white-space: pre-wrap;
+        }
+
+        pre code {
+            padding: 0;
+            color: inherit;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .highlight {
+            margin: 0;
+        }
+
+        .highlight pre {
+            margin-bottom: 0;
+        }
+
+        .highlight + .highlight {
+            margin-top: 1rem;
+        }
+
+        /*
+         * The Grid
+         */
+
+        .col {
+            padding: 2rem 1rem;
+        }
+
+        .col p {
+            max-width: 40rem;
+        }
+
+        .col + .col {
+            border-top: 1px solid #dfe1e8;
+            background-color: #f7f7f9;
+        }
+
+        @media (min-width: 38em) {
+            .col {
+                padding: 2rem;
+            }
+        }
+
+        @media (min-width: 48em) {
+            .section {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            .col {
+                display: table-cell;
+                padding: 2.5rem;
+                vertical-align: top;
+            }
+
+            .col + .col {
+                border-top: 0;
+            }
+        }
+
+        /* Make the ToC a whole section */
+        .toc .col + .col {
+            background-color: #fff;
+        }
+
+        /*
+         * Masthead
+         */
+
+        .masthead {
+            padding: 3rem 1rem;
+            color: rgba(255, 255, 255, .5);
+            text-align: center;
+            background-color: #2a3440;
+        }
+
+        .masthead h1 {
+            color: #fff;
+            margin-bottom: .25rem;
+        }
+
+        .masthead .icon {
+            display: inline-block;
+            font-size: 3rem;
+            margin: 0 .5rem;
+        }
+
+        @media (min-width: 38em) {
+            .masthead {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+        }
+
+        /*
+         * Sections
+         */
+
+        .heading {
+            padding: 2rem 1rem 1.5rem;
+            background-color: #dfe1e8;
+        }
+
+        @media (min-width: 38em) {
+            .heading {
+                padding: 3rem 3rem 2.5rem;
+            }
+        }
+
+        .section {
+            border-bottom: 1px solid #dfe1e8;
+        }
+
+        /*
+         * Footer
+         */
+
+        .footer {
+            padding: 3rem 1rem;
+            font-size: 90%;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: .5rem;
+        }
+
+
+        /* Literal.Number.Integer.Long */
+
+        .css .o,
+        .css .o + .nt,
+        .css .nt + .nt {
+            color: #999;
+        }
+
+    </style>
+<style class="github" id="highlightStyle">
+    .hljs {
+        display: block;
+        overflow-x: auto;
+        padding: 0.5em;
+        color: #333;
+        background: #f8f8f8;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+        color: #998;
+        font-style: italic;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-subst {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .hljs-number,
+    .hljs-literal,
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-tag .hljs-attr {
+        color: #008080;
+    }
+
+    .hljs-string,
+    .hljs-doctag {
+        color: #d14;
+    }
+
+    .hljs-title,
+    .hljs-section,
+    .hljs-selector-id {
+        color: #900;
+        font-weight: bold;
+    }
+
+    .hljs-subst {
+        font-weight: normal;
+    }
+
+    .hljs-type,
+    .hljs-class .hljs-title {
+        color: #458;
+        font-weight: bold;
+    }
+
+    .hljs-tag,
+    .hljs-name,
+    .hljs-attribute {
+        color: #000080;
+        font-weight: 600;
+    }
+
+    .hljs-regexp,
+    .hljs-link {
+        color: #009926;
+    }
+
+    .hljs-symbol,
+    .hljs-bullet {
+        color: #990073;
+    }
+
+    .hljs-built_in,
+    .hljs-builtin-name {
+        color: #0086b3;
+    }
+
+    .hljs-meta {
+        color: #999;
+        font-weight: bold;
+    }
+
+    .hljs-deletion {
+        background: #fdd;
+    }
+
+    .hljs-addition {
+        background: #dfd;
+    }
+
+    .hljs-emphasis {
+        font-style: italic;
+    }
+
+    .hljs-strong {
+        font-weight: bold;
+    }
+</style>
+<header class="masthead">
+    <div class="container">
+        <span class="icon">✍</span>
+        <h1>代码规范</h1>
+        <p class="lead">Standards for developing flexible, durable, and sustainable HTML、CSS and JavaScript.</p>
+    </div>
+</header>
+<div class="section toc">
+    <div class="col" ng-repeat="config in lintConfig">
+        <h4><a ng-href="#{{config.lang}}">{{config.lang | uppercase}}</a></h4>
+        <ul>
+            <li ng-repeat="(rule,value) in config.rules">
+                <a ng-href="#{{rule}}">{{rule | firstUpper}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="heading" id="{{config.lang}}" ng-repeat-start="config in lintConfig">
+    <h2>{{config.lang | uppercase}}</h2>
+</div>
+<div class="section" id="{{rule}}" ng-repeat-end ng-repeat="(rule,value) in config.rules">
+    <div class="col">
+        <h3><a ng-href="{{value.href}}">{{rule | firstUpper}}</a></h3>
+        <div ng-bind-html="value.desc"></div>
+    </div>
+    <div class="col" ng-if="value.example">
+        <div class="highlight">
+            <pre><code hljs="{{value.example}}"></code></pre>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <p>Powered By <a href="https://github.com/xgfe/lint-plus" target="_blank">lint-plus</a>.</p>
+    <p>Open sourced under MIT. Copyright 2016 <a href="https://github.com/xgfe" target="_blank">@xgfe</a>.</p>
+</footer>
+</div>

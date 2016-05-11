@@ -1,7 +1,7 @@
 /**
  * Created by yangjiyuan on 16/3/2.
  */
-var app = angular.module('lintplus',['ui.fugu']);
+var app = angular.module('lintplus',['ui.fugu','ngSanitize']);
 app.directive('fullpage', function () {
     return {
         restrict:'A',
@@ -131,6 +131,18 @@ app.directive('readFile', ['$document',function ($document) {
         }
     }
 }]);
+app.directive('hljs', function () {
+    return {
+        restrict:'A',
+        scope:{
+            hljs:'@?'
+        },
+        link: function (scope,element) {
+            var code = scope.hljs || '';
+            element[0].innerHTML = hljs.highlightAuto(code).value;
+        }
+    };
+});
 app.service('rulesServices', ['$http',function ($http) {
     return {
         getRules:function (path) {
@@ -141,11 +153,18 @@ app.service('rulesServices', ['$http',function ($http) {
         }
     }
 }]);
-app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$rootScope,$fgModal) {
+// 首字母大写
+app.filter('firstUpper', function () {
+    return function (item) {
+        return item[0].toUpperCase() + item.slice(1);
+    };
+});
+app.controller('appCtrl', ['$scope','$rootScope','rulesServices','$fgModal','$q','$templateRequest','$compile','$timeout',
+    function ($scope,$rootScope,rulesServices,$fgModal,$q,$templateRequest,$compile,$timeout) {
     $rootScope.htmlRules = [];
     $rootScope.cssRules = [];
     $rootScope.jsRules = [];
-    $rootScope.disableStatus = {}
+    $rootScope.disableStatus = {};
     // 禁用HTML检测的标记
     $rootScope.disableStatus.disableHTML = false;
     // 禁用CSS检测的标记
@@ -247,12 +266,125 @@ app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$ro
             "css": cssConfig,
             "js": jsConfig
         };
+        var zip = new JSZip();
+        getDocContent(lintConfig).then(function (docContent) {
+            zip.file('lintrc.json',JSON.stringify(lintConfig, null, 2));
+            zip.file('code-style-doc.html',docContent);
+            //var codeWin = window.open();
+            //codeWin.document.write(docContent);
+            //codeWin.document.close();
+            download(zip);
+        }, function () {
+            zip.file('lint-plus-config/lintrc.json',JSON.stringify(lintConfig, null, 2));
+            download(zip);
+        });
 
-        var el = angular.element(evt.target);
-        var content = ['data:text/json;charset=utf-8,'];
-        content.push(encodeURIComponent(JSON.stringify(lintConfig, null, 2)));
-        el.attr('href', content.join(''));
     };
+    /**
+     * 下载zip
+     * @param zip
+     */
+    function download(zip){
+        zip.generateAsync({type:"blob"})
+            .then(function(content) {
+                saveAs(content, 'lint-plus-config.zip');
+            });
+    }
+    // 根据配置生成规则文档
+    function getDocContent(lintConfig){
+        return $q(function(resolve, reject) {
+            var tempScope = $rootScope.$new();
+            tempScope.lintConfig = buildRuleDocs(lintConfig);
+            if(!tempScope.lintConfig.length){
+                reject();
+            }
+            $templateRequest('doc/tpl.html').then(function (source) {
+                var element = $compile(angular.element(source))(tempScope);
+                var html = '<!DOCTYPE html>'+
+                    '<html lang="en-us">'+
+                    '<head>'+
+                    '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'+
+                    '<title>代码规范文档 - lint-plus</title>'+
+                    '</head>'+
+                    '<body>';
+                $timeout(function () {
+                    html += element.html()+'</body></html>';
+                    resolve(html);
+                });
+            }, function () {
+                reject();
+            });
+        });
+    }
+    function buildRuleDocs(lintConfig){
+        var htmlConfig = lintConfig.html,
+            cssConfig = lintConfig.css,
+            jsConfig = lintConfig.js;
+        var rulesDocs = [];
+        var config = {};
+        var docable;
+        if(htmlConfig){
+            config = {
+                lang:'html',
+                rules:{}
+            };
+            docable = false;
+            angular.forEach($rootScope.htmlRules, function (rule) {
+                if(rule.enable){
+                    docable = true;
+                    config.rules[rule.id] = angular.copy(rule);
+                }
+            });
+            if(docable){
+                rulesDocs.push(config);
+            }
+        }
+        if(cssConfig){
+            config = {
+                lang:'css',
+                rules:{}
+            };
+            docable = false;
+            angular.forEach($rootScope.cssRules, function (rule) {
+                if(rule.enable){
+                    docable = true;
+                    config.rules[rule.id] = angular.copy(rule);
+                }
+            });
+            if(docable){
+                rulesDocs.push(config);
+            }
+        }
+        if(jsConfig){
+            config = {
+                lang:'javascript',
+                rules:{}
+            };
+            docable = false;
+            angular.forEach($rootScope.jsRules, function (rule) {
+                if(rule.enable){
+                    docable = true;
+                    config.rules[rule.id] = angular.copy(rule);
+                }
+            });
+            if(docable){
+                rulesDocs.push(config);
+            }
+        }
+        return rulesDocs;
+    }
+    function hasRecommended(jsConfig){
+        if(!jsConfig.extends){
+            return false;
+        }
+        if(angular.isString(jsConfig.extends)){
+            return jsConfig.extends === 'eslint:recommended';
+        }
+        if(angular.isArray(jsConfig.extends)){
+            return jsConfig.extends.indexOf('eslint:recommended') !== -1;
+        }
+    }
+
     // 解析配置
     function parseConfig(config){
         var htmlConfig = config.html,
@@ -311,12 +443,12 @@ app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$ro
         // 解析js配置
         $rootScope.disableStatus.disableJS = !jsConfig;
         if(jsConfig){
-            if(jsConfig.extends === 'eslint:recommended'){
+            if(hasRecommended(jsConfig)){
                 $rootScope.jsRecommended = true;
                 $scope.$broadcast('js:recommended');
             }
             if(isEmptyObject(jsConfig.rules)){ // 如果配置为 {} ,根据extends恢复默认
-                if(jsConfig.extends === 'eslint:recommended'){
+                if(hasRecommended(jsConfig)){
                     angular.forEach($rootScope.jsRules, function (rule) {
                         if(rule.isRecommended){
                             rule.enable = true;
@@ -328,7 +460,7 @@ app.controller('appCtrl', ['$scope','$rootScope','$fgModal',function ($scope,$ro
                     });
                 }
             }else{
-                if(jsConfig.extends === 'eslint:recommended'){
+                if(hasRecommended(jsConfig)){
                     angular.forEach($rootScope.jsRules, function (rule) {
                         if(rule.isRecommended){
                             rule.enable = true;

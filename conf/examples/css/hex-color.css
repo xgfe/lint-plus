@@ -1,0 +1,11 @@
+/* Bad */
+.success {
+    box-shadow: 0 0 2px rgba(0,128,0,.3);
+    border-color: rgb(0, 128, 0);
+}
+
+/* Good */
+.success {
+    box-shadow: 0 0 2px rgba(0, 128, 0, .3);
+    border-color: #008000;
+}

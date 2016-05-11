@@ -1,0 +1,9 @@
+/* Bad */
+.selector{
+    color: #000!important;
+}
+
+/* Good */
+.selector{
+    color: #000 !important;
+}

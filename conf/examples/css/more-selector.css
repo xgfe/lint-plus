@@ -1,0 +1,10 @@
+/* Bad */
+.post, .page, .comment {
+    line-height: 1.5;
+}
+/* Good */
+.post,
+.page,
+.comment {
+    line-height: 1.5;
+}

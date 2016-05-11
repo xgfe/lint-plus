@@ -6,7 +6,8 @@
     },
     "desc": "[强制] 属性定义必须另起一行，即使只有一个属性值",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-属性定义必须另起一行即使只有一个属性值",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.selector {\n    margin: 0;padding:0;\n}\n/* Good */\n.selector {\n    margin: 0;\n}"
   },
   {
     "id": "after-colon",
@@ -15,7 +16,8 @@
     },
     "desc": "[强制] : 与 属性值 之间必须包含空格",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-属性名-与之后的--之间不允许包含空格--与-属性值-之间必须包含空格",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\ndiv{\n    margin:0;\n}\n/* Good */\ndiv{\n    margin: 0;\n}"
   },
   {
     "id": "attribute-selector",
@@ -24,7 +26,8 @@
     },
     "desc": "[强制] 属性选择器中的值必须用双引号包围",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-属性选择器中的值必须用双引号包围",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\narticle[character=juliet] {\n    voice-family: \"Vivien Leigh\", victoria, female;\n}\narticle[character='juliet'] {\n    voice-family: \"Vivien Leigh\", victoria, female;\n}\n/* Good */\narticle[character=\"juliet\"] {\n    voice-family: \"Vivien Leigh\", victoria, female;\n}"
   },
   {
     "id": "before-colon",
@@ -33,7 +36,8 @@
     },
     "desc": "[强制] 属性名 与之后的 : 之间不允许包含空格",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-属性名-与之后的--之间不允许包含空格--与-属性值-之间必须包含空格",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\ndiv{\n    margin:0;\n    padding: 0;\n}\n/* Good */\ndiv{\n    margin :0;\n}"
   },
   {
     "id": "color-abbr",
@@ -42,7 +46,8 @@
     },
     "desc": "[强制] 颜色值可以缩写时，必须使用缩写形式",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-颜色值可以缩写时必须使用缩写形式",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.success {\n    background-color: #aaccaa;\n}\n\n/* Good */\n.success {\n    background-color: #aca;\n}\n\n"
   },
   {
     "id": "color-case",
@@ -51,7 +56,8 @@
     },
     "desc": "[建议] 颜色值在同一个项目中不要又有大写又有小写",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-颜色值中的英文字符采用小写如不用小写也需要保证同一项目内保持大小写一致",
-    "collection":"other"
+    "collection": "other",
+    "example": "/* Bad */\n.success {\n    background-color: #ACA;\n    color: #90ee90;\n}\n\n/* Good */\n.success {\n    background-color: #aca;\n    color: #90ee90;\n}"
   },
   {
     "id": "content-double-quotation",
@@ -60,7 +66,8 @@
     },
     "desc": "[强制] 文本内容必须用双引号包围",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-文本内容必须用双引号包围",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\nhtml[lang|=zh] q:before {\n    font-family: 'Microsoft YaHei', sans-serif;\n    content: '“';\n}\n\n/* Good */\nhtml[lang|=\"zh\"] q:before {\n    font-family: \"Microsoft YaHei\", sans-serif;\n    content: \"“\";\n}"
   },
   {
     "id": "decl-comma",
@@ -70,7 +77,8 @@
     },
     "desc": "[强制] 列表型属性值 书写在单行时，后必须跟一个空格",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-列表型属性值-书写在单行时-后必须跟一个空格",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.selector{\n    font-family: Arial,sans-serif;\n    font-family: Arial ,sans-serif;\n}\n/* Good */\n.selector{\n    font-family: Arial, sans-serif;\n}"
   },
   {
     "id": "decl-end-of-semicolon",
@@ -79,7 +87,8 @@
     },
     "desc": "[强制] 属性定义后必须以分号结尾",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-属性定义后必须以分号结尾",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.selector {\n    margin: 0\n}\n\n/* Good */\n.selector {\n    margin: 0;\n}"
   },
   {
     "id": "disallow-import",
@@ -88,7 +97,8 @@
     },
     "desc": "[强制] 不要使用 @import",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-不要使用-import",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n@import url(\"path/to/another/css\");\n"
   },
   {
     "id": "disallow-named-color",
@@ -97,7 +107,8 @@
     },
     "desc": "[强制] 颜色值不允许使用命名色值",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-颜色值不允许使用命名色值",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.success {\n    color: lightgreen;\n}\n\n/* Good */\n.success {\n    color: #90ee90;\n}\n"
   },
   {
     "id": "disallow-overqualified-elements",
@@ -106,7 +117,8 @@
     },
     "desc": "[建议] 如无必要，不得为 id、class 选择器添加类型选择器进行限定",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-如无必要不得为-idclass-选择器添加类型选择器进行限定",
-    "collection":"other"
+    "collection": "other",
+    "example": "/* Bad */\ndialog#error,\np.danger-message {\n    font-color: #c00;\n}\n\n/* Good */\n#error,\n.danger-message {\n    font-color: #c00;\n}"
   },
   {
     "id": "disallow-quotes-in-url",
@@ -115,7 +127,8 @@
     },
     "desc": "[强制] url() 函数中的路径不加引号",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-url-函数中的路径不加引号",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\nbody {\n    background: url(\"bg.png\");\n}\n\n/* Good */\nbody {\n    background: url(bg.png);\n}"
   },
   {
     "id": "disallow-use-expression",
@@ -124,7 +137,7 @@
     },
     "desc": "[强制] 禁止使用 Expression",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-禁止使用-expression",
-    "collection":"recommended"
+    "collection": "recommended"
   },
   {
     "id": "font-weight-number",
@@ -133,7 +146,8 @@
     },
     "desc": "[强制] font-weight 属性必须使用数值方式描述",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-font-weight-属性必须使用数值方式描述",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\nh1 {\n    font-weight: bold;\n}\n\n/* Good */\nh1 {\n    font-weight: 700;\n}"
   },
   {
     "id": "hex-color",
@@ -142,7 +156,8 @@
     },
     "desc": "[强制] RGB颜色值必须使用十六进制记号形式 #rrggbb。不允许使用 rgb()",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-rgb颜色值必须使用十六进制记号形式-rrggbb不允许使用-rgb",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.success {\n    box-shadow: 0 0 2px rgba(0,128,0,.3);\n    border-color: rgb(0, 128, 0);\n}\n\n/* Good */\n.success {\n    box-shadow: 0 0 2px rgba(0, 128, 0, .3);\n    border-color: #008000;\n}\n"
   },
   {
     "id": "horizontal-vertical-position",
@@ -151,7 +166,8 @@
     },
     "desc": "[强制] 必须同时给出水平和垂直方向的位置",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-必须同时给出水平和垂直方向的位置",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\nbody {\n    background-position: top; /* 50% 0% */\n}\n\n/* Good */\nbody {\n    background-position: center top; /* 50% 0% */\n}"
   },
   {
     "id": "important",
@@ -160,7 +176,8 @@
     },
     "desc": "[强制] !important前必须有一个空格",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-important前必须有一个空格",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.selector{\n    color: #000!important;\n}\n\n/* Good */\n.selector{\n    color: #000 !important;\n}"
   },
   {
     "id": "line-height",
@@ -169,17 +186,18 @@
     },
     "desc": "[建议] line-height 在定义文本段落时，应使用数值",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-line-height-在定义文本段落时应使用数值",
-    "collection":"other"
+    "collection": "other",
+    "example": "/* Bad */\n.container {\n    line-height: initial;\n}\n\n/* Good */\n.container {\n    line-height: 1.5;\n}"
   },
   {
     "id": "line-of-length",
     "default": {
       "level": 1,
-      "maximumLength":80
+      "maximumLength": 80
     },
     "desc": "[强制] 每行不得超过 80 个字符，除非单行不可分割",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-每行不得超过-80-个字符除非单行不可分割",
-    "collection":"recommended"
+    "collection": "recommended"
   },
   {
     "id": "media-query-require-new-line",
@@ -188,17 +206,18 @@
     },
     "desc": "[强制] Media Query 如果有多个逗号分隔的条件时，应将每个条件放在单独一行中",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-media-query-如果有多个逗号分隔的条件时应将每个条件放在单独一行中",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n@media (min-width: 20px),(min-height: 192px) {\n\n}\n\n/* Good */\n@media\n(-webkit-min-device-pixel-ratio: 2), /* Webkit-based browsers */\n(min--moz-device-pixel-ratio: 2),    /* Older Firefox browsers (prior to Firefox 16) */\n(min-resolution: 2dppx),             /* The standard way */\n(min-resolution: 192dpi) {           /* dppx fallback */\n    /* Retina-specific stuff here */\n}"
   },
   {
     "id": "min-font-size",
     "default": {
       "level": 1,
-      "minimumSize":12
+      "minimumSize": 12
     },
     "desc": "[强制] PC端Web页面，其字号应不小于 12px",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-pc端web页面其字号应不小于-12px",
-    "collection":"recommended"
+    "collection": "recommended"
   },
   {
     "id": "more-selector",
@@ -207,7 +226,8 @@
     },
     "desc": "[强制] 当一个 rule 包含多个 selector 时，每个选择器声明必须独占一行",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-当一个-rule-包含多个-selector-时每个选择器声明必须独占一行",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.post, .page, .comment {\n    line-height: 1.5;\n}\n/* Good */\n.post,\n.page,\n.comment {\n    line-height: 1.5;\n}"
   },
   {
     "id": "normal-fontStyle",
@@ -216,7 +236,7 @@
     },
     "desc": "[建议] 需要在 Windows 平台显示的中文内容，不要使用除 normal 外的 font-style。其他平台也应慎用",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-需要在-windows-平台显示的中文内容不要使用除-normal-外的-font-style其他平台也应慎用",
-    "collection":"other"
+    "collection": "other"
   },
   {
     "id": "not-use-asterisk",
@@ -225,7 +245,8 @@
     },
     "desc": "[建议] 尽量少用 * 选择器",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-尽量少用--选择器",
-    "collection":"other"
+    "collection": "other",
+    "example": "/* Bad */\n*{\n    margin: 0;\n}\n"
   },
   {
     "id": "not-use-id",
@@ -234,7 +255,7 @@
     },
     "desc": "[建议] 尽量不使用id选择器定义样式",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-尽量不使用id选择器定义样式",
-    "collection":"other"
+    "collection": "other"
   },
   {
     "id": "not-use-important",
@@ -243,7 +264,8 @@
     },
     "desc": "[建议] 尽量不使用 !important 声明",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-尽量不使用-important-声明",
-    "collection":"other"
+    "collection": "other",
+    "example": "/* Bad */\n.selector{\n    margin: 0 !important;\n}\n"
   },
   {
     "id": "omit-unit",
@@ -252,7 +274,8 @@
     },
     "desc": "[强制] 长度为 0 时须省略单位。 (也只有长度单位可省)",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-长度为-0-时须省略单位-也只有长度单位可省",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\nbody {\n    padding: 0px 5px;\n}\n\n/* Good */\nbody {\n    padding: 0 5px;\n}\n"
   },
   {
     "id": "omit-zero",
@@ -261,7 +284,8 @@
     },
     "desc": "[强制] 当数值为 0 - 1 之间的小数时，省略整数部分的 0",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-当数值为-0---1-之间的小数时省略整数部分的-0",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\npanel {\n    opacity: 0.8;\n}\n\n/* Good */\npanel {\n    opacity: .8;\n}"
   },
   {
     "id": "require-transition-property",
@@ -270,48 +294,53 @@
     },
     "desc": "[强制] 使用 transition 时应指定 transition-property",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-使用-transition-时应指定-transition-property",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.box {\n    transition: all 1s;\n}\n\n/* Good */\n.box {\n    transition: color 1s, border-color 1s;\n}\n"
   },
   {
     "id": "selector-between-onespace",
     "default": {
       "level": 1,
-      "contains":" "
+      "contains": " "
     },
     "desc": "[强制] 选择器 与 { 之间必须包含空格",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-选择器-与--之间必须包含空格",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.selector{\n\n}\n\n/* Good */\n.selector {\n\n}"
   },
   {
     "id": "selector-both-spaces",
     "default": {
       "level": 1,
-      "afterSelector":" ",
-      "beforeSelector":" "
+      "afterSelector": " ",
+      "beforeSelector": " "
     },
     "desc": "[强制] >、+、~ 选择器的两边各保留一个空格",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制--选择器的两边各保留一个空格",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\nmain>nav {\n    padding: 10px;\n}\n\nlabel+input {\n    margin-left: 5px;\n}\n\ninput:checked~button {\n    background-color: #69C;\n}\n/* Good */\nmain > nav {\n}\n\nlabel + input {\n}\n\ninput:checked ~ button {\n}"
   },
   {
     "id": "selector-nested",
     "default": {
       "level": 2,
-      "hierarchy":3
+      "hierarchy": 3
     },
     "desc": "[建议] 选择器的嵌套层级应不大于 3 级，位置靠后的限定条件应尽可能精确",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-选择器的嵌套层级应不大于-3-级位置靠后的限定条件应尽可能精确",
-    "collection":"other"
+    "collection": "other",
+    "example": "/* Bad */\n.page .header .login #username input {}\n.comment div * {}\n\n/* Good */\n#username input {}\n.comment .avatar {}"
   },
   {
     "id": "text-indent",
     "default": {
       "level": 1,
-      "textIndent":"    "
+      "textIndent": "    "
     },
     "desc": "[强制] 使用 4 个空格做为一个缩进层级，不允许使用 2 个空格 或 tab 字符",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-使用-4-个空格做为一个缩进层级不允许使用-2-个空格-或-tab-字符",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\n.selector {\n  margin: 0;\n  padding: 0;\n}\n/* Good */\n.selector {\n    margin: 0;\n    padding: 0;\n}"
   },
   {
     "id": "unifying-font-family-case-sensitive",
@@ -320,7 +349,8 @@
     },
     "desc": "[强制] font-family 不区分大小写，但在同一个项目中，同样的 Family Name 大小写必须统一",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-font-family-不区分大小写但在同一个项目中同样的-family-name-大小写必须统一",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Bad */\nbody {\n    font-family: arial, sans-serif;\n}\nh1 {\n    font-family: Arial, \"Microsoft YaHei\", sans-serif;\n}\n/* Good */\nbody {\n    font-family: Arial, sans-serif;\n}\n\nh1 {\n    font-family: Arial, \"Microsoft YaHei\", sans-serif;\n}\n"
   },
   {
     "id": "vendor-prefixes-sort",
@@ -329,7 +359,8 @@
     },
     "desc": "[强制] 带私有前缀的属性由长到短排列，按冒号位置对齐，标准属性放在最后",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#强制-带私有前缀的属性由长到短排列按冒号位置对齐标准属性放在最后",
-    "collection":"recommended"
+    "collection": "recommended",
+    "example": "/* Good */\n.box {\n    -webkit-box-sizing: border-box;\n       -moz-box-sizing: border-box;\n            box-sizing: border-box;\n}"
   },
   {
     "id": "without-bom",
@@ -338,6 +369,6 @@
     },
     "desc": "[建议] CSS 文件使用无 BOM 的 UTF-8 编码",
     "href": "https://github.com/xgfe/codeguide/blob/master/css.md#建议-css-文件使用无-bom-的-utf-8-编码",
-    "collection":"other"
+    "collection": "other"
   }
 ]

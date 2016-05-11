@@ -6,7 +6,8 @@
     "href": "http://eslint.org/docs/rules/comma-dangle",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo = {\n    bar: \"baz\",\n    qux: \"quux\",\n};\n\nvar arr = [1,2,];\n\nfoo({\n    bar: \"baz\",\n    qux: \"quux\",\n});\n\n// Good \nvar foo = {\n    bar: \"baz\",\n    qux: \"quux\"\n};\n\nvar arr = [1,2];\n\nfoo({\n    bar: \"baz\",\n    qux: \"quux\"\n});"
   },
   {
     "id": "no-cond-assign",
@@ -15,7 +16,8 @@
     "href": "http://eslint.org/docs/rules/no-cond-assign",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar x;\nif (x = 0) {\n    var b = 1;\n}\nfunction setHeight(someNode) {\n    \"use strict\";\n    do {\n        someNode.height = \"100px\";\n    } while (someNode = someNode.parentNode);\n}\n\n// Good \n// Assignment replaced by comparison\nvar x;\nif (x === 0) {\n    var b = 1;\n}\n\n// Practical example that wraps the assignment in parentheses\nfunction setHeight(someNode) {\n    \"use strict\";\n    do {\n        someNode.height = \"100px\";\n    } while ((someNode = someNode.parentNode));\n}"
   },
   {
     "id": "no-console",
@@ -24,7 +26,8 @@
     "href": "http://eslint.org/docs/rules/no-console",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nconsole.log(\"Log a debug level message.\");\nconsole.warn(\"Log a warn level message.\");\nconsole.error(\"Log an error level message.\");\n\n// Good \n// custom console\nConsole.log(\"Hello world!\");\n"
   },
   {
     "id": "no-constant-condition",
@@ -33,7 +36,8 @@
     "href": "http://eslint.org/docs/rules/no-constant-condition",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif (false) {\n    doSomethingUnfinished();\n}\n\nfor (;-2;) {\n    doSomethingForever();\n}\n\n\n// Good \nif (x === 0) {\n    doSomething();\n}\n\nfor (;;) {\n    doSomethingForever();\n}"
   },
   {
     "id": "no-control-regex",
@@ -42,7 +46,8 @@
     "href": "http://eslint.org/docs/rules/no-control-regex",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar pattern1 = /\\x1f/;\nvar pattern2 = new RegExp(\"\\x1f\");\n\n// Good \nvar pattern1 = /\\x20/;\nvar pattern2 = new RegExp(\"\\x20\");\n"
   },
   {
     "id": "no-debugger",
@@ -51,7 +56,8 @@
     "href": "http://eslint.org/docs/rules/no-debugger",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction isTruthy(x) {\n    debugger;\n    return Boolean(x);\n}\n\n// Good \nfunction isTruthy(x) {\n    return Boolean(x); // set a breakpoint at this line\n}"
   },
   {
     "id": "no-dupe-args",
@@ -60,7 +66,8 @@
     "href": "http://eslint.org/docs/rules/no-dupe-args",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo(a, b, a) {\n    console.log(\"which a is it?\", a);\n}\n\nvar bar = function (a, b, a) {\n    console.log(\"which a is it?\", a);\n};\n\n// Good \nfunction foo(a, b, c) {\n    console.log(a, b, c);\n}\n\nvar bar = function (a, b, c) {\n    console.log(a, b, c);\n};"
   },
   {
     "id": "no-dupe-keys",
@@ -69,7 +76,8 @@
     "href": "http://eslint.org/docs/rules/no-dupe-keys",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = {\n    bar: \"baz\",\n    bar: \"qux\"\n};\n\nvar foo = {\n    \"bar\": \"baz\",\n    bar: \"qux\"\n};\n\n// Good \nvar foo = {\n    bar: \"baz\",\n    quxx: \"qux\"\n};"
   },
   {
     "id": "no-duplicate-case",
@@ -78,7 +86,8 @@
     "href": "http://eslint.org/docs/rules/no-duplicate-case",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nswitch (a) {\n    case 1:\n        break;\n    case 2:\n        break;\n    case 1:         // duplicate test expression\n        break;\n    default:\n        break;\n}\n\n// Good \nswitch (a) {\n    case 1:\n        break;\n    case 2:\n        break;\n    case 3:\n        break;\n    default:\n        break;\n}"
   },
   {
     "id": "no-empty",
@@ -87,7 +96,8 @@
     "href": "http://eslint.org/docs/rules/no-empty",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif (foo) {\n}\n\nwhile (foo) {\n}\n\nswitch(foo) {\n}\n\n// Good \nif (foo) {\n    // empty\n}\n\nwhile (foo) {\n    /* empty */\n}\n\ntry {\n    doSomething();\n} catch (ex) {\n    // continue regardless of error\n}"
   },
   {
     "id": "no-empty-character-class",
@@ -96,7 +106,8 @@
     "href": "http://eslint.org/docs/rules/no-empty-character-class",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = /^abc[]/;\n/^abc[]/.test(foo);\nbar.match(/^abc[]/);\n\n// Good \nvar foo = /^abc/;\nvar foo = /^abc[a-z]/;\nvar bar = new RegExp(\"^abc[]\");"
   },
   {
     "id": "no-ex-assign",
@@ -105,7 +116,8 @@
     "href": "http://eslint.org/docs/rules/no-ex-assign",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\ntry {\n    // code\n} catch (e) {\n    e = 10;\n}\n\n// Good \ntry {\n    // code\n} catch (e) {\n    var foo = 'bar';\n}"
   },
   {
     "id": "no-extra-boolean-cast",
@@ -114,7 +126,8 @@
     "href": "http://eslint.org/docs/rules/no-extra-boolean-cast",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = !!!bar;\nvar foo = !!bar ? baz : bat;\nvar foo = Boolean(!!bar);\nvar foo = new Boolean(!!bar);\n\n// Good \nvar foo = !!bar;\nvar foo = Boolean(bar);\nfunction foo() {\n    return !!bar;\n}"
   },
   {
     "id": "no-extra-parens",
@@ -123,7 +136,8 @@
     "href": "http://eslint.org/docs/rules/no-extra-parens",
     "collection": "possible-errors",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\na = (b * c);\n(a * b) + c;\ntypeof (a);\n(function(){} ? a() : b());\n\n// Good \n(0).toString();\n({}.toString.call());\n(function(){}) ? a() : b();\n(/^a$/).test(x);"
   },
   {
     "id": "no-extra-semi",
@@ -132,7 +146,8 @@
     "href": "http://eslint.org/docs/rules/no-extra-semi",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = 5;;\nfunction foo() {\n    // code\n};\n\n// Good \nvar x = 5;\nvar foo = function() {\n    // code\n};"
   },
   {
     "id": "no-func-assign",
@@ -141,7 +156,8 @@
     "href": "http://eslint.org/docs/rules/no-func-assign",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo() {}\nfoo = bar;\n\nfunction foo() {\n    foo = bar;\n}\n\n// Good \nvar foo = function () {}\nfoo = bar;\n\nfunction foo(foo) { // `foo` is shadowed.\n    foo = bar;\n}\n"
   },
   {
     "id": "no-inner-declarations",
@@ -150,7 +166,8 @@
     "href": "http://eslint.org/docs/rules/no-inner-declarations",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nif (test) {\n    function doSomething() { }\n}\n\nfunction doSomethingElse() {\n    if (test) {\n        function doAnotherThing() { }\n    }\n}\n\n// Good \nfunction doSomething() { }\n\nfunction doSomethingElse() {\n    function doAnotherThing() { }\n}"
   },
   {
     "id": "no-invalid-regexp",
@@ -159,7 +176,8 @@
     "href": "http://eslint.org/docs/rules/no-invalid-regexp",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nRegExp('[')\nRegExp('.', 'z')\nnew RegExp('\\\\')\n\n// Good \nRegExp('.')\nnew RegExp\nthis.RegExp('[')"
   },
   {
     "id": "no-irregular-whitespace",
@@ -168,7 +186,8 @@
     "href": "http://eslint.org/docs/rules/no-irregular-whitespace",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction thing() /*<NBSP>*/{\n    return 'test';\n}\n\nfunction thing( /*<NBSP>*/){\n    return 'test';\n}\n\n// Good \nfunction thing() {\n    return ' <NBSP>thing';\n}\n\nfunction thing() {\n    return '​<ZWSP>thing';\n}"
   },
   {
     "id": "no-negated-in-lhs",
@@ -177,7 +196,8 @@
     "href": "http://eslint.org/docs/rules/no-negated-in-lhs",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif(!a in b) {\n    // do something\n}\n\n// Good \nif(!(a in b)) {\n    // do something\n}"
   },
   {
     "id": "no-obj-calls",
@@ -186,7 +206,8 @@
     "href": "http://eslint.org/docs/rules/no-obj-calls",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = Math();\nvar y = JSON();\n\n// Good \nvar x = math();\nvar y = json();"
   },
   {
     "id": "no-regex-spaces",
@@ -195,7 +216,8 @@
     "href": "http://eslint.org/docs/rules/no-regex-spaces",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar re = /foo   bar/;\n\n// Good \nvar re = /foo {3}bar/;"
   },
   {
     "id": "no-sparse-arrays",
@@ -204,7 +226,8 @@
     "href": "http://eslint.org/docs/rules/no-sparse-arrays",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar items = [,];\nvar colors = [ \"red\",, \"blue\" ];\n\n// Good \nvar items = [];\nvar items = new Array(23);"
   },
   {
     "id": "no-unexpected-multiline",
@@ -213,7 +236,8 @@
     "href": "http://eslint.org/docs/rules/no-unexpected-multiline",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = bar\n(1 || 2).baz();\nvar hello = 'world'\n    [1, 2, 3].forEach(addNumber);\n\n// Good \nvar foo = bar;\n(1 || 2).baz();\nvar foo = bar\n    ;(1 || 2).baz()"
   },
   {
     "id": "no-unreachable",
@@ -222,7 +246,8 @@
     "href": "http://eslint.org/docs/rules/no-unreachable",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo() {\n    return true;\n    console.log(\"done\");\n}\n\n// Good \nfunction foo() {\n    return bar();\n    function bar() {\n        return 1;\n    }\n}\n"
   },
   {
     "id": "use-isnan",
@@ -231,7 +256,8 @@
     "href": "http://eslint.org/docs/rules/use-isnan",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif (foo == NaN) {\n    // ...\n}\n\n// Good \nif (isNaN(foo)) {\n    // ...\n}"
   },
   {
     "id": "valid-jsdoc",
@@ -240,7 +266,8 @@
     "href": "http://eslint.org/docs/rules/valid-jsdoc",
     "collection": "possible-errors",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n// missing type for @param and missing @returns\n/**                                 // 2 errors\n * A description\n * @param num1 The first number.\n */\nfunction foo(num1) {\n    // ...\n}\n\n// Good \n/**\n * Adds two numbers together.\n * @param {int} num1 The first number.\n * @param {int} num2 The second number.\n * @returns {int} The sum of the two numbers.\n */\nfunction foo(num1, num2) {\n    return num1 + num2;\n}"
   },
   {
     "id": "valid-typeof",
@@ -249,7 +276,8 @@
     "href": "http://eslint.org/docs/rules/valid-typeof",
     "collection": "possible-errors",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\ntypeof foo === \"strnig\"\ntypeof foo == \"undefimed\"\ntypeof bar != \"nunber\"\ntypeof bar !== \"fucntion\"\n\n// Good \ntypeof foo === \"string\"\ntypeof bar == \"undefined\"\ntypeof foo === baz\ntypeof bar === typeof qux"
   },
   {
     "id": "accessor-pairs",
@@ -258,7 +286,8 @@
     "href": "http://eslint.org/docs/rules/accessor-pairs",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar o = {\n    set a(value) {\n        this.val = value;\n    }\n};\n\n// Good\nvar o = {\n    set a(value) {\n        this.val = value;\n    },\n    get a() {\n        return this.val;\n    }\n};"
   },
   {
     "id": "array-callback-return",
@@ -267,7 +296,8 @@
     "href": "http://eslint.org/docs/rules/array-callback-return",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar indexMap = myArray.reduce(function(memo, item, index) {\n    memo[item] = index;\n}, {});\n\nvar foo = Array.from(nodes, function(node) {\n    if (node.tagName === \"DIV\") {\n        return true;\n    }\n});\n\nvar bar = foo.filter(function(x) {\n    if (x) {\n        return true;\n    } else {\n        return;\n    }\n});\n\n// Good \nvar indexMap = myArray.reduce(function(memo, item, index) {\n    memo[item] = index;\n    return memo;\n}, {});\n\nvar foo = Array.from(nodes, function(node) {\n    if (node.tagName === \"DIV\") {\n        return true;\n    }\n    return false;\n});\n\nvar bar = foo.map(node => node.getAttribute(\"id\"));"
   },
   {
     "id": "block-scoped-var",
@@ -276,7 +306,8 @@
     "href": "http://eslint.org/docs/rules/block-scoped-var",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction doIf() {\n    var build;\n    if (true) {\n        build = true;\n    }\n    console.log(build);\n}\nfunction doIfElse(bool) {\n    var build;\n\n    if (bool === 1) {\n        build = true;\n    } else {\n        build = false;\n    }\n}\n\n// Good \nfunction doIfElse(bool) {\n    var build;\n    build = bool === 1;\n}"
   },
   {
     "id": "complexity",
@@ -285,7 +316,8 @@
     "href": "http://eslint.org/docs/rules/complexity",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint complexity: [\"error\", 2]*/\n\nfunction a(x) {\n    if (true) {\n        return x;\n    } else if (false) {\n        return x+1;\n    } else {\n        return 4; // 3rd path\n    }\n}\n\n// Good \n/*eslint complexity: [\"error\", 2]*/\n\nfunction a(x) {\n    if (true) {\n        return x;\n    } else {\n        return 4;\n    }\n}"
   },
   {
     "id": "consistent-return",
@@ -294,7 +326,8 @@
     "href": "http://eslint.org/docs/rules/consistent-return",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction doSomething(condition) {\n\n    if (condition) {\n        return true;\n    } else {\n        return;\n    }\n}\n\n// Good \nfunction doSomething(condition) {\n\n    if (condition) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "id": "curly",
@@ -303,7 +336,8 @@
     "href": "http://eslint.org/docs/rules/curly",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif (foo) foo++;\n\nwhile (bar)\n    baz();\n\nif (foo) {\n    baz();\n} else qux();\n\n// Good \nif (foo) {\n    foo++;\n}\n\nwhile (bar) {\n    baz();\n}\n\nif (foo) {\n    baz();\n} else {\n    qux();\n}"
   },
   {
     "id": "default-case",
@@ -312,7 +346,8 @@
     "href": "http://eslint.org/docs/rules/default-case",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nswitch (a) {\n    case 1:\n        /* code */\n        break;\n}\n\n// Good \nswitch (a) {\n    case 1:\n        /* code */\n        break;\n\n    default:\n        /* code */\n        break;\n}\n"
   },
   {
     "id": "dot-location",
@@ -321,7 +356,8 @@
     "href": "http://eslint.org/docs/rules/dot-location",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint dot-location: [\"error\", \"object\"]*/\nvar foo = object\n    .property;\n/*eslint dot-location: [\"error\", \"property\"]*/\n\nvar foo = object.\n    property;\n\n// Good\n/*eslint dot-location: [\"error\", \"object\"]*/\nvar foo = object.\n    property;\nvar bar = object.property;\n/*eslint dot-location: [\"error\", \"property\"]*/\n\nvar foo = object\n    .property;\nvar bar = object.property;"
   },
   {
     "id": "dot-notation",
@@ -330,7 +366,8 @@
     "href": "http://eslint.org/docs/rules/dot-notation",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar x = foo[\"bar\"];\n\n// Good \nvar x = foo.bar;\n\nvar x = foo[bar];"
   },
   {
     "id": "eqeqeq",
@@ -339,7 +376,8 @@
     "href": "http://eslint.org/docs/rules/eqeqeq",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nif (x == 42) { }\n\nif (\"\" == text) { }\n\nif (obj.getStuff() != undefined) { }\n\n// Good \ntypeof foo == 'undefined'\n'hello' != 'world'\n0 == 0\ntrue == true\nfoo == null"
   },
   {
     "id": "guard-for-in",
@@ -348,7 +386,8 @@
     "href": "http://eslint.org/docs/rules/guard-for-in",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfor (key in foo) {\n    doSomething(key);\n}\n\n// Good \nfor (key in foo) {\n    if ({}.hasOwnProperty.call(foo, key)) {\n        doSomething(key);\n    }\n}"
   },
   {
     "id": "no-alert",
@@ -357,7 +396,8 @@
     "href": "http://eslint.org/docs/rules/no-alert",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nalert(\"here!\");\nconfirm(\"Are you sure?\");\nprompt(\"What's your name?\", \"John Doe\");\n\n// Good \ncustomAlert(\"Something happened!\");\ncustomConfirm(\"Are you sure?\");\ncustomPrompt(\"Who are you?\");"
   },
   {
     "id": "no-caller",
@@ -366,7 +406,8 @@
     "href": "http://eslint.org/docs/rules/no-caller",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo(n) {\n    if (n <= 0) {\n        return;\n    }\n    arguments.callee(n - 1);\n}\n[1,2,3,4,5].map(function(n) {\n    return !(n > 1) ? 1 : arguments.callee(n - 1) * n;\n});\n\n// Good \nfunction foo(n) {\n    if (n <= 0) {\n        return;\n    }\n    foo(n - 1);\n}\n[1,2,3,4,5].map(function factorial(n) {\n    return !(n > 1) ? 1 : factorial(n - 1) * n;\n});"
   },
   {
     "id": "no-case-declarations",
@@ -375,7 +416,8 @@
     "href": "http://eslint.org/docs/rules/no-case-declarations",
     "collection": "best-practices",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nswitch (foo) {\n    case 1:\n        let x = 1;\n        break;\n    case 2:\n        const y = 2;\n        break;\n    default:\n        class C {}\n}\n\n// Good \nswitch (foo) {\n    case 1: {\n        let x = 1;\n        break;\n    }\n    case 2: {\n        const y = 2;\n        break;\n    }\n    default: {\n        class C {}\n    }\n}"
   },
   {
     "id": "no-div-regex",
@@ -384,7 +426,8 @@
     "href": "http://eslint.org/docs/rules/no-div-regex",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction bar() { return /=foo/; }\n\n// Good \nfunction bar() { return /\\=foo/; }"
   },
   {
     "id": "no-else-return",
@@ -393,7 +436,8 @@
     "href": "http://eslint.org/docs/rules/no-else-return",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo() {\n    if (x) {\n        return y;\n    } else {\n        return z;\n    }\n}\n\n// Good \nfunction foo() {\n    if (x) {\n        return y;\n    }\n    return z;\n}"
   },
   {
     "id": "no-empty-function",
@@ -402,7 +446,8 @@
     "href": "http://eslint.org/docs/rules/no-empty-function",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo() {}\nvar foo = function() {};\nvar foo = () => {};\n\n// Good \nfunction foo() {\n    // do nothing.\n}\nvar foo = function() {\n    // any clear comments.\n};"
   },
   {
     "id": "no-empty-pattern",
@@ -411,7 +456,8 @@
     "href": "http://eslint.org/docs/rules/no-empty-pattern",
     "collection": "best-practices",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar {} = foo;\nvar [] = foo;\nvar {a: {}} = foo;\nvar {a: []} = foo;\nfunction foo({}) {}\nfunction foo([]) {}\n\n// Good\nvar {a = {}} = foo;\nvar {a = []} = foo;\nfunction foo({a = {}}) {}\nfunction foo({a = []}) {}"
   },
   {
     "id": "no-eq-null",
@@ -420,7 +466,8 @@
     "href": "http://eslint.org/docs/rules/no-eq-null",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif (foo == null) {\n    bar();\n}\nwhile (qux != null) {\n    baz();\n}\n\n// Good \nif (foo === null) {\n    bar();\n}\nwhile (qux !== null) {\n    baz();\n}"
   },
   {
     "id": "no-eval",
@@ -429,7 +476,8 @@
     "href": "http://eslint.org/docs/rules/no-eval",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar obj = { x: \"foo\" },\n    key = \"x\",\n    value = eval(\"obj.\" + key);\n\nvar foo = eval;\nfoo(\"var a = 0\");\n// Good \nvar obj = { x: \"foo\" },\n    key = \"x\",\n    value = obj[key];"
   },
   {
     "id": "no-extend-native",
@@ -438,7 +486,8 @@
     "href": "http://eslint.org/docs/rules/no-extend-native",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nObject.prototype.a = \"a\";\nObject.defineProperty(Array.prototype, \"times\", { value: 999 });\n"
   },
   {
     "id": "no-extra-bind",
@@ -447,7 +496,8 @@
     "href": "http://eslint.org/docs/rules/no-extra-bind",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = function () {\n    foo();\n}.bind(bar);\n\nvar x = (() => {\n        foo();\n}).bind(bar);\n\n// Good \nvar x = function () {\n    this.foo();\n}.bind(bar);\n\nvar x = function (a) {\n    return a + 1;\n}.bind(foo, bar);"
   },
   {
     "id": "no-extra-label",
@@ -456,7 +506,8 @@
     "href": "http://eslint.org/docs/rules/no-extra-label",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nA: while (a) {\n    break A;\n}\n\nB: for (let i = 0; i < 10; ++i) {\n    break B;\n}\n\n// Good \nwhile (a) {\n    break;\n}\n\nfor (let i = 0; i < 10; ++i) {\n    break;\n}"
   },
   {
     "id": "no-fallthrough",
@@ -465,7 +516,8 @@
     "href": "http://eslint.org/docs/rules/no-fallthrough",
     "collection": "best-practices",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nswitch(foo) {\n    case 1:\n        doSomething();\n    case 2:\n        doSomething();\n}\n\n// Good \nswitch(foo) {\n    case 1:\n        doSomething();\n        break;\n    case 2:\n        doSomething();\n}"
   },
   {
     "id": "no-floating-decimal",
@@ -474,7 +526,8 @@
     "href": "http://eslint.org/docs/rules/no-floating-decimal",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar num = .5;\nvar num = 2.;\nvar num = -.7;\n\n// Good \nvar num = 0.5;\nvar num = 2.0;\nvar num = -0.7;"
   },
   {
     "id": "no-implicit-coercion",
@@ -483,7 +536,8 @@
     "href": "http://eslint.org/docs/rules/no-implicit-coercion",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar b = !!foo;\nvar b = ~foo.indexOf(\".\");\n\n// Good \nvar b = Boolean(foo);\nvar b = foo.indexOf(\".\") !== -1;\nvar n = ~foo; // This is a just bitwise not."
   },
   {
     "id": "no-implicit-globals",
@@ -492,7 +546,8 @@
     "href": "http://eslint.org/docs/rules/no-implicit-globals",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = 1;\nfunction bar() {}\n\n// Good \nwindow.foo = 1;\nwindow.bar = function() {};"
   },
   {
     "id": "no-implied-eval",
@@ -501,7 +556,8 @@
     "href": "http://eslint.org/docs/rules/no-implied-eval",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nsetTimeout(\"alert('Hi!');\", 100);\nsetInterval(\"alert('Hi!');\", 100);\nexecScript(\"alert('Hi!')\");\n\n// Good \nsetTimeout(function() {\n    alert(\"Hi!\");\n}, 100);\n\nsetInterval(function() {\n    alert(\"Hi!\");\n}, 100);"
   },
   {
     "id": "no-invalid-this",
@@ -510,7 +566,8 @@
     "href": "http://eslint.org/docs/rules/no-invalid-this",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n\"use strict\";\nthis.a = 0;\nbaz(() => this);\n\n(function() {\n    this.a = 0;\n    baz(() => this);\n})();\n\n// Good \n\"use strict\";\nfunction Foo() {\n    // OK, this is in a legacy style constructor.\n    this.a = 0;\n    baz(() => this);\n}\n"
   },
   {
     "id": "no-iterator",
@@ -519,7 +576,8 @@
     "href": "http://eslint.org/docs/rules/no-iterator",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nFoo.prototype.__iterator__ = function() {\n    return new FooIterator(this);\n};\nfoo.__iterator__ = function () {};\nfoo[\"__iterator__\"] = function () {};\n\n// Good \nvar __iterator__ = foo; // Not using the `__iterator__` property."
   },
   {
     "id": "no-labels",
@@ -528,7 +586,8 @@
     "href": "http://eslint.org/docs/rules/no-labels",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nlabel:\n    while(true) {\n        // ...\n    }\n\nlabel:\n    while(true) {\n        break label;\n    }\n\n// Good \nvar f = {\n    label: \"foo\"\n};\n\nwhile (true) {\n    break;\n}"
   },
   {
     "id": "no-lone-blocks",
@@ -537,7 +596,8 @@
     "href": "http://eslint.org/docs/rules/no-lone-blocks",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n{}\n\nif (foo) {\n    bar();\n    {\n        baz();\n    }\n}\n\n// Good \nwhile (foo) {\n    bar();\n}\n\nif (foo) {\n    if (bar) {\n        baz();\n    }\n}"
   },
   {
     "id": "no-loop-func",
@@ -546,7 +606,8 @@
     "href": "http://eslint.org/docs/rules/no-loop-func",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfor (var i=10; i; i--) {\n    (function() { return i; })();\n}\n\n// Good \nvar a = function() {};\n\nfor (var i=10; i; i--) {\n    a();\n}"
   },
   {
     "id": "no-magic-numbers",
@@ -555,7 +616,8 @@
     "href": "http://eslint.org/docs/rules/no-magic-numbers",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar dutyFreePrice = 100,\n    finalPrice = dutyFreePrice + (dutyFreePrice * 0.25);\n\n// Good \nvar TAX = 0.25;\nvar dutyFreePrice = 100,\n    finalPrice = dutyFreePrice + (dutyFreePrice * TAX);"
   },
   {
     "id": "no-multi-spaces",
@@ -564,7 +626,8 @@
     "href": "http://eslint.org/docs/rules/no-multi-spaces",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar a =  1;\nif(foo   === \"bar\") {}\na <<  b\nvar arr = [1,  2];\na ?  b: c\n\n// Good \nvar a = 1;\nif(foo === \"bar\") {}\na << b\nvar arr = [1, 2];\na ? b: c"
   },
   {
     "id": "no-multi-str",
@@ -573,7 +636,8 @@
     "href": "http://eslint.org/docs/rules/no-multi-str",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = \"Line 1 \\\n         Line 2\";\n\n// Good \nvar x = \"Line 1\\n\" +\n    \"Line 2\";"
   },
   {
     "id": "no-native-reassign",
@@ -582,7 +646,8 @@
     "href": "http://eslint.org/docs/rules/no-native-reassign",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nString = new Object();"
   },
   {
     "id": "no-new",
@@ -591,7 +656,8 @@
     "href": "http://eslint.org/docs/rules/no-new",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nnew Thing();\n\n// Good \nvar thing = new Thing();\n\nThing();"
   },
   {
     "id": "no-new-func",
@@ -600,7 +666,8 @@
     "href": "http://eslint.org/docs/rules/no-new-func",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = new Function(\"a\", \"b\", \"return a + b\");\nvar x = Function(\"a\", \"b\", \"return a + b\");\n\n// Good \nvar x = function (a, b) {\n    return a + b;\n};"
   },
   {
     "id": "no-new-wrappers",
@@ -609,7 +676,8 @@
     "href": "http://eslint.org/docs/rules/no-new-wrappers",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar stringObject = new String(\"Hello world\");\nvar numberObject = new Number(33);\nvar booleanObject = new Boolean(false);\n\n// Good \nvar text = String(someValue);\nvar num = Number(someValue);"
   },
   {
     "id": "no-octal",
@@ -618,7 +686,8 @@
     "href": "http://eslint.org/docs/rules/no-octal",
     "collection": "best-practices",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar num = 071;\nvar result = 5 + 07;\n\n// Good \nvar num  = \"071\";"
   },
   {
     "id": "no-octal-escape",
@@ -627,7 +696,8 @@
     "href": "http://eslint.org/docs/rules/no-octal-escape",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = \"Copyright \\251\";\n\n// Good \nvar foo = \"Copyright \\u00A9\";   // unicode\nvar foo = \"Copyright \\xA9\";     // hexadecimal"
   },
   {
     "id": "no-param-reassign",
@@ -636,7 +706,8 @@
     "href": "http://eslint.org/docs/rules/no-param-reassign",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo(bar) {\n    bar = 13;\n}\n\n\n// Good \nfunction foo(bar) {\n    var baz = bar;\n}"
   },
   {
     "id": "no-process-env",
@@ -645,7 +716,8 @@
     "href": "http://eslint.org/docs/rules/no-process-env",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif(process.env.NODE_ENV === \"development\") {\n    //...\n}\n\n// Good \nvar config = require(\"./config\");\nif(config.env === \"development\") {\n    //...\n}"
   },
   {
     "id": "no-proto",
@@ -654,7 +726,8 @@
     "href": "http://eslint.org/docs/rules/no-proto",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar a = obj.__proto__;\nvar a = obj[\"__proto__\"];\n\n// Good \nvar a = Object.getPrototypeOf(obj);"
   },
   {
     "id": "no-redeclare",
@@ -663,7 +736,8 @@
     "href": "http://eslint.org/docs/rules/no-redeclare",
     "collection": "best-practices",
     "isRecommended": true,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar a = 3;\nvar a = 10;\n\n// Good \nvar a = 3;\na = 10;"
   },
   {
     "id": "no-return-assign",
@@ -672,7 +746,8 @@
     "href": "http://eslint.org/docs/rules/no-return-assign",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction doSomething() {\n    return foo = bar + 2;\n}\n\n// Good \nfunction doSomething() {\n    return foo == bar + 2;\n}"
   },
   {
     "id": "no-script-url",
@@ -681,7 +756,8 @@
     "href": "http://eslint.org/docs/rules/no-script-url",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nlocation.href = \"javascript:void(0)\";\n"
   },
   {
     "id": "no-self-assign",
@@ -690,7 +766,8 @@
     "href": "http://eslint.org/docs/rules/no-self-assign",
     "collection": "best-practices",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfoo = foo;\n[a, b] = [a, b];\n[a, ...b] = [x, ...b];\n\n// Good\nfoo = bar;\n[a, b] = [b, a];"
   },
   {
     "id": "no-self-compare",
@@ -699,7 +776,8 @@
     "href": "http://eslint.org/docs/rules/no-self-compare",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = 10;\nif (x === x) {\n    x = 20;\n}\n"
   },
   {
     "id": "no-sequences",
@@ -708,7 +786,8 @@
     "href": "http://eslint.org/docs/rules/no-sequences",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfoo = doSomething(), val;\n0, eval(\"doSomething();\");\ndo {} while (doSomething(), !!test);\n\n// Good \nfoo = (doSomething(), val);\n(0, eval)(\"doSomething();\");\ndo {} while ((doSomething(), !!test));"
   },
   {
     "id": "no-throw-literal",
@@ -717,7 +796,8 @@
     "href": "http://eslint.org/docs/rules/no-throw-literal",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "//no-throw-literal\n// Bad \nthrow \"error\";\nthrow 0;\nthrow undefined;\nthrow null;\n\n// Good\nthrow new Error();\nthrow new Error(\"error\");\nvar e = new Error(\"error\");\nthrow e;"
   },
   {
     "id": "no-unmodified-loop-condition",
@@ -726,7 +806,8 @@
     "href": "http://eslint.org/docs/rules/no-unmodified-loop-condition",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nwhile (node) {\n    doSomething(node);\n}\nnode = other;\n\n// Good \nwhile (node) {\n    doSomething(node);\n    node = node.parent;\n}"
   },
   {
     "id": "no-unused-expressions",
@@ -735,7 +816,8 @@
     "href": "http://eslint.org/docs/rules/no-unused-expressions",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n0\nif(0) 0\n{0}\n"
   },
   {
     "id": "no-unused-labels",
@@ -744,7 +826,8 @@
     "href": "http://eslint.org/docs/rules/no-unused-labels",
     "collection": "best-practices",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nA: var foo = 0;\n\n// Good \nA: {\n    if (foo()) {\n        break A;\n    }\n    bar();\n}\n"
   },
   {
     "id": "no-useless-call",
@@ -753,7 +836,8 @@
     "href": "http://eslint.org/docs/rules/no-useless-call",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfoo.call(undefined, 1, 2, 3);\nfoo.apply(undefined, [1, 2, 3]);\nfoo.call(null, 1, 2, 3);\n\n// Good \nfoo.call(obj, 1, 2, 3);\nfoo.apply(obj, [1, 2, 3]);\nobj.foo.call(null, 1, 2, 3);"
   },
   {
     "id": "no-useless-concat",
@@ -762,7 +846,8 @@
     "href": "http://eslint.org/docs/rules/no-useless-concat",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar a = `some` + `string`;\nvar a = '1' + '0';\n\n// Good \nvar c = a + b;\nvar c = '1' + a;"
   },
   {
     "id": "no-void",
@@ -771,7 +856,8 @@
     "href": "http://eslint.org/docs/rules/no-void",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvoid foo\n\nvar foo = void bar();\n"
   },
   {
     "id": "no-warning-comments",
@@ -780,7 +866,8 @@
     "href": "http://eslint.org/docs/rules/no-warning-comments",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction callback(err, results) {\n    if (err) {\n        console.error(err);\n        return;\n    }\n    // TODO\n}\n"
   },
   {
     "id": "no-with",
@@ -789,7 +876,8 @@
     "href": "http://eslint.org/docs/rules/no-with",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nwith (foo) {\n    // ...\n}\n"
   },
   {
     "id": "radix",
@@ -798,7 +886,8 @@
     "href": "http://eslint.org/docs/rules/radix",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar num = parseInt(\"071\");\nvar num = parseInt(someValue);\nvar num = parseInt(\"071\", \"abc\");\n\n// Good\nvar num = parseInt(\"071\", 10);\nvar num = parseInt(\"071\", 8);\nvar num = parseFloat(someValue);"
   },
   {
     "id": "vars-on-top",
@@ -807,7 +896,8 @@
     "href": "http://eslint.org/docs/rules/vars-on-top",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction doSomething() {\n    var first;\n    // some code\n    var second;\n}\n// Good\nfunction doSomething() {\n    var first;\n    var second;\n    // some code\n}"
   },
   {
     "id": "wrap-iife",
@@ -816,7 +906,8 @@
     "href": "http://eslint.org/docs/rules/wrap-iife",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar x = function () { return { y: 1 };}(); // unwrapped\n\n// Good \nvar x = (function () { return { y: 1 };}()); // wrapped call expression"
   },
   {
     "id": "yoda",
@@ -825,7 +916,8 @@
     "href": "http://eslint.org/docs/rules/yoda",
     "collection": "best-practices",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nif (\"red\" === color) {\n    // ...\n}\n\n// Good \nif (value === \"red\") {\n    // ...\n}"
   },
   {
     "id": "strict",
@@ -834,7 +926,8 @@
     "href": "http://eslint.org/docs/rules/strict",
     "collection": "strict-mode",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo() {\n    return true;\n}\n\n// Good\n\"use strict\";\nfunction foo() {\n    \"use strict\";\n    return;\n}"
   },
   {
     "id": "init-declarations",
@@ -843,7 +936,8 @@
     "href": "http://eslint.org/docs/rules/init-declarations",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo() {\n    var bar;\n    let baz;\n}\n\n// Good \nfunction foo() {\n    var bar = 1;\n    let baz = 2;\n    const qux = 3;\n}"
   },
   {
     "id": "no-catch-shadow",
@@ -852,7 +946,8 @@
     "href": "http://eslint.org/docs/rules/no-catch-shadow",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar err = \"x\";\ntry {\n    throw \"problem\";\n} catch (err) {\n\n}\nconsole.log(err)    // err is 'problem', not 'x'\n\n// Good \nvar err = \"x\";\n\ntry {\n    throw \"problem\";\n} catch (e) {\n\n}\n"
   },
   {
     "id": "no-delete-var",
@@ -861,7 +956,8 @@
     "href": "http://eslint.org/docs/rules/no-delete-var",
     "collection": "variables",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x;\ndelete x;\n\n"
   },
   {
     "id": "no-label-var",
@@ -870,7 +966,8 @@
     "href": "http://eslint.org/docs/rules/no-label-var",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = foo;\nfunction bar() {\n    x:\n        for (;;) {\n            break x;\n        }\n}\n\n// Good \nfunction foo() {\n    var q = t;\n}\n\nfunction bar() {\n    q:\n        for(;;) {\n            break q;\n        }\n}"
   },
   {
     "id": "no-restricted-globals",
@@ -879,7 +976,8 @@
     "href": "http://eslint.org/docs/rules/no-restricted-globals",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction onClick() {\n    console.log(event);\n}\n\n// Good \nimport event from \"event-module\";"
   },
   {
     "id": "no-shadow",
@@ -888,7 +986,8 @@
     "href": "http://eslint.org/docs/rules/no-shadow",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar a = 3;\nfunction b() {\n    var a = 10;\n}\nvar b = function () {\n    var a = 10;\n}\n"
   },
   {
     "id": "no-shadow-restricted-names",
@@ -897,7 +996,8 @@
     "href": "http://eslint.org/docs/rules/no-shadow-restricted-names",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction NaN(){}\n!function(Infinity){};\nvar undefined;\ntry {} catch(eval){}\n\n// Good \nvar Object;\nfunction f(a, b){}"
   },
   {
     "id": "no-undef",
@@ -906,7 +1006,8 @@
     "href": "http://eslint.org/docs/rules/no-undef",
     "collection": "variables",
     "isRecommended": true,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar a = someFunction();\nb = 10;\n\n// Good \nvar a = someFunction();\nb = 10;"
   },
   {
     "id": "no-undef-init",
@@ -915,7 +1016,8 @@
     "href": "http://eslint.org/docs/rules/no-undef-init",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = undefined;\nlet bar = undefined;\n\n// Good \nvar foo;\nlet bar;\nconst baz = undefined;\n"
   },
   {
     "id": "no-undefined",
@@ -924,7 +1026,8 @@
     "href": "http://eslint.org/docs/rules/no-undefined",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = undefined;\nif (foo === undefined) {\n    // ...\n}\n// Good \nvar foo = void 0;\nif (typeof foo === \"undefined\") {\n    // ...\n}"
   },
   {
     "id": "no-unused-vars",
@@ -933,7 +1036,8 @@
     "href": "http://eslint.org/docs/rules/no-unused-vars",
     "collection": "variables",
     "isRecommended": true,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nsome_unused_var = 42;\nvar x;\nvar y = 10;\ny = 5;\n\n// Good \nvar x = 10;\nalert(x);"
   },
   {
     "id": "no-use-before-define",
@@ -942,7 +1046,8 @@
     "href": "http://eslint.org/docs/rules/no-use-before-define",
     "collection": "variables",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nalert(a);\nvar a = 10;\n\n// Good \nvar a;\na = 10;\nalert(a);"
   },
   {
     "id": "callback-return",
@@ -951,7 +1056,8 @@
     "href": "http://eslint.org/docs/rules/callback-return",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo() {\n    if (err) {\n        callback(err);\n    }\n    callback();\n}\n\n// Good \nfunction foo() {\n    if (err) {\n        return callback(err);\n    }\n    callback();\n}"
   },
   {
     "id": "global-require",
@@ -960,7 +1066,8 @@
     "href": "http://eslint.org/docs/rules/global-require",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n// calling require() inside of a function is not allowed\nfunction readFile(filename, callback) {\n    var fs = require('fs');\n    fs.readFile(filename, callback)\n}\n\n// conditional requires like this are also not allowed\nif (DEBUG) { require('debug'); }\n\n// a require() in a switch statement is also flagged\nswitch(x) { case '1': require('1'); break; }\n\n// Good \n// all these variations of require() are ok\nrequire('x');\nvar y = require('y');\nvar z;\nz = require('z').initialize();\n\n// requiring a module and using it in a function is ok\nvar fs = require('fs');\nfunction readFile(filename, callback) {\n    fs.readFile(filename, callback)\n}\n\n// you can use a ternary to determine which module to require\nvar logger = DEBUG ? require('dev-logger') : require('logger');"
   },
   {
     "id": "handle-callback-err",
@@ -969,7 +1076,8 @@
     "href": "http://eslint.org/docs/rules/handle-callback-err",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction loadData (err, data) {\n    doSomething();\n}\n\n// Good \nfunction loadData (err, data) {\n    if (err) {\n        console.log(err.stack);\n    }\n    doSomething();\n}\n\nfunction generateError (err) {\n    if (err) {}\n}"
   },
   {
     "id": "no-mixed-requires",
@@ -978,7 +1086,8 @@
     "href": "http://eslint.org/docs/rules/no-mixed-requires",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar async = require('async'),\n    debug = require('diagnostics').someFunction('my-module'),\n    eslint = require('eslint');\n\n// Good \nvar eventEmitter = require('events').EventEmitter,\n    myUtils = require('./utils'),\n    util = require('util'),\n    bar = require(getBarModuleName());"
   },
   {
     "id": "no-new-require",
@@ -987,7 +1096,8 @@
     "href": "http://eslint.org/docs/rules/no-new-require",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar appHeader = new require('app-header');\n\n// Good\nvar AppHeader = require('app-header');\nvar appHeader = new AppHeader();"
   },
   {
     "id": "no-path-concat",
@@ -996,7 +1106,8 @@
     "href": "http://eslint.org/docs/rules/no-path-concat",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar fullPath = __dirname + \"/foo.js\";\nvar fullPath = __filename + \"/foo.js\";\n\n// Good \nvar fullPath = dirname + \"/foo.js\";"
   },
   {
     "id": "no-process-exit",
@@ -1005,7 +1116,8 @@
     "href": "http://eslint.org/docs/rules/no-process-exit",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nprocess.exit(1);\nprocess.exit(0);\n\n// Good \nProcess.exit();\nvar exit = process.exit;"
   },
   {
     "id": "no-restricted-imports",
@@ -1014,7 +1126,8 @@
     "href": "http://eslint.org/docs/rules/no-restricted-imports",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint no-restricted-imports: [\"error\", \"fs\"]*/\nimport fs from 'fs';\n\n// Good \n/*eslint no-restricted-imports: [\"error\", \"fs\"]*/\nimport crypto from 'crypto';"
   },
   {
     "id": "no-restricted-modules",
@@ -1023,7 +1136,8 @@
     "href": "http://eslint.org/docs/rules/no-restricted-modules",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint no-restricted-modules: [\"error\", \"fs\", \"cluster\"]*/\nvar fs = require('fs');\nvar cluster = require(' cluster ');\n\n// Good\nvar crypto = require('crypto');"
   },
   {
     "id": "no-sync",
@@ -1032,7 +1146,8 @@
     "href": "http://eslint.org/docs/rules/no-sync",
     "collection": "node.js-and-commonjs",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfs.existsSync(somePath);\nvar contents = fs.readFileSync(somePath).toString();\n\n// Good \nobj.sync();\nasync(function() {\n    // ...\n});"
   },
   {
     "id": "array-bracket-spacing",
@@ -1041,7 +1156,8 @@
     "href": "http://eslint.org/docs/rules/array-bracket-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar arr = [ 'foo', 'bar' ];\nvar [ x, y ] = z;\n\n// Good \nvar arr = ['foo', 'bar'];\nvar [x,y] = z;"
   },
   {
     "id": "block-spacing",
@@ -1050,7 +1166,8 @@
     "href": "http://eslint.org/docs/rules/block-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo() {return true;}\nif (foo) { bar = 0;}\n\n// Good \nfunction foo() { return true; }\nif (foo) { bar = 0; }"
   },
   {
     "id": "brace-style",
@@ -1059,7 +1176,8 @@
     "href": "http://eslint.org/docs/rules/brace-style",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo()\n{\n    return true;\n}\n\n\ntry\n{\n    somethingRisky();\n} catch(e)\n{\n    handleError();\n}\n\nif (foo) {\n    bar();\n}\nelse {\n    baz();\n}\n\n// Good \nfunction foo() {\n    return true;\n}\n\n\nif (foo) {\n    bar();\n} else {\n    baz();\n}\n\ntry {\n    somethingRisky();\n} catch(e) {\n    handleError();\n}\n"
   },
   {
     "id": "camelcase",
@@ -1068,7 +1186,8 @@
     "href": "http://eslint.org/docs/rules/camelcase",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar my_favorite_color = \"#112C85\";\n\nfunction do_something() {\n    // ...\n}\n\nobj.do_something = function() {\n    // ...\n};\n\nvar obj = {\n    my_pref: 1\n};\n\n// Good \nvar myFavoriteColor   = \"#112C85\";\nvar _myFavoriteColor  = \"#112C85\";\nvar myFavoriteColor_  = \"#112C85\";\nvar MY_FAVORITE_COLOR = \"#112C85\";\nvar foo = bar.baz_boom;\nvar foo = { qux: bar.baz_boom };\n\nobj.do_something();\n\nvar { category_id: category } = query;"
   },
   {
     "id": "comma-spacing",
@@ -1077,7 +1196,8 @@
     "href": "http://eslint.org/docs/rules/comma-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint comma-spacing: [\"error\", { \"before\": false, \"after\": true }]*/\n\nvar foo = 1 ,bar = 2;\nvar arr = [1 , 2];\nvar obj = {\"foo\": \"bar\" ,\"baz\": \"qur\"};\nfoo(a ,b);\nnew Foo(a ,b);\nfunction foo(a ,b){}\na ,b\n\n// Good \n/*eslint comma-spacing: [\"error\", { \"before\": false, \"after\": true }]*/\n\nvar foo = 1, bar = 2\n    , baz = 3;\nvar arr = [1, 2];\nvar arr = [1,, 3]\nvar obj = {\"foo\": \"bar\", \"baz\": \"qur\"};\nfoo(a, b);\nnew Foo(a, b);\nfunction foo(a, b){}\na, b"
   },
   {
     "id": "comma-style",
@@ -1086,7 +1206,8 @@
     "href": "http://eslint.org/docs/rules/comma-style",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo = 1\n    ,\n    bar = 2;\n\nvar foo = 1\n    , bar = 2;\n\nvar foo = [\"apples\"\n    , \"oranges\"];\n\nfunction bar() {\n    return {\n        \"a\": 1\n        ,\"b:\": 2\n    };\n}\n// Good\nvar foo = 1, bar = 2;\n\nvar foo = 1,\n    bar = 2;\n\nvar foo = [\"apples\",\n    \"oranges\"];\n\nfunction bar() {\n    return {\n        \"a\": 1,\n        \"b:\": 2\n    };\n}\n"
   },
   {
     "id": "computed-property-spacing",
@@ -1095,7 +1216,8 @@
     "href": "http://eslint.org/docs/rules/computed-property-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint computed-property-spacing: [\"error\", \"never\"]*/\n/*eslint-env es6*/\n\nobj[foo ]\nobj[ 'foo']\nvar x = {[ b ]: a}\nobj[foo[ bar ]]\n\n// Good \n/*eslint computed-property-spacing: [\"error\", \"never\"]*/\n/*eslint-env es6*/\n\nobj[foo]\nobj['foo']\nvar x = {[b]: a}\nobj[foo[bar]]"
   },
   {
     "id": "consistent-this",
@@ -1104,7 +1226,8 @@
     "href": "http://eslint.org/docs/rules/consistent-this",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint consistent-this: [\"error\", \"that\"]*/\n\nvar that = 42;\n\nvar self = this;\n\nthat = 42;\n\nself = this;\n\n// Good \n/*eslint consistent-this: [\"error\", \"that\"]*/\n\nvar that = this;\n\nvar self = 42;\n\nvar self;\n\nthat = this;\n\nfoo.bar = this;"
   },
   {
     "id": "eol-last",
@@ -1122,7 +1245,8 @@
     "href": "http://eslint.org/docs/rules/func-names",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nFoo.prototype.bar = function() {};\n\n(function() {\n    // ...\n}())\n\n// Good \nFoo.prototype.bar = function bar() {};\n\n(function bar() {\n    // ...\n}())"
   },
   {
     "id": "func-style",
@@ -1131,7 +1255,8 @@
     "href": "http://eslint.org/docs/rules/func-style",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo() {\n    // ...\n}\n\n// Good \nvar foo = function() {\n    // ...\n};"
   },
   {
     "id": "id-blacklist",
@@ -1140,7 +1265,8 @@
     "href": "http://eslint.org/docs/rules/id-blacklist",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint id-blacklist: [\"error\", \"data\", \"callback\"] */\n\nvar data = {...};\n\nfunction callback() {\n    // ...\n}\n\nelement.callback = function() {\n    // ...\n};\n\nvar itemSet = {\n    data: [...]\n};\n\n// Good \n/*eslint id-blacklist: [\"error\", \"data\", \"callback\"] */\n\nvar encodingOptions = {...};\n\nfunction processFileResult() {\n    // ...\n}\n\nelement.successHandler = function() {\n    // ...\n};\n\nvar itemSet = {\n    entities: [...]\n};\n\ncallback(); // all function calls are ignored"
   },
   {
     "id": "id-length",
@@ -1149,7 +1275,8 @@
     "href": "http://eslint.org/docs/rules/id-length",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar x = 5;\nobj.e = document.body;\nvar foo = function (e) { };\ntry {\n    dangerousStuff();\n} catch (e) {\n    // ignore as many do\n}\nvar myObj = { a: 1 };\n(a) => { a * a };\nclass x { }\nclass Foo { x() {} }\n\n// Good \nvar num = 5;\nfunction _f() { return 42; }\nfunction _func() { return 42; }\nobj.el = document.body;\nvar foo = function (evt) { /* do stuff */ };\ntry {\n    dangerousStuff();\n} catch (error) {\n    // ignore as many do\n}\nvar myObj = { apple: 1 };\n(num) => { num * num };\nfunction foo(num = 0) { }\nclass MyClass { }\nclass Foo { method() {} }"
   },
   {
     "id": "id-match",
@@ -1158,7 +1285,8 @@
     "href": "http://eslint.org/docs/rules/id-match",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint id-match: [\"error\", \"^[a-z]+([A-Z][a-z]+)*$\"]*/\n\nvar my_favorite_color = \"#112C85\";\nvar _myFavoriteColor  = \"#112C85\";\nvar myFavoriteColor_  = \"#112C85\";\nvar MY_FAVORITE_COLOR = \"#112C85\";\nfunction do_something() {\n    // ...\n}\nobj.do_something = function() {\n    // ...\n};\n\n// Good \n/*eslint id-match: [\"error\", \"^[a-z]+([A-Z][a-z]+)*$\"]*/\n\nvar myFavoriteColor   = \"#112C85\";\nvar foo = bar.baz_boom;\nvar foo = { qux: bar.baz_boom };\ndo_something();\nvar obj = {\n    my_pref: 1\n};"
   },
   {
     "id": "indent",
@@ -1167,7 +1295,8 @@
     "href": "http://eslint.org/docs/rules/indent",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nif (a) {\n  b=c;\n  function foo(d) {\n    e=f;\n  }\n}\n\n// Good \nif (a) {\n    b=c;\n    function foo(d) {\n        e=f;\n    }\n}"
   },
   {
     "id": "jsx-quotes",
@@ -1176,7 +1305,8 @@
     "href": "http://eslint.org/docs/rules/jsx-quotes",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n<a b='c' />\n\n// Good \n<a b=\"c\" />\n<a b='\"' />"
   },
   {
     "id": "key-spacing",
@@ -1185,7 +1315,8 @@
     "href": "http://eslint.org/docs/rules/key-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint key-spacing: [\"error\", { \"beforeColon\": false }]*/\nvar obj = { \"foo\" : 42 };\n/*eslint key-spacing: [\"error\", { \"beforeColon\": true }]*/\nvar obj = { \"foo\": 42 };\n\n// Good\n/*eslint key-spacing: [\"error\", { \"beforeColon\": false }]*/\nvar obj = { \"foo\": 42 };\n/*eslint key-spacing: [\"error\", { \"beforeColon\": true }]*/\nvar obj = { \"foo\" : 42 };"
   },
   {
     "id": "keyword-spacing",
@@ -1194,7 +1325,8 @@
     "href": "http://eslint.org/docs/rules/keyword-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint keyword-spacing: [\"error\", { \"before\": true }]*/\n\nif (foo) {\n    //...\n}else if (bar) {\n    //...\n}else {\n    //...\n}\n\n// Good \n/*eslint keyword-spacing: [\"error\", { \"before\": true }]*/\n/*eslint-env es6*/\n\nif (foo) {\n    //...\n} else if (bar) {\n    //...\n} else {\n    //...\n}"
   },
   {
     "id": "linebreak-style",
@@ -1203,7 +1335,8 @@
     "href": "http://eslint.org/docs/rules/linebreak-style",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar a = 'a'; // \\r\\n\n\n// Good \nvar a = 'a', // \\n\n    b = 'b'; // \\n\n// \\n\nfunction foo(params) { // \\n\n    // do stuff \\n\n}// \\n"
   },
   {
     "id": "lines-around-comment",
@@ -1212,7 +1345,8 @@
     "href": "http://eslint.org/docs/rules/lines-around-comment",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar night = \"long\";\n/* what a great and wonderful day */\nvar day = \"great\"\n\n// Good \nvar night = \"long\";\n\n/* what a great and wonderful day */\nvar day = \"great\""
   },
   {
     "id": "max-depth",
@@ -1221,7 +1355,8 @@
     "href": "http://eslint.org/docs/rules/max-depth",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint max-depth: [\"error\", 4]*/\n/*eslint-env es6*/\n\nfunction foo() {\n    for (;;) { // Nested 1 deep\n        let val = () => (param) => { // Nested 2 deep\n            if (true) { // Nested 3 deep\n                if (true) { // Nested 4 deep\n                    if (true) { // Nested 5 deep\n                    }\n                }\n            }\n        };\n    }\n}\n\n// Good \nfunction foo() {\n    for (;;) { // Nested 1 deep\n        let val = () => (param) => { // Nested 2 deep\n            if (true) { // Nested 3 deep\n                if (true) { // Nested 4 deep\n                }\n            }\n        };\n    }\n}"
   },
   {
     "id": "max-len",
@@ -1230,7 +1365,8 @@
     "href": "http://eslint.org/docs/rules/max-len",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint max-len: [\"error\", 80]*/\nvar foo = { \"bar\": \"This is a bar.\", \"baz\": { \"qux\": \"This is a qux\" }, \"difficult\": \"to read\" };\n\n// Good \nvar foo = {\n    \"bar\": \"This is a bar.\",\n    \"baz\": { \"qux\": \"This is a qux\" },\n    \"easier\": \"to read\"\n};"
   },
   {
     "id": "max-nested-callbacks",
@@ -1239,7 +1375,8 @@
     "href": "http://eslint.org/docs/rules/max-nested-callbacks",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint max-nested-callbacks: [\"error\", 3]*/\n\nfoo1(function() {\n    foo2(function() {\n        foo3(function() {\n            foo4(function() {\n                // Do something\n            });\n        });\n    });\n});\n\n// Good \nfoo1(handleFoo1);\n\nfunction handleFoo1() {\n    foo2(handleFoo2);\n}\n\nfunction handleFoo2() {\n    foo3(handleFoo3);\n}\n\nfunction handleFoo3() {\n    foo4(handleFoo4);\n}\n\nfunction handleFoo4() {\n    foo5();\n}"
   },
   {
     "id": "max-params",
@@ -1248,7 +1385,8 @@
     "href": "http://eslint.org/docs/rules/max-params",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint max-params: [\"error\", 3]*/\n/*eslint-env es6*/\n\nfunction foo (bar, baz, qux, qxx) {\n    doSomething();\n}\n\nlet foo = (bar, baz, qux, qxx) => {\n    doSomething();\n};\n\n// Good \nfunction foo (bar, baz, qux) {\n    doSomething();\n}\n\nlet foo = (bar, baz, qux) => {\n    doSomething();\n};"
   },
   {
     "id": "max-statements",
@@ -1257,7 +1395,8 @@
     "href": "http://eslint.org/docs/rules/max-statements",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo() {\n    var foo1 = 1;\n    var foo2 = 2;\n    var foo3 = 3;\n    var foo4 = 4;\n    var foo5 = 5;\n    var foo6 = 6;\n    var foo7 = 7;\n    var foo8 = 8;\n    var foo9 = 9;\n    var foo10 = 10;\n\n    var foo11 = 11; // Too many.\n}\n\n// Good \nfunction foo() {\n    var foo1 = 1;\n    var foo2 = 2;\n    var foo3 = 3;\n    var foo4 = 4;\n    var foo5 = 5;\n    var foo6 = 6;\n    var foo7 = 7;\n    var foo8 = 8;\n    var foo9 = 9;\n    var foo10 = 10;\n    return function () {\n\n        // The number of statements in the inner function does not count toward the\n        // statement maximum.\n\n        return 42;\n    };\n}"
   },
   {
     "id": "new-cap",
@@ -1266,7 +1405,8 @@
     "href": "http://eslint.org/docs/rules/new-cap",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar friend = new person();\nvar colleague = Person();\n\n// Good \nvar friend = new Person();\nvar colleague = person();"
   },
   {
     "id": "new-parens",
@@ -1275,7 +1415,8 @@
     "href": "http://eslint.org/docs/rules/new-parens",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar person = new Person;\n\n// Good \nvar person = new Person();"
   },
   {
     "id": "newline-after-var",
@@ -1284,7 +1425,8 @@
     "href": "http://eslint.org/docs/rules/newline-after-var",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar greet = \"hello,\",\n    name = \"world\";\nconsole.log(greet, name);\n\n// Good \nvar greet = \"hello,\",\n    name = \"world\";\n\nconsole.log(greet, name);"
   },
   {
     "id": "newline-before-return",
@@ -1293,7 +1435,8 @@
     "href": "http://eslint.org/docs/rules/newline-before-return",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo() {\n\n    return;\n}\n\nfunction foo(bar) {\n    if (!bar) {\n\n        return;\n    }\n}\n\n// Good \nfunction foo() {\n    return;\n}\n\nfunction foo(bar) {\n    if (!bar) return;\n}\n\nfunction foo(bar) {\n    if (!bar) { return };\n}\n"
   },
   {
     "id": "newline-per-chained-call",
@@ -1302,7 +1445,8 @@
     "href": "http://eslint.org/docs/rules/newline-per-chained-call",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n_.chain({}).map(foo).filter(bar).value();\n// Or\n_.chain({}).map(foo).filter(bar);\n\n// Good \n_\n    .chain({})\n    .map(foo)\n    .filter(bar)\n    .value();\n// Or\n_\n    .chain({})\n    .map(foo)\n    .filter(bar);\n"
   },
   {
     "id": "no-array-constructor",
@@ -1311,7 +1455,8 @@
     "href": "http://eslint.org/docs/rules/no-array-constructor",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nArray(0, 1, 2)\nnew Array(0, 1, 2)\n\n// Good \nArray(500)\nnew Array(someOtherArray.length)"
   },
   {
     "id": "no-bitwise",
@@ -1320,7 +1465,8 @@
     "href": "http://eslint.org/docs/rules/no-bitwise",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "//no-bitwise\n// Bad \nvar x = y | z;\nvar x = y & z;\nvar x = y ^ z;\nvar x = ~ z;\nvar x = y << z;\nvar x = y >> z;\nvar x = y >>> z;\n\n// Good \nvar x = y || z;\nvar x = y && z;\nvar x = y > z;\nvar x = y < z;"
   },
   {
     "id": "no-continue",
@@ -1329,7 +1475,8 @@
     "href": "http://eslint.org/docs/rules/no-continue",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar sum = 0,i;\nfor(i = 0; i < 10; i++) {\n    if(i >= 5) {\n        continue;\n    }\n    a += i;\n}\n\n// Good \nvar sum = 0,i;\nlabeledLoop: for(i = 0; i < 10; i++) {\n    if(i >= 5) {\n        continue labeledLoop;\n    }\n    a += i;\n}"
   },
   {
     "id": "no-inline-comments",
@@ -1338,7 +1485,8 @@
     "href": "http://eslint.org/docs/rules/no-inline-comments",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar a = 1; // declaring a to 1\nfunction getRandomNumber(){\n    return 4; // chosen by fair dice roll.\n              // guaranteed to be random.\n}\n/* A block comment before code */ var b = 2;\nvar c = 3; /* A block comment after code */\n\n// Good \n// This is a comment above a line of code\nvar foo = 5;\n\nvar bar = 5;\n//This is a comment below a line of code"
   },
   {
     "id": "no-lonely-if",
@@ -1347,7 +1495,8 @@
     "href": "http://eslint.org/docs/rules/no-lonely-if",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif (condition) {\n    // ...\n} else {\n    if (anotherCondition) {\n        // ...\n    }\n}\n\n// Good \nif (condition) {\n    // ...\n} else if (anotherCondition) {\n    // ...\n}\n"
   },
   {
     "id": "no-mixed-spaces-and-tabs",
@@ -1356,7 +1505,8 @@
     "href": "http://eslint.org/docs/rules/no-mixed-spaces-and-tabs",
     "collection": "stylistic-issues",
     "isRecommended": true,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "//no-mixed-spaces-and-tabs\n// Bad \nfunction add(x, y) {\n// --->..return x + y;\n    return x + y;\n}\n\nfunction main() {\n// --->var x = 5,\n// --->....y = 7;\n    var x = 5,\n        y = 7;\n}\n\n// Good \nfunction add(x, y) {\n// --->return x + y;\n    return x + y;\n}"
   },
   {
     "id": "no-multiple-empty-lines",
@@ -1365,7 +1515,8 @@
     "href": "http://eslint.org/docs/rules/no-multiple-empty-lines",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo = 5;\n\n\n\nvar bar = 3;\n"
   },
   {
     "id": "no-negated-condition",
@@ -1374,7 +1525,8 @@
     "href": "http://eslint.org/docs/rules/no-negated-condition",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nif (!a) {\n    doSomething();\n} else {\n    doSomethingElse();\n}\n\n// Good \nif (a) {\n    doSomethingElse();\n} else {\n    doSomething();\n}"
   },
   {
     "id": "no-nested-ternary",
@@ -1383,7 +1535,8 @@
     "href": "http://eslint.org/docs/rules/no-nested-ternary",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar thing = foo ? bar : baz === qux ? quxx : foobar;\nfoo ? baz === qux ? quxx() : foobar() : bar();\n\n// Good \nvar thing;\n\nif (foo) {\n    thing = bar;\n} else if (baz === qux) {\n    thing = quxx;\n} else {\n    thing = foobar;\n}"
   },
   {
     "id": "no-new-object",
@@ -1392,7 +1545,8 @@
     "href": "http://eslint.org/docs/rules/no-new-object",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar myObject = new Object();\nvar myObject = new Object;\n\n// Good \nvar myObject = new CustomObject();\nvar myObject = {};"
   },
   {
     "id": "no-plusplus",
@@ -1401,7 +1555,8 @@
     "href": "http://eslint.org/docs/rules/no-plusplus",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo = 0;\nfoo++;\nvar bar = 42;\nbar--;\n\n// Good \nvar foo = 0;\nfoo += 1;\nvar bar = 42;\nbar -= 1;"
   },
   {
     "id": "no-restricted-syntax",
@@ -1410,7 +1565,8 @@
     "href": "http://eslint.org/docs/rules/no-restricted-syntax",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/* eslint no-restricted-syntax: [\"error\", \"FunctionExpression\", \"WithStatement\"] */\nwith (me) {\n    dontMess();\n}\nvar doSomething = function () {};\n\n// Good \nme.dontMess();\nfunction doSomething() {};"
   },
   {
     "id": "no-spaced-func",
@@ -1419,7 +1575,8 @@
     "href": "http://eslint.org/docs/rules/no-spaced-func",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfn ()\nfn\n()\n\n// Good \nfn()"
   },
   {
     "id": "no-ternary",
@@ -1428,7 +1585,8 @@
     "href": "http://eslint.org/docs/rules/no-ternary",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "//no-ternary\n// Bad \nvar foo = isBar ? baz : qux;\nfoo ? bar() : baz();\nfunction quux() {\n    return foo ? bar : baz;\n}\n\n// Good \nvar foo;\nif (isBar) {\n    foo = baz;\n} else {\n    foo = qux;\n}\nif (foo) {\n    bar();\n} else {\n    baz();\n}"
   },
   {
     "id": "no-trailing-spaces",
@@ -1437,7 +1595,8 @@
     "href": "http://eslint.org/docs/rules/no-trailing-spaces",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo = 0;//•••••\n\n// Good \nvar foo = 0;"
   },
   {
     "id": "no-underscore-dangle",
@@ -1446,7 +1605,8 @@
     "href": "http://eslint.org/docs/rules/no-underscore-dangle",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo_;\nvar __proto__ = {};\nfoo._bar();\n\n// Good \nvar _ = require('underscore');\nvar obj = _.contains(items, item);\nobj.__proto__ = {};\nvar file = __filename;"
   },
   {
     "id": "no-unneeded-ternary",
@@ -1455,7 +1615,8 @@
     "href": "http://eslint.org/docs/rules/no-unneeded-ternary",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar a = x === 2 ? true : false;\nvar a = x ? true : false;\n\n// Good \nvar a = x ? x : 1;"
   },
   {
     "id": "no-whitespace-before-property",
@@ -1464,7 +1625,8 @@
     "href": "http://eslint.org/docs/rules/no-whitespace-before-property",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfoo [bar]\nfoo. bar\nfoo .bar\n\n// Good \nfoo.bar\nfoo[bar]\nfoo[ bar ]"
   },
   {
     "id": "object-curly-spacing",
@@ -1473,7 +1635,8 @@
     "href": "http://eslint.org/docs/rules/object-curly-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar obj = { 'foo': 'bar' };\nvar obj = {'foo': 'bar' };\n\n// Good \nvar obj = {'foo': 'bar'};\nvar obj = {'foo': {'bar': 'baz'}, 'qux': 'quxx'};"
   },
   {
     "id": "one-var",
@@ -1482,7 +1645,8 @@
     "href": "http://eslint.org/docs/rules/one-var",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfunction foo() {\n    var bar;\n    var baz;\n    let qux;\n    let norf;\n}\n\n// Good \nfunction foo() {\n    var bar,\n        baz;\n    let qux,\n        norf;\n}\n"
   },
   {
     "id": "one-var-declaration-per-line",
@@ -1491,7 +1655,8 @@
     "href": "http://eslint.org/docs/rules/one-var-declaration-per-line",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar a, b;\nlet a, b = 0;\nconst a = 0, b = 0;\n\n// Good \nvar a,\n    b;\nlet a,\n    b = 0;"
   },
   {
     "id": "operator-assignment",
@@ -1500,7 +1665,8 @@
     "href": "http://eslint.org/docs/rules/operator-assignment",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nx = y;\nx += y;\nx = y * z;\n\n// Good \nx = x + y;\nx = y * x;\nx[0] = x[0] / y;"
   },
   {
     "id": "operator-linebreak",
@@ -1509,7 +1675,8 @@
     "href": "http://eslint.org/docs/rules/operator-linebreak",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfoo = 1\n    +\n    2;\n\nfoo = 1\n    + 2;\n\n// Good \nfoo = 1 + 2;\n\nfoo = 1 +\n    2;"
   },
   {
     "id": "padded-blocks",
@@ -1518,7 +1685,8 @@
     "href": "http://eslint.org/docs/rules/padded-blocks",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nif (a) {\n    b();\n}\nif (a) { b(); }\n\n// Good \nif (a) {\n    b();\n}\nif (a)\n{\n    b();\n}"
   },
   {
     "id": "quote-props",
@@ -1527,7 +1695,8 @@
     "href": "http://eslint.org/docs/rules/quote-props",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar object = {\n    foo: \"bar\",\n    baz: 42,\n    \"qux-lorem\": true\n};\n\n// Good \nvar object1 = {\n    \"foo\": \"bar\",\n    \"baz\": 42,\n    \"qux-lorem\": true\n};"
   },
   {
     "id": "quotes",
@@ -1536,7 +1705,8 @@
     "href": "http://eslint.org/docs/rules/quotes",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint quotes: [\"error\", \"single\"]*/\nvar single = 'single';\nvar unescaped = 'a string containing \"double\" quotes';\n/*eslint quotes: [\"error\", \"double\"]*/\nvar double = \"double\";\nvar unescaped = \"a string containing 'single' quotes\";\n// Good\n/*eslint quotes: [\"error\", \"double\"]*/\nvar single = 'single';\nvar unescaped = 'a string containing \"double\" quotes';\n/*eslint quotes: [\"error\", \"single\"]*/\nvar double = \"double\";\nvar unescaped = \"a string containing 'single' quotes\";"
   },
   {
     "id": "require-jsdoc",
@@ -1545,7 +1715,8 @@
     "href": "http://eslint.org/docs/rules/require-jsdoc",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Good\n/**\n * It returns param1 plus param2\n * @param param1\n * @param param2\n * @returns param1+param2\n */\nfunction foo(param1,param2){\n    return param1 + param2;\n}\n"
   },
   {
     "id": "semi",
@@ -1554,7 +1725,8 @@
     "href": "http://eslint.org/docs/rules/semi",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar name = \"ESLint\"\nobject.method = function() {\n    // ...\n}\n\n// Good\nvar name = \"ESLint\";\nobject.method = function() {\n    // ...\n};"
   },
   {
     "id": "semi-spacing",
@@ -1563,7 +1735,8 @@
     "href": "http://eslint.org/docs/rules/semi-spacing",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo ;\nvar foo;var bar;\nthrow new Error(\"error\") ;\nwhile (a) { break ; }\n\n// Good \nar foo;\nvar foo; var bar;\nthrow new Error(\"error\");\nwhile (a) { break; }"
   },
   {
     "id": "sort-imports",
@@ -1572,7 +1745,8 @@
     "href": "http://eslint.org/docs/rules/sort-imports",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "//sort-imports\n// Bad \nimport b from 'foo.js';\nimport a from 'bar.js';\n\n// Good \nimport * as foo from 'foo.js';\nimport * as bar from 'bar.js';"
   },
   {
     "id": "sort-vars",
@@ -1581,7 +1755,8 @@
     "href": "http://eslint.org/docs/rules/sort-vars",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "//sort-vars\n// Bad \nvar b, a;\nvar a, B, c;\nvar a, A;\n\n// Good\nvar a, b, c, d;\nvar _a = 10;\nvar _b = 20;"
   },
   {
     "id": "space-before-blocks",
@@ -1590,7 +1765,8 @@
     "href": "http://eslint.org/docs/rules/space-before-blocks",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n\nif (a){\n    b();\n}\n\nfunction a(){}\n\n// Good \nif (a) {\n    b();\n} else{ /*no error. this is checked by `keyword-spacing` rule.*/\n    c();\n}"
   },
   {
     "id": "space-before-function-paren",
@@ -1599,7 +1775,8 @@
     "href": "http://eslint.org/docs/rules/space-before-function-paren",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "//space-before-function-paren\n// Bad \nfunction foo() {\n    // ...\n}\n\n// Good \nfunction foo () {\n    // ...\n}"
   },
   {
     "id": "space-in-parens",
@@ -1608,7 +1785,8 @@
     "href": "http://eslint.org/docs/rules/space-in-parens",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfoo( 'bar');\nfoo('bar' );\nfoo('bar');\n\n// Good \nfoo();\nfoo( 'bar' );"
   },
   {
     "id": "space-infix-ops",
@@ -1617,7 +1795,8 @@
     "href": "http://eslint.org/docs/rules/space-infix-ops",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\na+b\na+ b\na +b\n\n// Good \na + b\na       + b\na ? b : c"
   },
   {
     "id": "space-unary-ops",
@@ -1626,7 +1805,8 @@
     "href": "http://eslint.org/docs/rules/space-unary-ops",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\ntypeof!foo;\nvoid{foo:0};\nnew[foo][0];\n\n// Good\nfunction *foo() {\n    yield(0)\n}"
   },
   {
     "id": "spaced-comment",
@@ -1635,7 +1815,8 @@
     "href": "http://eslint.org/docs/rules/spaced-comment",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "//spaced-comment\n// Bad \n//This is a comment with no whitespace at the beginning\n\n/*This is a comment with no whitespace at the beginning */\n\n// Good \n// This is a comment with a whitespace at the beginning\n\n/* This is a comment with a whitespace at the beginning */"
   },
   {
     "id": "wrap-regex",
@@ -1644,7 +1825,8 @@
     "href": "http://eslint.org/docs/rules/wrap-regex",
     "collection": "stylistic-issues",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction a() {\n    return /foo/.test(\"bar\");\n}\n\n// Good \nfunction a() {\n    return (/foo/).test(\"bar\");\n}"
   },
   {
     "id": "arrow-body-style",
@@ -1653,7 +1835,8 @@
     "href": "http://eslint.org/docs/rules/arrow-body-style",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nlet foo = () => {\n    return 0;\n};\n\n// Good \nlet foo = () => 0;\nlet foo = (retv, name) => {\n    retv[name] = true;\n    return retv;\n};\nlet foo = () => { bar(); };\nlet foo = () => {};\nlet foo = () => { /* do nothing */ };\nlet foo = () => {\n    // do nothing.\n};"
   },
   {
     "id": "arrow-parens",
@@ -1662,7 +1845,8 @@
     "href": "http://eslint.org/docs/rules/arrow-parens",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\na => {};\na => a;\na => {'\\n'};\na.then(foo => {});\na.then(foo => a);\na(foo => { if (true) {}; });\n\n// Good \n() => {};\n(a) => {};\n(a) => a;\n(a) => {'\\n'}\na.then((foo) => {});\na.then((foo) => { if (true) {}; });"
   },
   {
     "id": "arrow-spacing",
@@ -1671,7 +1855,8 @@
     "href": "http://eslint.org/docs/rules/arrow-spacing",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint arrow-spacing: \"error\"*/\n/*eslint-env es6*/\n\n()=> {};\n() =>{};\n(a)=> {};\n(a) =>{};\na =>a;\na=> a;\n()=> {'\\n'};\n() =>{'\\n'};\n\n// Good \n/*eslint arrow-spacing: \"error\"*/\n/*eslint-env es6*/\n\n() => {};\n(a) => {};\na => a;\n() => {'\\n'};"
   },
   {
     "id": "constructor-super",
@@ -1680,7 +1865,8 @@
     "href": "http://eslint.org/docs/rules/constructor-super",
     "collection": "ecmascript-6",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nclass A {\n    constructor() {\n        super();  // This is a SyntaxError.\n    }\n}\n\nclass A extends B {\n    constructor() { }  // Would throw a ReferenceError.\n}\n\n// Classes which inherits from a non constructor are always problems.\nclass A extends null {\n    constructor() {\n        super();  // Would throw a TypeError.\n    }\n}\n\n// Good \nclass A {\n    constructor() { }\n}\n\nclass A extends B {\n    constructor() {\n        super();\n    }\n}"
   },
   {
     "id": "generator-star-spacing",
@@ -1689,7 +1875,8 @@
     "href": "http://eslint.org/docs/rules/generator-star-spacing",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\n/*eslint generator-star-spacing: [\"error\", {\"before\": true, \"after\": false}]*/\n/*eslint-env es6*/\n\nfunction *generator() {}\n\nvar anonymous = function *() {};\n\nvar shorthand = { *generator() {} };\n\n/*eslint generator-star-spacing: [\"error\", {\"before\": false, \"after\": true}]*/\n/*eslint-env es6*/\n\nfunction* generator() {}\n\nvar anonymous = function* () {};\n\nvar shorthand = {* generator() {} };\n// Good \n/*eslint generator-star-spacing: [\"error\", {\"before\": true, \"after\": false}]*/\n/*eslint-env es6*/\n\nfunction * generator() {}\n\nvar anonymous = function * () {};\n\nvar shorthand = { * generator() {} };\n\n/*eslint generator-star-spacing: [\"error\", {\"before\": false, \"after\": true}]*/\n/*eslint-env es6*/\n\nfunction * generator() {}\n\nvar anonymous = function * () {};\n\nvar shorthand = { * generator() {} };"
   },
   {
     "id": "no-class-assign",
@@ -1698,7 +1885,8 @@
     "href": "http://eslint.org/docs/rules/no-class-assign",
     "collection": "ecmascript-6",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nclass A { }\nA = 0;\n\nA = 0;\nclass A { }\n\nclass A {\n    b() {\n        A = 0;\n    }\n}\n\n// Good \nlet A = class A { }\nA = 0; // A is a variable.\n\nlet A = class {\n    b() {\n        A = 0; // A is a variable.\n    }\n}"
   },
   {
     "id": "no-confusing-arrow",
@@ -1707,7 +1895,8 @@
     "href": "http://eslint.org/docs/rules/no-confusing-arrow",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = a => 1 ? 2 : 3;\nvar x = (a) => 1 ? 2 : 3;\nvar x = (a) => (1 ? 2 : 3);\n\n// Good \nvar x = a => { return 1 ? 2 : 3; };\nvar x = (a) => { return 1 ? 2 : 3; };\n"
   },
   {
     "id": "no-const-assign",
@@ -1716,7 +1905,8 @@
     "href": "http://eslint.org/docs/rules/no-const-assign",
     "collection": "ecmascript-6",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nconst a = 0;\na = 1;\n\nconst a = 0;\na += 1;\n// Good \nconst a = 0;\nconsole.log(a);"
   },
   {
     "id": "no-dupe-class-members",
@@ -1725,7 +1915,8 @@
     "href": "http://eslint.org/docs/rules/no-dupe-class-members",
     "collection": "ecmascript-6",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nclass Foo {\n    bar() { }\n    bar() { }\n}\n\nclass Foo {\n    bar() { }\n    get bar() { }\n}\n\n// Good \nclass Foo {\n    bar() { }\n    qux() { }\n}\n\nclass Foo {\n    get bar() { }\n    set bar(value) { }\n}"
   },
   {
     "id": "no-new-symbol",
@@ -1734,7 +1925,8 @@
     "href": "http://eslint.org/docs/rules/no-new-symbol",
     "collection": "ecmascript-6",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar foo = new Symbol('foo');\n\n// Good \nvar foo = Symbol('foo');\n// Ignores shadowed Symbol.\nfunction bar(Symbol) {\n    const baz = new Symbol(\"baz\");\n}"
   },
   {
     "id": "no-this-before-super",
@@ -1743,7 +1935,8 @@
     "href": "http://eslint.org/docs/rules/no-this-before-super",
     "collection": "ecmascript-6",
     "isRecommended": true,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nclass A extends B {\n    constructor() {\n        this.a = 0;\n        super();\n    }\n}\n\n// Good \nclass A {\n    constructor() {\n        this.a = 0; // OK, this class doesn't have an `extends` clause.\n    }\n}"
   },
   {
     "id": "no-useless-constructor",
@@ -1752,7 +1945,8 @@
     "href": "http://eslint.org/docs/rules/no-useless-constructor",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nclass A {\n    constructor () {\n    }\n}\n\n// Good \nclass A { }\n\nclass A {\n    constructor () {\n        doSomething();\n    }\n}"
   },
   {
     "id": "no-var",
@@ -1761,7 +1955,8 @@
     "href": "http://eslint.org/docs/rules/no-var",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar x = \"y\";\n\n// Good \nlet x = \"y\";\nconst CONFIG = {};"
   },
   {
     "id": "object-shorthand",
@@ -1770,7 +1965,8 @@
     "href": "http://eslint.org/docs/rules/object-shorthand",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nvar foo = {\n    w: function() {},\n    x: function *() {},\n    [y]: function() {},\n    z: z\n};\n\n// Good \nvar foo = {\n        x: (y) => y\n};"
   },
   {
     "id": "prefer-arrow-callback",
@@ -1779,7 +1975,8 @@
     "href": "http://eslint.org/docs/rules/prefer-arrow-callback",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfoo(function(a) { return a; });\nfoo(function() { return this.a; }.bind(this));\n\n// Good \nfoo(a => a);\nfoo(function*() { yield; });"
   },
   {
     "id": "prefer-const",
@@ -1788,7 +1985,8 @@
     "href": "http://eslint.org/docs/rules/prefer-const",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nlet a = 3;\nconsole.log(a);\n\n// Good\nconst a = 0;"
   },
   {
     "id": "prefer-reflect",
@@ -1797,7 +1995,8 @@
     "href": "http://eslint.org/docs/rules/prefer-reflect",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": true
+    "hasOptions": true,
+    "example": "// Bad\nfoo.apply(undefined, args);\nfoo.apply(null, args);\nobj.foo.apply(obj, args);\nobj.foo.apply(other, args);\n\n// Good \nReflect.apply(undefined, args);\nReflect.apply(null, args);\nReflect.apply(obj.foo, obj, args);\nReflect.apply(obj.foo, other, args);"
   },
   {
     "id": "prefer-rest-params",
@@ -1806,7 +2005,8 @@
     "href": "http://eslint.org/docs/rules/prefer-rest-params",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction foo() {\n    console.log(arguments);\n}\n\n// Good \nfunction foo(...args) {\n    console.log(args);\n}"
   },
   {
     "id": "prefer-spread",
@@ -1815,7 +2015,8 @@
     "href": "http://eslint.org/docs/rules/prefer-spread",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "//prefer-spread\n// Bad \nfoo.apply(undefined, args);\nfoo.apply(null, args);\nobj.foo.apply(obj, args);\n\n// Good \n// The `this` binding is different.\nfoo.apply(obj, args);\nobj.foo.apply(null, args);\nobj.foo.apply(otherObj, args);"
   },
   {
     "id": "prefer-template",
@@ -1824,7 +2025,8 @@
     "href": "http://eslint.org/docs/rules/prefer-template",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nvar str = \"Hello, \" + name + \"!\";\nvar str = \"Time: \" + (12 * 60 * 60 * 1000);\n\n// Good\nvar str = \"Hello World!\";\nvar str = `Hello, ${name}!`;"
   },
   {
     "id": "require-yield",
@@ -1833,7 +2035,8 @@
     "href": "http://eslint.org/docs/rules/require-yield",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\nfunction* foo() {\n    return 10;\n}\n\n// Good \nfunction* foo() {\n    yield 5;\n    return 10;\n}"
   },
   {
     "id": "template-curly-spacing",
@@ -1842,7 +2045,8 @@
     "href": "http://eslint.org/docs/rules/template-curly-spacing",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n`hello, ${ people.name}!`;\n`hello, ${people.name }!`;\n\n// Good \n`hello, ${people.name}!`;\n`hello, ${\n    people.name\n    }!`;\n"
   },
   {
     "id": "yield-star-spacing",
@@ -1851,6 +2055,7 @@
     "href": "http://eslint.org/docs/rules/yield-star-spacing",
     "collection": "ecmascript-6",
     "isRecommended": false,
-    "hasOptions": false
+    "hasOptions": false,
+    "example": "// Bad\n/*eslint yield-star-spacing: [\"error\", \"before\"]*/\nfunction * generator() {\n    yield *other();\n}\n\n// Good \nfunction *generator() {\n    yield *other();\n}"
   }
 ]

@@ -1,0 +1,9 @@
+/* Bad */
+.selector {
+    margin: 0
+}
+
+/* Good */
+.selector {
+    margin: 0;
+}

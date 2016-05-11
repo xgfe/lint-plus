@@ -1,0 +1,9 @@
+/* Bad */
+body {
+    background-position: top; /* 50% 0% */
+}
+
+/* Good */
+body {
+    background-position: center top; /* 50% 0% */
+}

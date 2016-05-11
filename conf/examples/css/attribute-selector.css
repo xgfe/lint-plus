@@ -1,0 +1,11 @@
+/* Bad */
+article[character=juliet] {
+    voice-family: "Vivien Leigh", victoria, female;
+}
+article[character='juliet'] {
+    voice-family: "Vivien Leigh", victoria, female;
+}
+/* Good */
+article[character="juliet"] {
+    voice-family: "Vivien Leigh", victoria, female;
+}

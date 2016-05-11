@@ -1,0 +1,7 @@
+/* Bad */
+.page .header .login #username input {}
+.comment div * {}
+
+/* Good */
+#username input {}
+.comment .avatar {}

@@ -1,0 +1,8 @@
+/* Bad */
+div{
+    margin:0;
+}
+/* Good */
+div{
+    margin: 0;
+}

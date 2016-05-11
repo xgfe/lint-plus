@@ -1,0 +1,10 @@
+/* Bad */
+.success {
+    background-color: #aaccaa;
+}
+
+/* Good */
+.success {
+    background-color: #aca;
+}
+

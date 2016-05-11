@@ -1,0 +1,15 @@
+/* Bad */
+body {
+    font-family: arial, sans-serif;
+}
+h1 {
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+/* Good */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+}

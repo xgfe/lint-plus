@@ -1,0 +1,11 @@
+/* Bad */
+html[lang|=zh] q:before {
+    font-family: 'Microsoft YaHei', sans-serif;
+    content: '“';
+}
+
+/* Good */
+html[lang|="zh"] q:before {
+    font-family: "Microsoft YaHei", sans-serif;
+    content: "“";
+}

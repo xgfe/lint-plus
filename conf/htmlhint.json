@@ -5,7 +5,8 @@
     "desc": "there must be a doctype and the tag must be first in document.Warning lowercase 'doctype'.",
     "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Doctype-first",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<html></html>\n<head></head>\n<title>Page title</title>\n</head>\n<body></body>\n....\n<!-- Good -->\n<!DOCTYPE html>\n<html></html>\n<head></head>\n<title>Page title</title>\n</head>\n<body></body>\n...\n</body>\n</html>"
   },
   {
     "id": "title-tag-require",
@@ -13,7 +14,8 @@
     "desc": "if there is a <head> tag,<title>tag is required in <head>",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Title-tag-require",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<head></head>\n\n<!-- Good -->\n<head><title></title></head>\n"
   },
   {
     "id": "tagname-lowercase",
@@ -21,7 +23,8 @@
     "desc": "tag's name must be in lowercase",
     "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Tagname-lowercase",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<DIV>This tag is uppercase.</DIV>\n<Span>Uppercase tag is not allow.</Span>\n<!-- Good -->\n<div></div>\n<span></span>I'm a good tag.</span>\n</div>"
   },
   {
     "id": "tag-pair",
@@ -29,7 +32,8 @@
     "desc": "tag must be paired unless the tag is self-closed",
     "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Tag-pair",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<div><span></span></p>\n<!-- Good -->\n<div></div><span></span>"
   },
   {
     "id": "attr-lowercase",
@@ -37,7 +41,8 @@
     "desc": "tag's attribute must be in lowercase",
     "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Attr-lowercase",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<div CLASS=\"container\"></div><span Id=\"icon\"></span>\n\n<!-- Good -->\n<div class=\"container\"></div><span class=\"icon\"></span>"
   },
   {
     "id": "attr-value-quotes",
@@ -48,7 +53,8 @@
       "double",
       "single"
     ],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<div class='container'></div>  // attr-value-quote:\"double\"\n<div class=\"container\"></div>  // attr-value-quote:\"single\"\n\n<!-- Good -->\n<div class='container'></div>  // attr-value-quote:\"single\"\n<div class=\"container\"></div>  // attr-value-quote:\"double\""
   },
   {
     "id": "attr-no-duplication",
@@ -56,7 +62,8 @@
     "desc": "tag's attribute must be different from each other",
     "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Attr-no-duplication",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<div class=\"container\" class=\"col-2\"></div>\n\n<!-- Good -->\n<div class=\"container\"></div>"
   },
   {
     "id": "spec-char-escape",
@@ -64,7 +71,8 @@
     "desc": "do not use special characters in file",
     "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Spec-char-escape",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<div>3>2</div>\n\n<!-- Good -->\n<div>3&gt;2</div>"
   },
   {
     "id": "id-name-unique",
@@ -72,7 +80,8 @@
     "desc": "id and name must be different from each other",
     "href": "https://github.com/yangjiyuan/xg-htmlhint/wiki/Id-name-unique",
     "options": [],
-    "collection": "default"
+    "collection": "default",
+    "example": "<!-- Bad -->\n<div id=\"container\"></div> <input type=\"text\" id=\"container\" /> or\n<div id=\"container\"></div> <input type=\"text\" name=\"container\" />\n\n<!-- Good -->\n<div id=\"container\"></div> <input type=\"text\" name=\"username\" />"
   },
   {
     "id": "attr-value-not-empty",
@@ -80,7 +89,8 @@
     "desc": "tag's attribute must have a value unless it is a special attr,such as disabled,required",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Attr-value-not-empty",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<div class=\"\"></div>\n\n<!-- Good -->\n<div class=\"container\" disabled></div>"
   },
   {
     "id": "tag-self-close",
@@ -88,7 +98,8 @@
     "desc": "There is no need to close a self-colse tag,such as input,img",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Tag-self-close",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<img src=\"bg.png\" /><br />\n\n<!-- Good -->\n<img src=\"bg.png\"><br>"
   },
   {
     "id": "meta-charset",
@@ -96,7 +107,8 @@
     "desc": "There must have a meta tag in head tag and there must have a meta tag which can specify a charset.",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Meta-charset",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<head><meta></head>\n<head><meta http-equiv=\"charset\" content=\"\"></head>\n<head><meta http-equiv=\"Content-Type\" content=\"charset:utf-8\"></head>\n<head><meta http-equiv=\"Content-Type\" content=\"\"></head>\n\n<!-- Good -->\n<head><meta charset=\"utf-8\"></head>\n<head><meta http-equiv=\"charset\" content=\"utf-8\"></head>\n<head><meta http-equiv=\"Content-Type\" content=\"charset=utf-8\"></head>\n<head><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"></head>"
   },
   {
     "id": "src-not-empty",
@@ -104,7 +116,8 @@
     "desc": "The src attribute of an img(script,link) must have a value.",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Src-not-empty",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<img src=\"\" />\n<img src />\n<script src=\"\"></script>\n<script src></script>\n<link href=\"\" type=\"text/css\" />\n<link href type=\"text/css\" />\n<embed src=\"\">\n<embed src>\n<bgsound src=\"\" />\n\n<!-- Good -->\n<img src=\"path/to/img\">\n<script src=\"path/to/lib\"></script>\n<link href=\"style.css\">\n<embed src=\"source\">\n<bgsound src=\"test\">\n<iframe src=\"otherframe\"></iframe>\n<object data=\"video\"></object>"
   },
   {
     "id": "id-class-value",
@@ -116,7 +129,8 @@
       "dash",
       "hump"
     ],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Good -->\n<div id=\"aaa-bbb\" class=\"ccc-ddd ee-ff\"></div>  //id-class-value:\"dash\"\n"
   },
   {
     "id": "id-class-ad-disabled",
@@ -124,7 +138,8 @@
     "desc": "id and class should not contain ad-/ad_/*-ad.",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Id-class-ad-disabled",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<div id=\"ad-test\"></div>\n<div id=\"ad_test\"></div>\n<div id=\"test-ad\"></div>\n<div id=\"test-ad\"></div>\n\n<!-- Good -->\n<div id=\"test\"></div>"
   },
   {
     "id": "button-type-require",
@@ -132,7 +147,8 @@
     "desc": "button tag must have a type attribute.",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Button-type-require",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<button>Cancel</button>\n<button type=\"\"></button>\n\n<!-- Good -->\n<button type=\"button\">OK</button>\n<button type='submit'>Submit</button>"
   },
   {
     "id": "link-rel-require",
@@ -140,7 +156,8 @@
     "desc": "link tag must have a rel attribute.",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Link-rel-require",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<link type=\"text/css\" href=\"main.css\">\n\n<!-- Good -->\n<link rel=\"stylesheet\" href=\"main.css\">"
   },
   {
     "id": "style-disabled",
@@ -148,7 +165,8 @@
     "desc": "style tags cannot be used",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Style-disabled",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<head>\n    <style>\n        body{\n            color:#fff;\n        }\n    </style>\n</head>\n"
   },
   {
     "id": "img-size",
@@ -156,6 +174,7 @@
     "desc": "Suggest have height and width attributes on img tags.",
     "href": "https://github.com/y8n/xg-htmlhint/wiki/Img-size",
     "options": [],
-    "collection": "specification"
+    "collection": "specification",
+    "example": "<!-- Bad -->\n<img height=\"\" width=\"\" src=\"back.png\">\n<img width=\"222\" src=\"back.png\">\n<img height=\"\" width=\"222\" src=\"back.png\">\n<img height=\"200\" width=\"\" src=\"back.png\">\n\n<!-- Good -->\n<img height=\"200\" width=\"222\" src=\"back.png\">"
   }
 ]

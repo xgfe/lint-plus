@@ -1,0 +1,2 @@
+// Bad
+String = new Object();

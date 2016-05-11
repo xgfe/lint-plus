@@ -1,0 +1,9 @@
+/* Bad */
+h1 {
+    font-weight: bold;
+}
+
+/* Good */
+h1 {
+    font-weight: 700;
+}

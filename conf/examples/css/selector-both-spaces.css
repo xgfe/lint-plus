@@ -1,0 +1,21 @@
+/* Bad */
+main>nav {
+    padding: 10px;
+}
+
+label+input {
+    margin-left: 5px;
+}
+
+input:checked~button {
+    background-color: #69C;
+}
+/* Good */
+main > nav {
+}
+
+label + input {
+}
+
+input:checked ~ button {
+}

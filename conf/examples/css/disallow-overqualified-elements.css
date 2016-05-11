@@ -1,0 +1,11 @@
+/* Bad */
+dialog#error,
+p.danger-message {
+    font-color: #c00;
+}
+
+/* Good */
+#error,
+.danger-message {
+    font-color: #c00;
+}

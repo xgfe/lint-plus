@@ -1,0 +1,9 @@
+/* Bad */
+.box {
+    transition: all 1s;
+}
+
+/* Good */
+.box {
+    transition: color 1s, border-color 1s;
+}
