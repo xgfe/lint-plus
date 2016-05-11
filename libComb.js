@@ -1,10 +1,10 @@
 var libs = [
-    'lib/jquery/jquery.min.js',
-    'lib/angular/angular.min.js',
-    'lib/jszip-3.0.0/jszip.min.js',
-    'lib/file-saver/file-saver.min.js',
+    //'lib/jquery/jquery.min.js',
+    //'lib/angular/angular.min.js',
+    //'lib/jszip-3.0.0/jszip.min.js',
+    //'lib/file-saver/file-saver.min.js',
     'lib/highlight/highlight.pack.js',
-    'lib/angular-sanitize/angular-sanitize.min.js',
+    //'lib/angular-sanitize/angular-sanitize.min.js',
     'lib/ui-fugu/ui-fugu.min.js'
 ];
 var dist = 'assets/js/lib.js';
