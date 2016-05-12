@@ -127,7 +127,7 @@
 		angular:"path/to/angular-plugin"
 	}]
 	```
-	以下配置中angular插件是无效的
+	以下配置中angular插件是**无效**的
 
 	```
 	plugins:{
@@ -135,6 +135,7 @@
 		angular:"path/to/react/plugin"
 	}
 	```
+	注意:使用全局lint-plus不会加载本地的插件,所以建议使用对象(`plugins:{angular:"path/to/plugin"}`)的形式指定插件及其本地路径;使用本地的lint-plus就可以正常使用本地的插件,也就可以使用`plugins:["angular"]`或`plugins:"react"`这样的写法了.
 	
 	- fix
 	设置fix为true，如
