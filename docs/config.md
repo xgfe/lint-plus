@@ -93,6 +93,59 @@
   ...
 }
 ```
+- eslint 特殊的配置
+	- extends属性
+	extends可以配置为字符串，如
+
+	```
+	extends:"eslint:recommended"
+	```
+	也可以是字符串数组，如
+	
+	```
+	extends:["eslint:recommended","path/to/extends.json"]
+	```
+	- plugins
+	新增的插件支持和eslint原生的配置有所不同，支持多种配置方式，如单独的字符串
+	
+	```
+	plugins:"angular"
+	```
+	或者数组
+
+	```
+	plugins:["angular","react"]
+	```
+	以上两种配置会在`node_modules`目录下查找`eslint-plugin-xxx`的npm包，如果插件并不是以一个npm包的形式存在，可以指定路径，如下
+	
+	```
+	plugins:{
+		angular:"path/to/angular-plugin"
+	}
+	或
+	plugins:["react",{
+		angular:"path/to/angular-plugin"
+	}]
+	```
+	以下配置中angular插件是无效的
+
+	```
+	plugins:{
+		react:"path/to/react/plugin",
+		angular:"path/to/react/plugin"
+	}
+	```
+	
+	- fix
+	设置fix为true，如
+	
+	```
+	fix:true
+	```
+	可以将ESLint中可修复的错误进行修复，具体参考[ESLint Rules](http://eslint.org/docs/rules/)
+	
+	
+	
 
 ## 参考配置
 - [Eslint的建议规则](https://github.com/xgfe/lint-plus/blob/master/conf/eslint.json)

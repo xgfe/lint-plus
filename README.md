@@ -20,6 +20,7 @@ $ npm install lint-plus
 $ linter [check] dir/               # lint entire directory
 $ linter test.html src/ index.js    # lint files 
 $ linter -c configfile test.html    # custom config file
+$ linter path/to/file --fix/-f      # fix error code in js file
 ```
 ### Use in your application
 

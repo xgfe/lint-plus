@@ -40,6 +40,8 @@
             "node": true,
             "mocha":true
         },
+        "plugins":[],
+        "fix":true,
         "globals": {
             "angular": true,
             "jQuery":true,
@@ -47,6 +49,7 @@
             "require":true
         },
         "rules": {
+            "quotes":[2,"single"],
             "no-undef":2,
             "no-func-assign":0,
             "no-unexpected-multiline":2,
