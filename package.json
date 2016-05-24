@@ -1,6 +1,6 @@
 {
   "name": "lint-plus",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "The combination of all the lint tools",
   "main": "index.js",
   "bin": {
@@ -21,10 +21,12 @@
   "author": "YangJiyuan",
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^6.0.4",
     "colors": "^1.1.2",
     "eslint": "^1.10.3",
     "eslint-plugin-angular": "^1.0.1",
     "eslint-plugin-react": "^5.1.1",
+    "esprima": "^2.7.2",
     "globby": "^4.0.0",
     "map-stream": "0.0.6",
     "minimist": "^1.2.0",
