@@ -11,6 +11,14 @@
     },
     "js":{
         "suffix":["js","es","es6"],
+        "env":{
+            "browser":true,
+            "node":true
+        },
+        "parser": "babel-eslint",
+        "parserOptions": {
+            "sourceType": "module"
+        },
         "extends":["eslint:recommended"],
         "rules":{
             "no-console":1

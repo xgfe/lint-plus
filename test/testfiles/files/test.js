@@ -1,4 +1,4 @@
 var fn = function(){
-    console.log('test');
+    console.log('test' + test);
 };
 fn(undefined);
